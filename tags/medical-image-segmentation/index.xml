@@ -1,0 +1,560 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Medical-Image-Segmentation on 云雾中的山-Nubislab</title>
+        <link>https://blogbook.eu.org/tags/medical-image-segmentation/</link>
+        <description>Recent content in Medical-Image-Segmentation on 云雾中的山-Nubislab</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <copyright>云雾中的山-NubisLab</copyright>
+        <lastBuildDate>Wed, 06 May 2026 22:53:44 +0800</lastBuildDate><atom:link href="https://blogbook.eu.org/tags/medical-image-segmentation/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>医学图像分割的范式跃迁 — 45 分钟讲稿（含 CNN 扩展）</title>
+        <link>https://blogbook.eu.org/p/%E5%8C%BB%E5%AD%A6%E5%9B%BE%E5%83%8F%E5%88%86%E5%89%B2%E7%9A%84%E8%8C%83%E5%BC%8F%E8%B7%83%E8%BF%81-45-%E5%88%86%E9%92%9F%E8%AE%B2%E7%A8%BF%E5%90%AB-cnn-%E6%89%A9%E5%B1%95/</link>
+        <pubDate>Wed, 06 May 2026 22:00:00 +0800</pubDate>
+        
+        <guid>https://blogbook.eu.org/p/%E5%8C%BB%E5%AD%A6%E5%9B%BE%E5%83%8F%E5%88%86%E5%89%B2%E7%9A%84%E8%8C%83%E5%BC%8F%E8%B7%83%E8%BF%81-45-%E5%88%86%E9%92%9F%E8%AE%B2%E7%A8%BF%E5%90%AB-cnn-%E6%89%A9%E5%B1%95/</guid>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;说明：&lt;/strong&gt; 本讲稿配合 &lt;code&gt;medical_seg_evolution_v2.pptx&lt;/code&gt;（23 页）使用。
+图片通过 URL 引用，放映时建议打开链接展示原图。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;一开场--核心挑战5-分钟&#34;&gt;一、开场 + 核心挑战（~5 分钟）
+&lt;/h2&gt;&lt;h3 id=&#34;000200--标题页&#34;&gt;0:00–2:00 — 标题页
+&lt;/h3&gt;&lt;p&gt;各位老师、同学大家好。今天我分享的题目是 &lt;strong&gt;&amp;ldquo;医学图像分割的范式跃迁——从 CNN 到视觉-语言基础模型&amp;rdquo;&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;这不仅是技术的演进，更是一条从&amp;quot;机器看&amp;quot;到&amp;quot;机器理解&amp;quot;的认知升级之路。过去十年，医学图像分割经历了三次范式革命：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;CNN 时代&lt;/strong&gt;——用卷积核提取像素级特征&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Transformer 时代&lt;/strong&gt;——用自注意力捕获全局上下文&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;多模态时代&lt;/strong&gt;——用文本先验引导视觉理解&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;今天的报告会沿着这条线索展开，重点剖析其中的关键模型和核心思想。&lt;/p&gt;
+&lt;h3 id=&#34;200500--医学分割的核心挑战slide-2&#34;&gt;2:00–5:00 — 医学分割的核心挑战（Slide 2）
+&lt;/h3&gt;&lt;p&gt;在进入技术细节前，我们先回顾一下医学图像分割到底难在哪里。&lt;/p&gt;
+&lt;p&gt;首先是&lt;strong&gt;标注成本极高&lt;/strong&gt;。自然图像分类打个标签几秒钟，但医学分割需要在像素级勾画轮廓——一张 WSI（全切片图像）可能包含上亿像素，标注耗时数小时，而且必须由专业的临床医生完成。&lt;/p&gt;
+&lt;p&gt;其次是&lt;strong&gt;数据异质性与微小病灶&lt;/strong&gt;。肿瘤微环境极其复杂，同类肿瘤在不同患者身上可能表现迥异，而微小病灶肉眼都容易遗漏，对模型的灵敏度要求极高。&lt;/p&gt;
+&lt;p&gt;第三是&lt;strong&gt;域偏移&lt;/strong&gt;。不同医院、不同厂商的扫描设备采集的图像分布差异明显，在 A 医院训练的好模型到了 B 医院性能可能断崖式下降。&lt;/p&gt;
+&lt;p&gt;最后是&lt;strong&gt;临床落地的壁垒&lt;/strong&gt;——模型不仅要准，还要可解释、实时、合规。&lt;/p&gt;
+&lt;p&gt;正是这些挑战驱动着分割技术的代际演进。让我们从 CNN 开始讲起。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;建议展示：&lt;/strong&gt; 医学分割标注示例图
+&lt;a class=&#34;link&#34; href=&#34;https://wiki.cancerimagingarchive.net/download/attachments/70230397/annotation_example.png&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://wiki.cancerimagingarchive.net/download/attachments/70230397/annotation_example.png&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;二cnn-的黄金时代15-分钟重点展开&#34;&gt;二、CNN 的黄金时代（~15 分钟）【重点展开】
+&lt;/h2&gt;&lt;h3 id=&#34;500630--卷积神经网络的基本思想过渡引入&#34;&gt;5:00–6:30 — 卷积神经网络的基本思想（过渡引入）
+&lt;/h3&gt;&lt;p&gt;在讲具体架构之前，我们先回顾卷积神经网络最核心的三个设计思想：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;局部感受野&lt;/strong&gt;——每个神经元只关注输入的一个局部区域，通过堆叠层来扩大感受范围&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;权值共享&lt;/strong&gt;——同一个卷积核在整个图像上滑动，大幅减少参数量&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;平移不变性&lt;/strong&gt;——目标位于图像的任何位置，网络都能识别&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;这三个特性使 CNN 天然适合处理图像数据。让我们从最早的 LeNet 开始，看这条技术路线如何一步步走向成熟。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;建议展示：CNN 卷积运算动图&lt;/strong&gt;
+&lt;a class=&#34;link&#34; href=&#34;https://upload.wikimedia.org/wikipedia/commons/4/4c/2D_Convolution_Animation.gif&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://upload.wikimedia.org/wikipedia/commons/4/4c/2D_Convolution_Animation.gif&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;630800--lenet-51998一切开始的地方&#34;&gt;6:30–8:00 — LeNet-5（1998）：一切开始的地方
+&lt;/h3&gt;&lt;p&gt;LeNet-5 由 Yann LeCun 等人在 1998 年提出，是最早的现代卷积神经网络，用于手写数字识别（支票、邮编）。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;架构速览：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;输入：32×32 灰度图&lt;/li&gt;
+&lt;li&gt;结构：C1 卷积(6@5×5) → S2 平均池化 → C3 卷积(16@5×5) → S4 平均池化 → C5 卷积(120@5×5) → F6 全连接(84) → 输出(10)&lt;/li&gt;
+&lt;li&gt;总参数量：约 6 万&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;放在今天看，LeNet 只有区区 6 万参数，但它在 1990 年代就确立了卷积→池化→全连接的经典流水线。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;建议展示：LeNet-5 架构图&lt;/strong&gt;
+&lt;a class=&#34;link&#34; href=&#34;https://www.researchgate.net/profile/Adit-Kumar/publication/340989271/figure/fig2/AS:885545894416384@1588230607211/Architecture-of-LeNet-5-a-Convolutional-Neural-Network-here-for-digits-recognition.png&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://www.researchgate.net/profile/Adit-Kumar/publication/340989271/figure/fig2/AS:885545894416384@1588230607211/Architecture-of-LeNet-5-a-Convolutional-Neural-Network-here-for-digits-recognition.png&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;8001000--alexnet2012深度学习的大爆炸&#34;&gt;8:00–10:00 — AlexNet（2012）：深度学习的大爆炸
+&lt;/h3&gt;&lt;p&gt;如果说 LeNet 点燃了火种，那么 AlexNet 就是引爆了炸药桶。&lt;/p&gt;
+&lt;p&gt;2012 年，Alex Krizhevsky、Ilya Sutskever 和 Geoffrey Hinton 带着 AlexNet 参加了 ImageNet 竞赛，以 top-5 错误率 15.3%（第二名 26%）的绝对优势夺冠。这个差距之大，彻底宣告了深度学习的时代到来。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;核心创新：&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;ReLU 激活函数&lt;/strong&gt;——解决了 sigmoid 在深层网络中的梯度饱和问题，训练速度快了几倍&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Dropout&lt;/strong&gt;——随机丢弃 50% 的神经元，有效防止过拟合&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;数据增强&lt;/strong&gt;——随机裁剪、翻转，等效地扩大了训练数据&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;双 GPU 训练&lt;/strong&gt;——将网络拆分到两块 GPU 上并行（当时的无奈之举，现在看来是模型并行的雏形）&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;重叠池化&lt;/strong&gt;——步长小于池化窗口尺寸，减少信息丢失&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;架构：&lt;/strong&gt; 5 个卷积层 + 3 个全连接层，共 6200 万参数。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;建议展示：AlexNet 双 GPU 架构图&lt;/strong&gt;
+&lt;a class=&#34;link&#34; href=&#34;https://miro.medium.com/v2/resize:fit:1400/1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://miro.medium.com/v2/resize:fit:1400/1&lt;/a&gt;*Za1tcZYK8BZoHkXVwIgOaA.png&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;10001130--vggnet2014深度与简洁的极致&#34;&gt;10:00–11:30 — VGGNet（2014）：深度与简洁的极致
+&lt;/h3&gt;&lt;p&gt;2014 年，牛津大学视觉几何组的 Simonyan 和 Zisserman 提出了 VGGNet。&lt;/p&gt;
+&lt;p&gt;VGGNet 的设计哲学极简——&lt;strong&gt;全部用 3×3 卷积&lt;/strong&gt;。他们发现堆叠两个 3×3 卷积等价于一个 5×5 的感受野，堆叠三个等价于 7×7，但参数量更少、非线性更强。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;架构特点：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;全部使用 3×3 卷积（stride=1, padding=1）&lt;/li&gt;
+&lt;li&gt;全部使用 2×2 最大池化（stride=2）&lt;/li&gt;
+&lt;li&gt;每经过一次池化，通道数翻倍：64 → 128 → 256 → 512 → 512&lt;/li&gt;
+&lt;li&gt;VGG16（16 层权值层，13 个卷积 + 3 个全连接）是最经典版本&lt;/li&gt;
+&lt;li&gt;参数量 1.38 亿——其中大部分来自最后三个全连接层&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;VGGNet 虽然在当年只拿了 ILSVRC 2014 分类第二（第一是 GoogLeNet），但它的&lt;strong&gt;简洁和规整&lt;/strong&gt;使它成为最受欢迎的&amp;quot;特征提取骨架&amp;quot;。直到今天，很多下游任务仍然在用 VGG 做特征提取。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;建议展示：VGG16 结构示意图&lt;/strong&gt;
+&lt;a class=&#34;link&#34; href=&#34;https://media.geeksforgeeks.org/wp-content/uploads/20200219152317/vgg16-architecture.png&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://media.geeksforgeeks.org/wp-content/uploads/20200219152317/vgg16-architecture.png&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;11301300--googlenet--inception2014多尺度并行卷积&#34;&gt;11:30–13:00 — GoogLeNet / Inception（2014）：多尺度并行卷积
+&lt;/h3&gt;&lt;p&gt;同一年，Google 的 Szegedy 等人提出了 GoogLeNet（Inception v1），拿了 ILSVRC 2014 分类冠军。&lt;/p&gt;
+&lt;p&gt;它的核心创新是 &lt;strong&gt;Inception 模块&lt;/strong&gt;——在同一层中并行使用 1×1、3×3、5×5 卷积和 3×3 最大池化，然后将结果在通道维度拼接。这样网络可以同时捕捉不同尺度的特征。&lt;/p&gt;
+&lt;p&gt;然而直接这样做计算量太大。关键技巧是在 3×3 和 5×5 卷积&lt;strong&gt;之前&lt;/strong&gt;插入 1×1 卷积进行降维。举个例子：输入 192 通道，如果不加 1×1 瓶颈，5×5 卷积有 192×5×5×32 ≈ 15 万参数；加上 16 个 1×1 滤波器降到 16 通道，再经过 5×5，仅需 192×16 + 16×5×5×32 ≈ 1.5 万参数——&lt;strong&gt;计算量降到原来的十分之一&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;整个 GoogLeNet 堆叠了 9 个 Inception 模块，只有 500 万参数——是 AlexNet（6200 万）的十二分之一，VGG16（1.38 亿）的三十分之一，但性能却更好。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;建议展示：Inception 模块结构对比图（naive vs 带 1×1 降维）&lt;/strong&gt;
+&lt;a class=&#34;link&#34; href=&#34;https://www.researchgate.net/profile/Jie-Qian-11/publication/326160161/figure/fig1/AS:644555125104640@1531013643496/Inception-module-with-dimension-reductions-a-Naive-inception-module-b-Inception-module.png&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://www.researchgate.net/profile/Jie-Qian-11/publication/326160161/figure/fig1/AS:644555125104640@1531013643496/Inception-module-with-dimension-reductions-a-Naive-inception-module-b-Inception-module.png&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;13001500--resnet2015残差学习彻底解放深度&#34;&gt;13:00–15:00 — ResNet（2015）：残差学习，彻底解放深度
+&lt;/h3&gt;&lt;p&gt;讲到这里，我们面临一个核心矛盾：&lt;strong&gt;深度是好的，但越深越难训练&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;理论上，更深的网络表达能力更强。但在实践中，当网络深度增加到几十层后，训练误差反而上升——这就是&amp;quot;退化问题&amp;quot;（Degradation Problem）。注意这不是过拟合，是优化困难。&lt;/p&gt;
+&lt;p&gt;2015 年，何恺明等人提出了 &lt;strong&gt;Residual Network（ResNet）&lt;/strong&gt;，一举拿下 ILSVRC 2015 五项冠军，并训练出了 152 层的网络。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;核心思想极其简洁：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;原本一个模块要学习映射 H(x)，现在改为学习残差 F(x) = H(x) - x，然后通过&lt;strong&gt;跳跃连接&lt;/strong&gt;让输出 y = F(x) + x。&lt;/p&gt;
+&lt;p&gt;为什么这样有效？两个原因：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;梯度高速路&lt;/strong&gt;——反向传播时，梯度除了经过权重层，还可以&lt;strong&gt;直接通过跳跃连接&lt;/strong&gt;回传到浅层。这个&amp;quot;+1&amp;quot;项意味着导数永远不会消失。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;恒等映射容易学&lt;/strong&gt;——如果某层不需要变换，网络只需把 F(x) 设为零即可，比去学一个恒等映射容易得多。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;架构变体：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Basic Block&lt;/strong&gt;（ResNet-18/34）：两个 3×3 卷积 + 跳跃连接&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Bottleneck Block&lt;/strong&gt;（ResNet-50/101/152）：1×1 降维 → 3×3 → 1×1 升维，进一步减少计算量&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;ResNet 的跳跃连接后来被几乎所有视觉架构借鉴——包括 U-Net 的跳跃连接、Transformer 的残差连接，本质上都是同一个思想。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;建议展示：ResNet 残差块结构图（推荐显示 Basic 和 Bottleneck 对比）&lt;/strong&gt;
+&lt;a class=&#34;link&#34; href=&#34;https://miro.medium.com/v2/resize:fit:1400/1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://miro.medium.com/v2/resize:fit:1400/1&lt;/a&gt;*D0F3UitQ2l5Q0Ak-tjEdJg.png&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;附加展示：退化问题曲线图（来自原始论文，展示 56 层 vs 20 层 plain 网络的错误率对比）&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;15001600--densenet2017密集连接极致特征复用&#34;&gt;15:00–16:00 — DenseNet（2017）：密集连接，极致特征复用
+&lt;/h3&gt;&lt;p&gt;在 ResNet 之后，黄高等人进一步思考：既然跳跃连接有用，为什么不把所有层都连起来？&lt;/p&gt;
+&lt;p&gt;DenseNet 的 Dense Block 中，&lt;strong&gt;每一层的输入是前面所有层输出的拼接&lt;/strong&gt;。对于一个 L 层的密集模块，共有 L×(L+1)/2 条连接。&lt;/p&gt;
+&lt;p&gt;和 ResNet 的关键区别：ResNet 是&lt;strong&gt;加&lt;/strong&gt;（求和），DenseNet 是&lt;strong&gt;拼&lt;/strong&gt;（拼接）。&lt;/p&gt;
+&lt;p&gt;这带来了几个好处：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;特征复用&lt;/strong&gt;——浅层的边缘、纹理特征可以直接被深层使用&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;梯度流动极好&lt;/strong&gt;——损失函数可以直接&amp;quot;看到&amp;quot;每一层&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;参数效率极高&lt;/strong&gt;——用约三分之一于 ResNet 的参数达到相同精度&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;天然的正则化&lt;/strong&gt;——密集连接有隐式的正则效果，在小数据集上不易过拟合&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;建议展示：DenseNet 密集连接示意图&lt;/strong&gt;
+&lt;a class=&#34;link&#34; href=&#34;https://miro.medium.com/v2/resize:fit:1400/1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://miro.medium.com/v2/resize:fit:1400/1&lt;/a&gt;*5Hw_fzE7aCt6D3klT0CMJg.png&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;16001800--语义分割专用架构fcndeeplab&#34;&gt;16:00–18:00 — 语义分割专用架构（FCN、DeepLab）
+&lt;/h3&gt;&lt;p&gt;前面讲的都是图像分类架构——输出是整图的类别标签。但医学分割需要逐像素的分类。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;FCN（Fully Convolutional Network，2015）&lt;/strong&gt;——全卷积网络。核心贡献：把最后的全连接层替换为卷积层，使网络能接受任意尺寸输入，输出空间维度一致的分割图。另外引入&lt;strong&gt;跳跃连接&lt;/strong&gt;融合浅层细节和深层语义。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;DeepLab 系列（v1–v3+，2016–2018）&lt;/strong&gt;——Google 推出的语义分割架构，核心创新包括：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;空洞卷积（Atrous/Dilated Convolution）&lt;/strong&gt;——往卷积核里插&amp;quot;空洞&amp;quot;。rate=1 是普通卷积，rate=2 是每隔一格采一个点。在不增加参数的情况下扩大感受野。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;ASPP（Atrous Spatial Pyramid Pooling）&lt;/strong&gt;——用不同扩张率的空洞卷积并行提取多尺度特征，然后融合。相当于在特征层面做了&amp;quot;多尺度分析&amp;quot;。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;DeepLabV3+&lt;/strong&gt;——在 V3 基础上增加了编码器-解码器结构，结合 ASPP 的高层语义和编码器的空间细节。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;建议展示：空洞卷积原理图&lt;/strong&gt;
+&lt;a class=&#34;link&#34; href=&#34;https://miro.medium.com/v2/resize:fit:720/1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://miro.medium.com/v2/resize:fit:720/1&lt;/a&gt;*SVjJadB4A3EPXXp4hZcc3g.gif&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;ASPP 结构&lt;/strong&gt;
+&lt;a class=&#34;link&#34; href=&#34;https://developers.arcgis.com/python/latest/guide/how-deeplabv3-works/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://developers.arcgis.com/python/latest/guide/how-deeplabv3-works/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;18002000--u-net2015医学分割的标杆&#34;&gt;18:00–20:00 — U-Net（2015）：医学分割的标杆
+&lt;/h3&gt;&lt;p&gt;终于到了医学分割中最重要的架构——&lt;strong&gt;U-Net&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;Ronneberger 等人在 2015 年提出了 U-Net，专为医学图像分割设计。它的名字就来自那个标志性的 U 形结构：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;编码器（左侧，下采样路径）：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;重复：3×3 卷积 + ReLU + 2×2 最大池化&lt;/li&gt;
+&lt;li&gt;每经过一层，空间尺寸减半、通道数翻倍&lt;/li&gt;
+&lt;li&gt;捕捉越来越抽象的语义特征&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;解码器（右侧，上采样路径）：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;重复：转置卷积上采样 + 与编码器对应层的跳跃连接拼接 + 3×3 卷积&lt;/li&gt;
+&lt;li&gt;空间尺寸逐渐恢复、通道数逐渐减少&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;跳跃连接（关键创新）：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;将编码器每一层的特征图直接拼接到解码器对应层&lt;/li&gt;
+&lt;li&gt;与 FCN（元素级相加）不同，U-Net 是&lt;strong&gt;通道级拼接&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;效果：解码器同时拥有&lt;strong&gt;高层语义&lt;/strong&gt;（定位目标）和&lt;strong&gt;浅层细节&lt;/strong&gt;（精修边界）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;U-Net 的成功在于它完美适配了医学图像的特点——数据量小、需要精细边界、全局结构相对固定。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;建议展示：U-Net 原始架构图（来自论文 Figure 1）&lt;/strong&gt;
+&lt;a class=&#34;link&#34; href=&#34;https://www.researchgate.net/profile/Olaf-Ronneberger/publication/308932167/figure/fig1/AS:410260664741921@1474756018827/U-Net-architecture.png&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://www.researchgate.net/profile/Olaf-Ronneberger/publication/308932167/figure/fig1/AS:410260664741921@1474756018827/U-Net-architecture.png&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;20002100--v-net--3d-cnn2016&#34;&gt;20:00–21:00 — V-Net / 3D CNN（2016）
+&lt;/h3&gt;&lt;p&gt;医学影像中很多是 3D 数据（CT、MRI）。将 2D 切片独立分割会丢失层间连续性信息。&lt;/p&gt;
+&lt;p&gt;V-Net（Milletari et al., 2016）将 U-Net 扩展到了 3D：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;用 3D 卷积替代 2D 卷积（卷积核从 3×3 变为 3×3×3）&lt;/li&gt;
+&lt;li&gt;引入 &lt;strong&gt;Dice Loss&lt;/strong&gt;，直接优化分割重叠度，天然解决类别不平衡问题&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;代价：3D 卷积计算量和显存消耗比 2D 高出约一个数量级。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;21002200--cnn-小结&#34;&gt;21:00–22:00 — CNN 小结
+&lt;/h3&gt;&lt;p&gt;到这里我们快速回顾了 CNN 的发展脉络。我来总结一下 CNN 为医学分割留下了哪些遗产：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;核心优势：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;局部感受野——擅长捕获纹理、边缘、组织边界&lt;/li&gt;
+&lt;li&gt;平移不变性——对位置变化鲁棒&lt;/li&gt;
+&lt;li&gt;参数共享——适合密集预测&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;三条核心设计范式：&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;深度设计&lt;/strong&gt;——从 LeNet 的 5 层到 ResNet 的 152 层，更深的网络 = 更强的表达&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;跳跃连接&lt;/strong&gt;——从 FCN 的雏形到 U-Net 的标准配置，再到 ResNet 的全网覆盖&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;多尺度&lt;/strong&gt;——从 GoogLeNet 的 Inception 到 DeepLab 的 ASPP&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;但 CNN 的固有局限也暴露出来：&lt;/strong&gt; 不管怎么堆叠，卷积核的局部性决定了它在长程依赖建模上的效率瓶颈。&lt;/p&gt;
+&lt;p&gt;这自然引出下一个问题：我们能不能让模型有&amp;quot;全局视野&amp;quot;？&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;建议展示：CNN 架构演进时间线图&lt;/strong&gt;
+&lt;a class=&#34;link&#34; href=&#34;https://miro.medium.com/v2/resize:fit:1400/1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://miro.medium.com/v2/resize:fit:1400/1&lt;/a&gt;*NcmyYEGDYg3qL0FHmJQq5w.png&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;三cnn-的局限--注意力与-vit5-分钟&#34;&gt;三、CNN 的局限 → 注意力与 ViT（~5 分钟）
+&lt;/h2&gt;&lt;h3 id=&#34;22002300--cnn-的局限性slide-4&#34;&gt;22:00–23:00 — CNN 的局限性（Slide 4）
+&lt;/h3&gt;&lt;p&gt;刚刚讲的是 CNN 的优点，现在来看它的硬伤：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;全局上下文缺失。&lt;/strong&gt; 3×3 卷积核只能看到周围 3×3 的区域。即使堆叠多层，信息传输效率也远不如一步到位的全局连接。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;语义孤岛。&lt;/strong&gt; 纯视觉模型只&amp;quot;看&amp;quot;不&amp;quot;懂&amp;quot;。如果两种组织在视觉上相似（比如 CT 图像中的肿瘤和炎症区域），模型很难区分。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;长程依赖效率低下。&lt;/strong&gt; 在超大图像（比如 WSI）中，跨区域的像素依赖需要经过大量中间层传递，容易丢失信息。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;23002500--attention-is-all-you-needvision-transformerslide-5&#34;&gt;23:00–25:00 — Attention Is All You Need：Vision Transformer（Slide 5）
+&lt;/h3&gt;&lt;p&gt;2017 年，Google 的&amp;quot;Attention Is All You Need&amp;quot;开启了 Transformer 时代。2020 年，Dosovitskiy 等人将 Transformer 引入视觉。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Self-Attention 的核心思想：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;QKV（Query-Key-Value）机制——每个位置可以关注到所有其他位置&lt;/li&gt;
+&lt;li&gt;全局感受野——一步到位，不需要层层堆叠&lt;/li&gt;
+&lt;li&gt;多头注意力——不同头关注不同子空间的特征&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;ViT 的架构流：&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;图像 → 切割成 Patch（如 16×16）→ Linear Embedding → Position Encoding
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;→ Transformer Encoder（×N 层）→ 分类头
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;去除了所有卷积操作！&lt;/strong&gt; 这个简单的设计在 ImageNet 上达到了媲美甚至超越 CNN 的效果。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;医学分割方向的代表工作：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;TransUNet&lt;/strong&gt;——CNN + Transformer 混合编码器，CNN 提取底层特征、Transformer 建模全局关系&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Swin-UNet&lt;/strong&gt;——基于 Swin Transformer 的纯 Transformer U-Net，用移位窗口实现高效全局注意力&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;建议展示：ViT 架构图（论文 Figure 1）&lt;/strong&gt;
+&lt;a class=&#34;link&#34; href=&#34;https://miro.medium.com/v2/resize:fit:1400/1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://miro.medium.com/v2/resize:fit:1400/1&lt;/a&gt;*53t3SX4kXlNEss52pxH24Q.png&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;四超大图像与弱监督策略3-分钟&#34;&gt;四、超大图像与弱监督策略（~3 分钟）
+&lt;/h2&gt;&lt;h3 id=&#34;25002630--多实例学习-mil--clamslide-6&#34;&gt;25:00–26:30 — 多实例学习 MIL &amp;amp; CLAM（Slide 6）
+&lt;/h3&gt;&lt;p&gt;在处理超大图像时，显存是最直接的限制。一张 WSI 可能达到 10 万 × 10 万像素——即使 ResNet 也无法直接处理。&lt;/p&gt;
+&lt;p&gt;MIL（多实例学习）将 WSI 视为一个&amp;quot;包&amp;quot;（Bag），包中的每个 Patch 是一个&amp;quot;实例&amp;quot;。只要包中至少有一个正实例，包就标为正——这个松弛假设恰好适配病理场景（一张 WSI 中只要有癌细胞，这张片子就是癌）。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;CLAM（2020）：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;使用注意力池化（Attention Pooling）自动筛选关键 Patch&lt;/li&gt;
+&lt;li&gt;不需要精细的像素级标注，只需要 slide-level 标签&lt;/li&gt;
+&lt;li&gt;注意力权重可以可视化，告诉病理医生&amp;quot;模型在看哪里&amp;quot;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;建议展示：MIL to CLAM 示意图&lt;/strong&gt;
+&lt;a class=&#34;link&#34; href=&#34;https://pubs.rsna.org/na101/home/literatum/publisher/rsna/journals/content/radiographics/2022/04204282/20220014/20220014_fig5.jpeg&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://pubs.rsna.org/na101/home/literatum/publisher/rsna/journals/content/radiographics/2022/04204282/20220014/20220014_fig5.jpeg&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;26302700--过渡引入文本&#34;&gt;26:30–27:00 — 过渡引入文本
+&lt;/h3&gt;&lt;p&gt;我们有了 CNN、有了 Transformer、有了 MIL——它们都是纯视觉方法。但它们共享一个问题：&lt;strong&gt;只利用像素信息&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;接下来进入报告的核心——&lt;strong&gt;为什么需要文本？&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;五为什么需要文本--早期融合5-分钟&#34;&gt;五、为什么需要文本 + 早期融合（~5 分钟）
+&lt;/h2&gt;&lt;h3 id=&#34;27002830--为什么要引入文本slide-7&#34;&gt;27:00–28:30 — 为什么要引入文本（Slide 7）
+&lt;/h3&gt;&lt;p&gt;在临床场景中一个常常被忽视的现实：&lt;strong&gt;医学影像从来不是孤立存在的。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;每一张影像都伴随一份诊断报告，里面包含丰富的临床先验知识——病灶位置、形态、边界特征、与周围组织的关系、恶性程度、鉴别诊断要点……这些信息被完全编码在自然语言中。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;文本的独特优势：&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;高密度语义先验&lt;/strong&gt;——一句话概括关键发现，比上千个像素更高效&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;减少歧义&lt;/strong&gt;——两个视觉相似的区域，通过文本描述可以明确区分&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;结构化知识&lt;/strong&gt;——人体解剖学知识可以编码为文本先验&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;利用海量未标注数据&lt;/strong&gt;——医院存量数据中，大量图文对（影像+报告）可以用于自监督学习&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;28303000--早期多模态融合的探索slide-8&#34;&gt;28:30–30:00 — 早期多模态融合的探索（Slide 8）
+&lt;/h3&gt;&lt;p&gt;早期的多模态融合方法比较朴素：把文本表征和图像表征&lt;strong&gt;简单拼接&lt;/strong&gt;（Concat）后输入分类器。这种方案的问题在于，文本和图像在特征空间中&lt;strong&gt;没有对齐&lt;/strong&gt;——向量相加可能只是视觉特征主导，文本信息几乎没有发挥作用。&lt;/p&gt;
+&lt;p&gt;融合策略经历了几代演进：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;第一代（2017–2019）：&lt;/strong&gt; 简单拼接 → 晚期融合（各自处理再合并） → 联合嵌入
+&lt;strong&gt;第二代（2020–2022）：&lt;/strong&gt; 跨模态注意力 → 共同注意力 → 循环交互
+&lt;strong&gt;第三代（2023–）：&lt;/strong&gt; 对比学习对齐 → 统一多模态 Transformer → 基础模型&lt;/p&gt;
+&lt;p&gt;关键转折点：&lt;strong&gt;从&amp;quot;拼接&amp;quot;到&amp;quot;对齐&amp;quot;&lt;/strong&gt;——让文本真正引导视觉特征的学习。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;建议展示：多模态融合演化路径图&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;六lvit语言驱动的视觉架构3-分钟&#34;&gt;六、LViT：语言驱动的视觉架构（~3 分钟）
+&lt;/h2&gt;&lt;h3 id=&#34;30003130--lvit-详解slide-9&#34;&gt;30:00–31:30 — LViT 详解（Slide 9）
+&lt;/h3&gt;&lt;p&gt;LViT（Language-driven Vision Transformer）是多模态分割的代表性工作。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;核心思想：&lt;/strong&gt; 在特征提取的早期和深层网络中引入文本嵌入，利用文本先验来&lt;strong&gt;校准视觉注意力权重&lt;/strong&gt;——让模型知道该&amp;quot;看哪里&amp;quot;。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;具体实现：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;文本-视觉交叉注意力模块&lt;/li&gt;
+&lt;li&gt;多层级融合：浅层关注轮廓引导，深层关注语义校准&lt;/li&gt;
+&lt;li&gt;对比损失拉近图文特征距离&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;与传统 U-Net 的对比：&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;传统 U-Net:    图像 → 编码 → 解码 → 分割掩码
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;LViT:          图像 + 文本 → 文本引导编码 → 交叉注意力解码 → 语义感知分割掩码
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                                          ↑
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                                   文本嵌入校准每一层注意力
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;效果：在模糊边界、小病灶、低对比度区域，Dice 提升 5–15%。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;七clip-及其医学适配6-分钟&#34;&gt;七、CLIP 及其医学适配（~6 分钟）
+&lt;/h2&gt;&lt;h3 id=&#34;31303330--clip-的诞生slide-10&#34;&gt;31:30–33:30 — CLIP 的诞生（Slide 10）
+&lt;/h3&gt;&lt;p&gt;2021 年，OpenAI 发布了 CLIP（Contrastive Language-Image Pre-training），它的训练方式极其优雅：&lt;/p&gt;
+&lt;p&gt;从互联网收集 4 亿图文对，训练两个编码器：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;图像编码器&lt;/strong&gt;——将图像映射到 d 维向量&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;文本编码器&lt;/strong&gt;——将文本映射到同样的 d 维空间&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;训练目标：&lt;strong&gt;对比损失（InfoNCE）&lt;/strong&gt;——让匹配的图文对向量距离近，不匹配的距离远。&lt;/p&gt;
+&lt;p&gt;损失函数形式：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;L = -log( exp(sim(I·T⁺)/τ) / Σ exp(sim(I·T⁻)/τ) )
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;CLIP 的核心贡献：&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;零样本能力&lt;/strong&gt;——训练完成后，不需要任何训练数据就能识别新类别&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;开放词汇&lt;/strong&gt;——任意文本提示即可检索图像&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;图文对齐&lt;/strong&gt;——两个模态在特征空间中对齐&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;建议展示：CLIP 对比学习框架图&lt;/strong&gt;
+&lt;a class=&#34;link&#34; href=&#34;https://miro.medium.com/v2/resize:fit:1400/1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://miro.medium.com/v2/resize:fit:1400/1&lt;/a&gt;*Y0liFYGs4o9dMi1s6rX-fg.png&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;33303500--medclipslide-11&#34;&gt;33:30–35:00 — MedCLIP（Slide 11）
+&lt;/h3&gt;&lt;p&gt;直接将 CLIP 移植到医学领域效果并不好。原因有三：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;自然图像和医学图像的领域差异巨大&lt;/li&gt;
+&lt;li&gt;医学文本高度专业化，术语密集&lt;/li&gt;
+&lt;li&gt;医学图文对数量少、质量参差不齐&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;MedCLIP 的解决方案：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;在医学数据集（MIMIC-CXR、肿瘤病理）上继续预训练&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;解耦对比学习&lt;/strong&gt;——标准 CLIP 严格要求&amp;quot;一个图像对一个文本&amp;quot;，但医学数据中常常多图共用一个报告、或一个图有多条描述。MedCLIP 解耦了这种对应关系&lt;/li&gt;
+&lt;li&gt;用自然 CLIP 权重初始化，医学数据微调&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;建议展示：MedCLIP 解耦对比学习图示&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;35003700--clip-驱动的分割--clip--samslide-12&#34;&gt;35:00–37:00 — CLIP 驱动的分割 &amp;amp; CLIP + SAM（Slide 12）
+&lt;/h3&gt;&lt;p&gt;把 CLIP 从图像级对齐&lt;strong&gt;下放&lt;/strong&gt;到像素级对齐，是最近的研究热点。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Prompt 驱动分割：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;输入文本 Prompt，如&amp;quot;恶性肿瘤细胞&amp;quot;&lt;/li&gt;
+&lt;li&gt;CLIP 返回图像中语义最匹配的区域&lt;/li&gt;
+&lt;li&gt;任意文本描述，无需固定类别集&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Dense CLIP：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;保持 CLIP 对齐能力，加上像素级分割头&lt;/li&gt;
+&lt;li&gt;文本嵌入作为锚点，引导像素分类&lt;/li&gt;
+&lt;li&gt;显著提升小样本和零样本分割性能&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;CLIP + SAM 的最强组合：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;SAM（Segment Anything Model）&lt;/strong&gt;——提供高质量的 Mask Proposal（通用分割能力）&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;CLIP&lt;/strong&gt;——用文本赋予 Mask 语义标签（零样本识别）&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;无需任何标注数据&lt;/strong&gt;，只需要描述目标组织的文本 Prompt&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;建议展示：CLIP + SAM 管道示意图&lt;/strong&gt;
+&lt;a class=&#34;link&#34; href=&#34;https://segment-anything.com/asset/map.jpg&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://segment-anything.com/asset/map.jpg&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;八零样本与小样本分割3-分钟&#34;&gt;八、零样本与小样本分割（~3 分钟）
+&lt;/h2&gt;&lt;h3 id=&#34;37003900--零样本与小样本slide-13&#34;&gt;37:00–39:00 — 零样本与小样本（Slide 13）
+&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;零样本分割：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;不需要任何目标类别的标注图像&lt;/li&gt;
+&lt;li&gt;直接通过文本 Prompt 描述目标结构即可分割&lt;/li&gt;
+&lt;li&gt;对于罕见病变（长尾分布）尤其重要&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;少样本分割：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;1–10 张标注图像即可适配新任务&lt;/li&gt;
+&lt;li&gt;CLIP 提供强初始化，少量微调即收敛&lt;/li&gt;
+&lt;li&gt;大幅降低标注成本&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;临床价值：&lt;/strong&gt;
+一个新病灶类型出现时，不需要重新标注训练集——写一段描述文字即可。不同医院间的快速适配也变得可行。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;挑战：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;零样本精度与全监督仍有差距&lt;/li&gt;
+&lt;li&gt;Prompt 工程影响巨大——写&amp;quot;肺部磨玻璃结节&amp;quot;和&amp;quot;GGO&amp;quot;效果可能不同&lt;/li&gt;
+&lt;li&gt;罕见医学术语在 CLIP 的词表中可能不存在&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;九工程落地与总结4-分钟&#34;&gt;九、工程落地与总结（~4 分钟）
+&lt;/h2&gt;&lt;h3 id=&#34;39004030--工程挑战slide-14&#34;&gt;39:00–40:30 — 工程挑战（Slide 14）
+&lt;/h3&gt;&lt;p&gt;多模态模型的计算开销不容忽视。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;资源瓶颈应对策略：&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;善用预训练权重&lt;/strong&gt;——从 CLIP/MedCLIP 初始化，而不是从头训练&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;LoRA / Adapter 微调&lt;/strong&gt;——冻结大部分参数，只微调少量适配器参数&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;混合精度训练（FP16/BF16）&lt;/strong&gt;——显存减半，速度翻倍&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;梯度检查点&lt;/strong&gt;——用计算换显存&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;渐进式训练&lt;/strong&gt;——先对齐 → 再分割 → 再下游微调&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;安全红线：&lt;/strong&gt;
+多模态模型在临床场景中可能会产生&amp;quot;幻觉&amp;quot;——生成看似合理但不正确的关联。在假阳性可能导致不必要手术、假阴性可能延误治疗的场景中，必须有充分的 OOD（分布外）检测和人工审核机制。&lt;/p&gt;
+&lt;h3 id=&#34;40304200--总结与展望slide-15&#34;&gt;40:30–42:00 — 总结与展望（Slide 15）
+&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;技术演进路线：&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;CNN（像素特征）→ ViT（全局感受野）→ LViT（文本先验）
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;→ CLIP（跨模态对齐）→ GPT-V / 通用医疗智能体
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;未来方向：&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;从分割到预后&lt;/strong&gt;——分割只是手段，最终目标是辅助临床决策&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;端到端医疗 AI 助手&lt;/strong&gt;——文本 + 图像 + 临床数据的统一理解&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;通用基础模型的医学适配&lt;/strong&gt;——让 GPT-4V 级别的模型真正理解医学图像&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;多模态对齐 + 因果推断&lt;/strong&gt;——不光看到关联，还要理解因果&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;三条关键启示：&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;文本先验是打破视觉瓶颈的关键&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;对比学习是跨模态对齐的有效范式&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;零样本能力是医疗落地的理想目标&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;42004500--qa&#34;&gt;42:00–45:00 — Q&amp;amp;A
+&lt;/h3&gt;&lt;p&gt;（预留互动时间）&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;附录推荐扩展阅读&#34;&gt;附录：推荐扩展阅读
+&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;LeNet-5&lt;/strong&gt;: LeCun et al., &amp;ldquo;Gradient-Based Learning Applied to Document Recognition&amp;rdquo;, 1998&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;AlexNet&lt;/strong&gt;: Krizhevsky et al., &amp;ldquo;ImageNet Classification with Deep CNNs&amp;rdquo;, NIPS 2012&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;VGGNet&lt;/strong&gt;: Simonyan &amp;amp; Zisserman, &amp;ldquo;Very Deep Convolutional Networks for Large-Scale Image Recognition&amp;rdquo;, ICLR 2015&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;GoogLeNet&lt;/strong&gt;: Szegedy et al., &amp;ldquo;Going Deeper with Convolutions&amp;rdquo;, CVPR 2015&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;ResNet&lt;/strong&gt;: He et al., &amp;ldquo;Deep Residual Learning for Image Recognition&amp;rdquo;, CVPR 2016&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;FCN&lt;/strong&gt;: Long et al., &amp;ldquo;Fully Convolutional Networks for Semantic Segmentation&amp;rdquo;, CVPR 2015&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;U-Net&lt;/strong&gt;: Ronneberger et al., &amp;ldquo;U-Net: Convolutional Networks for Biomedical Image Segmentation&amp;rdquo;, MICCAI 2015&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;V-Net&lt;/strong&gt;: Milletari et al., &amp;ldquo;V-Net: Fully Convolutional Neural Networks for Volumetric Medical Image Segmentation&amp;rdquo;, 3DV 2016&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;DenseNet&lt;/strong&gt;: Huang et al., &amp;ldquo;Densely Connected Convolutional Networks&amp;rdquo;, CVPR 2017&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;DeepLab&lt;/strong&gt;: Chen et al., &amp;ldquo;DeepLab: Semantic Image Segmentation with Deep Convolutional Nets, Atrous Convolution, and Fully Connected CRFs&amp;rdquo;, TPAMI 2017&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;ViT&lt;/strong&gt;: Dosovitskiy et al., &amp;ldquo;An Image is Worth 16×16 Words: Transformers for Image Recognition at Scale&amp;rdquo;, ICLR 2021&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;TransUNet&lt;/strong&gt;: Chen et al., &amp;ldquo;TransUNet: Transformers Make Strong Encoders for Medical Image Segmentation&amp;rdquo;, 2021&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;CLAM&lt;/strong&gt;: Lu et al., &amp;ldquo;Data-efficient and weakly supervised computational pathology on whole-slide images&amp;rdquo;, Nature Biomedical Engineering 2021&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;CLIP&lt;/strong&gt;: Radford et al., &amp;ldquo;Learning Transferable Visual Models From Natural Language Supervision&amp;rdquo;, ICML 2021&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;MedCLIP&lt;/strong&gt;: Wang et al., &amp;ldquo;MedCLIP: Contrastive Learning from Unpaired Medical Images and Text&amp;rdquo;, EMNLP 2022&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;LViT&lt;/strong&gt;: Li et al., &amp;ldquo;LViT: Language meets Vision Transformer in Medical Image Segmentation&amp;rdquo;, IEEE TMI 2023&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;SAM&lt;/strong&gt;: Kirillov et al., &amp;ldquo;Segment Anything&amp;rdquo;, ICCV 2023&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;时间控制备忘：&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;章节&lt;/th&gt;
+          &lt;th&gt;时长&lt;/th&gt;
+          &lt;th&gt;累计&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;开场 + 核心挑战&lt;/td&gt;
+          &lt;td&gt;5 min&lt;/td&gt;
+          &lt;td&gt;5 min&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;CNN 黄金时代&lt;/td&gt;
+          &lt;td&gt;15 min&lt;/td&gt;
+          &lt;td&gt;20 min&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;CNN 局限 → ViT&lt;/td&gt;
+          &lt;td&gt;5 min&lt;/td&gt;
+          &lt;td&gt;25 min&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;MIL&lt;/td&gt;
+          &lt;td&gt;3 min&lt;/td&gt;
+          &lt;td&gt;28 min&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;为什么文本 + 早期融合&lt;/td&gt;
+          &lt;td&gt;5 min&lt;/td&gt;
+          &lt;td&gt;33 min&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;LViT&lt;/td&gt;
+          &lt;td&gt;3 min&lt;/td&gt;
+          &lt;td&gt;36 min&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;CLIP + MedCLIP + 分割&lt;/td&gt;
+          &lt;td&gt;6 min&lt;/td&gt;
+          &lt;td&gt;42 min&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;零样本/小样本&lt;/td&gt;
+          &lt;td&gt;3 min&lt;/td&gt;
+          &lt;td&gt;45 min&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;如果时间紧张，可压缩 CNN 部分到 12 分钟（省略 DenseNet/DeepLab 细节），
+或压缩工程部分到 2 分钟。&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>
