@@ -7,7 +7,105 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>云雾中的山-NubisLab</copyright>
-        <lastBuildDate>Tue, 05 May 2026 08:16:58 +0000</lastBuildDate><atom:link href="https://blogbook.eu.org/categories/academic-radar/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Wed, 06 May 2026 15:39:18 +0000</lastBuildDate><atom:link href="https://blogbook.eu.org/categories/academic-radar/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>学术雷达日报 2026-05-06</title>
+        <link>https://blogbook.eu.org/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-05-06/</link>
+        <pubDate>Wed, 06 May 2026 23:38:55 +0800</pubDate>
+        
+        <guid>https://blogbook.eu.org/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-05-06/</guid>
+        <description>&lt;h2 id=&#34;今日论文速览&#34;&gt;今日论文速览
+&lt;/h2&gt;&lt;p&gt;抓取时间（北京时间）：2026-05-06 23:38:55&lt;/p&gt;
+&lt;h3 id=&#34;1-label-efficient-school-detection-from-aerial-imagery-via-weakly-supervised-pretraining-and-fine-tuning&#34;&gt;1. Label-Efficient School Detection from Aerial Imagery via Weakly Supervised Pretraining and Fine-Tuning
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;ArXiv: &lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/2605.03968v1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://arxiv.org/abs/2605.03968v1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;发布时间: 2026-05-06 00:51:28 (北京时间)&lt;/li&gt;
+&lt;li&gt;作者: Zakarya Elmimouni, Fares Fourati, Mohamed-Slim Alouini&lt;/li&gt;
+&lt;li&gt;标签: 检测&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;AI 深度解析&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;TL;DR：提出一种弱监督框架，利用稀疏位置点和语义分割自动生成标注，通过两阶段训练（预训练+微调）实现低数据条件下遥感图像学校检测。&lt;/p&gt;
+&lt;p&gt;核心贡献：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;提出自动标注流水线，利用稀疏位置点和语义分割生成基础设施掩码，进而生成边界框，减少人工标注需求。&lt;/li&gt;
+&lt;li&gt;设计两阶段训练策略：第一阶段使用自动标注图像预训练模型学习学校外观表征，第二阶段使用少量人工标注图像微调，实现低数据场景下的强检测性能。&lt;/li&gt;
+&lt;li&gt;在仅使用50张人工标注图像的情况下取得有前景的检测结果，显著降低标注成本，并计划开源所有模型、代码和自动标注数据。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;方法类型：其他（弱监督学习+CNN检测器）&lt;/p&gt;
+&lt;p&gt;适用场景：遥感（学校检测）&lt;/p&gt;
+&lt;p&gt;评估指标：未在摘要中提供具体数值&lt;/p&gt;
+&lt;p&gt;代码可用性：是（计划公开）&lt;/p&gt;
+&lt;p&gt;领域启发：该论文为遥感图像目标检测提供了一种实用的弱监督解决方案，尤其适用于标注稀缺场景。其自动标注流水线和两阶段训练策略可推广至其他基础设施检测任务（如医院、道路），降低大规模地理映射的人力成本。对图像分割与目标识别研究的价值在于：展示了如何结合稀疏先验（如点标注）与语义分割生成高质量训练数据，并通过预训练-微调范式在低数据条件下保持检测性能，为工程落地提供了可复现的范式。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;2-rd-vit-recurrent-depth-vision-transformer-for-semantic-segmentation-with-reduced-data-dependence-extending-the-recurrent-depth-transformer-architecture-to-dense-prediction&#34;&gt;2. RD-ViT: Recurrent-Depth Vision Transformer for Semantic Segmentation with Reduced Data Dependence Extending the Recurrent-Depth Transformer Architecture to Dense Prediction
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;ArXiv: &lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/2605.03999v1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://arxiv.org/abs/2605.03999v1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;发布时间: 2026-05-06 01:21:18 (北京时间)&lt;/li&gt;
+&lt;li&gt;作者: Renjie He&lt;/li&gt;
+&lt;li&gt;标签: 检测&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;AI 深度解析&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;TL;DR：提出一种循环深度视觉Transformer RD-ViT，通过共享单层Transformer块循环T次并引入状态注入、自适应计算时间等机制，在减少数据依赖的同时实现与标准ViT相当甚至更优的语义分割性能。&lt;/p&gt;
+&lt;p&gt;核心贡献：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;提出循环深度架构RD-ViT，用单个共享Transformer块循环T次替代传统深度堆叠结构，显著降低参数量（3D任务中仅用标准ViT 53%参数达到99.4%性能）&lt;/li&gt;
+&lt;li&gt;引入LTI稳定状态注入保证循环收敛，结合自适应计算时间（ACT）实现空间计算资源动态分配，在心脏边界区域分配更多计算量&lt;/li&gt;
+&lt;li&gt;设计深度LoRA适配和可选混合专家（MoE）前馈网络，使不同专家自发专精于不同心脏结构（RV、MYO、LV）而无须显式路由监督&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;方法类型：Transformer&lt;/p&gt;
+&lt;p&gt;适用场景：医学图像（心脏MRI分割）&lt;/p&gt;
+&lt;p&gt;评估指标：Dice（2D：10%数据0.774 vs 0.762，全数据0.882 vs 0.872；3D：0.812 vs 0.817）&lt;/p&gt;
+&lt;p&gt;代码可用性：是（所有代码、笔记本和结果已公开）&lt;/p&gt;
+&lt;p&gt;领域启发：该论文对图像分割研究的核心价值在于证明了循环深度架构可有效缓解ViT对大规模训练数据的依赖，为数据稀缺的医学影像场景提供了实用解决方案。其ACT机制和MoE专家自发分工的设计思路可迁移至其他密集预测任务（如遥感分割、自动驾驶场景解析），通过动态计算分配和参数共享降低部署成本。深度外推能力（推理时使用比训练更多循环次数而不退化）为模型在资源受限设备上的灵活部署提供了新思路。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;3-reservoir-property-image-slices-from-the-groningen-gas-field-for-image-translation-and-segmentation&#34;&gt;3. Reservoir property image slices from the Groningen gas field for image translation and segmentation
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;ArXiv: &lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/2605.03942v1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://arxiv.org/abs/2605.03942v1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;发布时间: 2026-05-06 00:31:11 (北京时间)&lt;/li&gt;
+&lt;li&gt;作者: Abdulrahman Al-Fakih, Nabil Sariah, Ardiansyah Koeshidayatullah, SanLinn I. Kaka&lt;/li&gt;
+&lt;li&gt;标签: 检测&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;AI 深度解析&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;TL;DR：本文公开了一个基于Groningen气田静态地质模型的高分辨率储层属性图像切片数据集，包含相、孔隙度、渗透率和含水饱和度等对齐的二维图像，并提供了可复现的软件工作流，用于支持地质图像分析方法的基准测试和跨域关系研究。&lt;/p&gt;
+&lt;p&gt;核心贡献：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;提供了首个公开可用的、对齐的多属性地质图像数据集（相、孔隙度、渗透率、含水饱和度），支持图像分割和图像到图像翻译任务。&lt;/li&gt;
+&lt;li&gt;发布了完整的可复现软件工作流，包括数据增强、掩码生成、配对图像构建及基线实验示例，确保基准测试的透明性和可重复性。&lt;/li&gt;
+&lt;li&gt;将固定图像数据集与可复现处理流程分离，为地球科学、储层建模和机器学习应用提供了透明的基础。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;方法类型：其他（数据集与工作流，非特定模型架构）&lt;/p&gt;
+&lt;p&gt;适用场景：其他（地质图像分析、储层建模、图像分割与图像翻译基准测试）&lt;/p&gt;
+&lt;p&gt;评估指标：未提及具体数值&lt;/p&gt;
+&lt;p&gt;代码可用性：是（提供了可复现的软件工作流，但未明确提供代码链接）&lt;/p&gt;
+&lt;p&gt;领域启发：该论文对图像分割与目标识别研究的价值在于：1）填补了地质领域公开、对齐的多属性图像数据集的空白，为跨域图像翻译（如从孔隙度预测渗透率）和语义分割（如相分类）提供了标准化基准；2）其可复现工作流设计思路（数据集与流程分离）可推广至其他专业领域（如医学、遥感），促进方法对比与工程落地；3）地质属性间的空间相关性为多任务学习或域适应研究提供了天然实验场景，有助于推动模型在非自然图像上的泛化能力。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;4-statevlm-a-state-aware-vision-language-model-for-robotic-affordance-reasoning&#34;&gt;4. StateVLM: A State-Aware Vision-Language Model for Robotic Affordance Reasoning
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;ArXiv: &lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/2605.03927v1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://arxiv.org/abs/2605.03927v1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;发布时间: 2026-05-06 00:19:02 (北京时间)&lt;/li&gt;
+&lt;li&gt;作者: Xiaowen Sun, Matthias Kerzel, Mengdi Li, Xufeng Zhao, Paul Striker, Stefan Wermter&lt;/li&gt;
+&lt;li&gt;标签: 检测&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;AI 深度解析&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;TL;DR：提出StateVLM，通过辅助回归损失（ARL）训练策略增强视觉语言模型在机器人操作中的物体检测与状态定位数值推理能力，并构建了物体状态可供性推理基准OSAR。&lt;/p&gt;
+&lt;p&gt;核心贡献：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;提出辅助回归损失（ARL）训练策略，在微调阶段利用边界框解码器输出计算回归损失，同时保持推理时的标准序列预测，有效提升VLM在物体检测与状态定位中的数值推理能力。&lt;/li&gt;
+&lt;li&gt;开发StateVLM模型，能够感知并学习细粒度物体表征，包括物体精确位置、状态及可抓取区域，实现状态感知的机器人可供性推理。&lt;/li&gt;
+&lt;li&gt;构建开源基准OSAR（Object State Affordance Reasoning），包含1,172个场景、7,746个独立物体及其边界框，填补了物体状态可供性推理领域缺乏标准基准的空白。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;方法类型：混合架构（视觉语言模型+回归损失微调）&lt;/p&gt;
+&lt;p&gt;适用场景：机器人操作（物体检测、状态定位、可供性推理）&lt;/p&gt;
+&lt;p&gt;评估指标：在RefCOCO、RefCOCO+、RefCOCOg上ARL提升平均1.6%；在OSAR上ARL提升平均5.2%&lt;/p&gt;
+&lt;p&gt;代码可用性：未提及&lt;/p&gt;
+&lt;p&gt;领域启发：该工作为图像分割与目标识别提供了新思路：将数值回归任务（如边界框坐标预测）以辅助损失形式融入VLM微调，有效缓解了LLM在数值推理上的固有限制。对于工程落地，该方法无需改变推理流程即可提升定位精度，尤其适用于机器人等需要精确空间感知的场景。同时，OSAR基准的构建为细粒度物体状态与可供性区域的分割/检测研究提供了标准化评估平台，可推动相关任务从粗粒度识别向状态感知的精细理解发展。&lt;/p&gt;
+&lt;hr&gt;
+</description>
+        </item>
+        <item>
         <title>学术雷达日报 2026-05-05</title>
         <link>https://blogbook.eu.org/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-05-05/</link>
         <pubDate>Tue, 05 May 2026 16:16:33 +0800</pubDate>
