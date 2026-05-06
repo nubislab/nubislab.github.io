@@ -7,7 +7,7 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>云雾中的山-NubisLab</copyright>
-        <lastBuildDate>Wed, 06 May 2026 15:39:18 +0000</lastBuildDate><atom:link href="https://blogbook.eu.org/categories/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 07 May 2026 00:42:06 +0800</lastBuildDate><atom:link href="https://blogbook.eu.org/categories/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Academic Radar</title>
         <link>https://blogbook.eu.org/categories/academic-radar/</link>
         <pubDate>Wed, 06 May 2026 23:38:55 +0800</pubDate>
@@ -16,11 +16,11 @@
         <description></description>
         </item>
         <item>
-        <title>Lecture Notes</title>
-        <link>https://blogbook.eu.org/categories/lecture-notes/</link>
+        <title>AI</title>
+        <link>https://blogbook.eu.org/categories/ai/</link>
         <pubDate>Wed, 06 May 2026 22:00:00 +0800</pubDate>
         
-        <guid>https://blogbook.eu.org/categories/lecture-notes/</guid>
+        <guid>https://blogbook.eu.org/categories/ai/</guid>
         <description></description>
         </item>
         <item>
@@ -101,14 +101,6 @@
         <pubDate>Mon, 23 Jun 2025 16:18:21 +0800</pubDate>
         
         <guid>https://blogbook.eu.org/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>AI</title>
-        <link>https://blogbook.eu.org/categories/ai/</link>
-        <pubDate>Thu, 19 Jun 2025 11:43:15 +0800</pubDate>
-        
-        <guid>https://blogbook.eu.org/categories/ai/</guid>
         <description></description>
         </item>
         <item>
