@@ -7,7 +7,7 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>云雾中的山-NubisLab</copyright>
-        <lastBuildDate>Thu, 07 May 2026 00:42:06 +0800</lastBuildDate><atom:link href="https://blogbook.eu.org/tags/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 07 May 2026 00:49:31 +0800</lastBuildDate><atom:link href="https://blogbook.eu.org/tags/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Academic-Radar</title>
         <link>https://blogbook.eu.org/tags/academic-radar/</link>
         <pubDate>Wed, 06 May 2026 23:38:55 +0800</pubDate>
@@ -69,6 +69,22 @@
         <pubDate>Wed, 06 May 2026 22:00:00 +0800</pubDate>
         
         <guid>https://blogbook.eu.org/tags/lecture/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Linear-Algebra</title>
+        <link>https://blogbook.eu.org/tags/linear-algebra/</link>
+        <pubDate>Wed, 06 May 2026 22:00:00 +0800</pubDate>
+        
+        <guid>https://blogbook.eu.org/tags/linear-algebra/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Matrix-Analysis</title>
+        <link>https://blogbook.eu.org/tags/matrix-analysis/</link>
+        <pubDate>Wed, 06 May 2026 22:00:00 +0800</pubDate>
+        
+        <guid>https://blogbook.eu.org/tags/matrix-analysis/</guid>
         <description></description>
         </item>
         <item>

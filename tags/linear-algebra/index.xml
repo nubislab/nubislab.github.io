@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Linear-Algebra on 云雾中的山-Nubislab</title>
+        <link>https://blogbook.eu.org/tags/linear-algebra/</link>
+        <description>Recent content in Linear-Algebra on 云雾中的山-Nubislab</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <copyright>云雾中的山-NubisLab</copyright>
+        <lastBuildDate>Thu, 07 May 2026 00:49:31 +0800</lastBuildDate><atom:link href="https://blogbook.eu.org/tags/linear-algebra/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>医学图像分割与矩阵分析 — 30 分钟讲稿</title>
+        <link>https://blogbook.eu.org/p/%E5%8C%BB%E5%AD%A6%E5%9B%BE%E5%83%8F%E5%88%86%E5%89%B2%E4%B8%8E%E7%9F%A9%E9%98%B5%E5%88%86%E6%9E%90-30-%E5%88%86%E9%92%9F%E8%AE%B2%E7%A8%BF/</link>
+        <pubDate>Wed, 06 May 2026 22:00:00 +0800</pubDate>
+        
+        <guid>https://blogbook.eu.org/p/%E5%8C%BB%E5%AD%A6%E5%9B%BE%E5%83%8F%E5%88%86%E5%89%B2%E4%B8%8E%E7%9F%A9%E9%98%B5%E5%88%86%E6%9E%90-30-%E5%88%86%E9%92%9F%E8%AE%B2%E7%A8%BF/</guid>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;说明：&lt;/strong&gt; 本讲稿配合 &lt;code&gt;medical_matrix_analysis.pptx&lt;/code&gt;（14 页）使用。
+听众背景：矩阵分析教师，精通线性代数但对图像分割零基础。
+侧重点：用矩阵语言解释分割，每个概念都配具体算例。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;一开场什么是图像分割5-分钟&#34;&gt;一、开场：什么是图像分割？（~5 分钟）
+&lt;/h2&gt;&lt;h3 id=&#34;000200--从矩阵老师的视角切入&#34;&gt;0:00–2:00 — 从矩阵老师的视角切入
+&lt;/h3&gt;&lt;p&gt;各位老师好。今天我想跟大家聊一个交叉话题：&lt;strong&gt;医学图像分割和矩阵分析之间到底有什么关系&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;在座各位都是矩阵分析的专家，但可能对&amp;quot;图像分割&amp;quot;不太熟悉。没关系，我今天的目标就是：&lt;strong&gt;用你们最熟悉的矩阵语言，来解释图像分割到底在干什么&lt;/strong&gt;。&lt;/p&gt;
+&lt;h3 id=&#34;200500--什么是图像分割slide-1-引入&#34;&gt;2:00–5:00 — 什么是图像分割（Slide 1 引入）
+&lt;/h3&gt;&lt;p&gt;先解决第一个问题：&lt;strong&gt;什么是图像分割？&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;大家想象一张照片——不管是手机拍的、还是 CT 扫描的——这张照片本质上就是一个 $m \times n$ 的矩阵。灰度图是 $m \times n$ 矩阵，彩色图是三个矩阵叠在一起。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;图像分割&lt;/strong&gt;要做的事情是：给这个矩阵里的&lt;strong&gt;每一个位置（像素）分配一个类别标签&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;举个例子。一张 CT 肺部扫描图，我们希望计算机能自动标出：哪些像素属于&amp;quot;肿瘤&amp;quot;、哪些属于&amp;quot;正常组织&amp;quot;、哪些是&amp;quot;背景&amp;quot;。这就是分割。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;医学图像分割&lt;/strong&gt;就是把这个任务放在医学场景里——给 X 光、CT、MRI、病理切片这些医学图像做像素级的分类。&lt;/p&gt;
+&lt;p&gt;从矩阵分析的角度看：&lt;strong&gt;分割的输出本质上也是一个矩阵&lt;/strong&gt;，只是元素从&amp;quot;像素亮度&amp;quot;变成了&amp;quot;类别编号&amp;quot;。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;二全景概览3-分钟&#34;&gt;二、全景概览（~3 分钟）
+&lt;/h2&gt;&lt;h3 id=&#34;500800--概念映射全景slide-2&#34;&gt;5:00–8:00 — 概念映射全景（Slide 2）
+&lt;/h3&gt;&lt;p&gt;今天的报告会覆盖 9 个矩阵分析和图像分割的交汇点：&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;行&lt;/th&gt;
+          &lt;th&gt;概念&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;第一行&lt;/td&gt;
+          &lt;td&gt;&lt;strong&gt;图像=矩阵&lt;/strong&gt; → &lt;strong&gt;卷积 = Toeplitz 矩阵乘&lt;/strong&gt; → &lt;strong&gt;SVD 降维/降噪&lt;/strong&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;第二行&lt;/td&gt;
+          &lt;td&gt;&lt;strong&gt;PCA 特征提取&lt;/strong&gt; → &lt;strong&gt;图拉普拉斯谱分割&lt;/strong&gt; → &lt;strong&gt;海森矩阵血管增强&lt;/strong&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;第三行&lt;/td&gt;
+          &lt;td&gt;&lt;strong&gt;NMF 组织分解&lt;/strong&gt; → &lt;strong&gt;GLCM 纹理分析&lt;/strong&gt; → &lt;strong&gt;Attention = 矩阵乘&lt;/strong&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;几乎所有的分割操作，最终都归结为矩阵运算——乘法、分解、特征值问题。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;三图像矩阵卷积矩阵乘4-分钟&#34;&gt;三、图像=矩阵，卷积=矩阵乘（~4 分钟）
+&lt;/h2&gt;&lt;h3 id=&#34;8001000--图像即矩阵slide-3&#34;&gt;8:00–10:00 — 图像即矩阵（Slide 3）
+&lt;/h3&gt;&lt;p&gt;这是最根本的抽象。&lt;/p&gt;
+&lt;p&gt;一张灰度图就是一个 $m \times n$ 的实数矩阵。CT 值是 Hounsfield Unit，MRI 值是信号强度——&lt;strong&gt;都是数，排列成矩阵&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;所以：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;裁剪图像 → 矩阵切片 $A[10:100,; 20:200]$&lt;/li&gt;
+&lt;li&gt;旋转图像 → 矩阵转置 + 翻转&lt;/li&gt;
+&lt;li&gt;归一化 → $(A - \mu) / \sigma$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;&amp;ldquo;图像处理&amp;quot;在矩阵语言下就是矩阵的各种变换。&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&#34;10001200--卷积--toeplitz-矩阵乘法slide-4&#34;&gt;10:00–12:00 — 卷积 = Toeplitz 矩阵乘法（Slide 4）
+&lt;/h3&gt;&lt;p&gt;卷积操作可以写成：&lt;/p&gt;
+$$
+\mathbf{y} = \mathbf{W} \cdot \mathbf{x}
+$$&lt;p&gt;其中 $\mathbf{W}$ 是一个 &lt;strong&gt;高度稀疏的 Toeplitz 矩阵&lt;/strong&gt;（每条对角线上的元素都相等），$\mathbf{x}$ 是图像拉直后的向量。&lt;/p&gt;
+&lt;p&gt;为什么这对深度学习很重要？因为 GPU 的 Tensor Core 本质上就是一个&lt;strong&gt;超大规模的矩阵乘法引擎&lt;/strong&gt;。把卷积写成矩阵乘法，意味着我们可以用 GPU 来暴力加速。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;具体算例：&lt;/strong&gt; 一个 $3 \times 3$ 的卷积核在 $4 \times 4$ 的图像上滑动，相当于一个 $4 \times 16$ 的稀疏矩阵乘以 $16$ 维的列向量：&lt;/p&gt;
+$$
+\begin{bmatrix} 
+w_{11} &amp; w_{12} &amp; w_{13} &amp; 0 &amp; w_{21} &amp; w_{22} &amp; w_{23} &amp; 0 &amp; \cdots \\
+0 &amp; w_{11} &amp; w_{12} &amp; w_{13} &amp; 0 &amp; w_{21} &amp; w_{22} &amp; w_{23} &amp; \cdots \\
+\vdots &amp; &amp; &amp; &amp; &amp; &amp; &amp; &amp; \ddots 
+\end{bmatrix}
+\begin{bmatrix} x_1 \\ x_2 \\ \vdots \\ x_{16} \end{bmatrix}
+$$&lt;p&gt;每行只有 9 个非零元素——这就是 Toeplitz 结构的体现。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;四svd-与-pca两个核心分解工具5-分钟&#34;&gt;四、SVD 与 PCA：两个核心分解工具（~5 分钟）
+&lt;/h2&gt;&lt;h3 id=&#34;12001430--svd-去噪与低秩表示slide-5&#34;&gt;12:00–14:30 — SVD 去噪与低秩表示（Slide 5）
+&lt;/h3&gt;&lt;p&gt;SVD 你们太熟悉了：&lt;/p&gt;
+$$
+A = U \Sigma V^\top
+$$&lt;p&gt;在医学图像中，一张 $4 \times 3$ 的图像块可以做 SVD 分解：&lt;/p&gt;
+&lt;h1 id=&#34;beginbmatrix-85--90--88--78--82--80--200--210--205--195--205--200-endbmatrix&#34;&gt;$$
+\begin{bmatrix} 85 &amp;amp; 90 &amp;amp; 88 \ 78 &amp;amp; 82 &amp;amp; 80 \ 200 &amp;amp; 210 &amp;amp; 205 \ 195 &amp;amp; 205 &amp;amp; 200 \end{bmatrix}
+&lt;/h1&gt;&lt;p&gt;\begin{bmatrix} 0.58 &amp;amp; 0.71 \ 0.52 &amp;amp; 0.12 \ 0.62 &amp;amp; -0.69 \ -0.23 &amp;amp; 0.02 \end{bmatrix}
+\begin{bmatrix} 350 &amp;amp; 0 \ 0 &amp;amp; 30 \end{bmatrix}
+\begin{bmatrix} 0.50 &amp;amp; 0.58 &amp;amp; 0.64 \ 0.53 &amp;amp; 0.53 &amp;amp; 0.67 \end{bmatrix}
+$$&lt;/p&gt;
+&lt;p&gt;三个奇异值：$\sigma_1 = 350$（骨骼主体结构），$\sigma_2 = 30$（软组织变化），$\sigma_3 = 5$（噪声）。&lt;/p&gt;
+&lt;p&gt;如果我们只保留前两个奇异值，把 $\sigma_3$ 丢掉，就完成了&lt;strong&gt;低秩去噪&lt;/strong&gt;。保留的能量为：&lt;/p&gt;
+$$
+\frac{\sigma_1^2 + \sigma_2^2}{\sigma_1^2 + \sigma_2^2 + \sigma_3^2} = \frac{350^2 + 30^2}{350^2 + 30^2 + 5^2} \approx 98.6\%
+$$&lt;p&gt;这就是 SVD 在医学分割中的一个直接应用：&lt;strong&gt;用低秩近似来去除噪声&lt;/strong&gt;。&lt;/p&gt;
+&lt;h3 id=&#34;14301700--pca-特征提取slide-6&#34;&gt;14:30–17:00 — PCA 特征提取（Slide 6）
+&lt;/h3&gt;&lt;p&gt;PCA 的核心是：对数据做特征值分解。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;算例：&lt;/strong&gt; 4 个样本点 $(1,1), (2,2), (4,4), (5,5)$。数据矩阵和协方差矩阵为：&lt;/p&gt;
+$$
+X = \begin{bmatrix} 1 &amp; 1 \\ 2 &amp; 2 \\ 4 &amp; 4 \\ 5 &amp; 5 \end{bmatrix}, \quad
+C = \frac{1}{n}X&#39;^\top X&#39; = \begin{bmatrix} 3.33 &amp; 3.33 \\ 3.33 &amp; 3.33 \end{bmatrix}
+$$&lt;p&gt;特征分解得到：&lt;/p&gt;
+$$
+\lambda_1 = 6.67,\; v_1 = [0.71, 0.71]^\top, \qquad
+\lambda_2 = 0.00,\; v_2 = [-0.71, 0.71]^\top
+$$&lt;p&gt;$\lambda_2 \approx 0$ 意味着数据在某个方向上几乎没有变化——可以把 2 维数据安全地降到 1 维。&lt;/p&gt;
+&lt;p&gt;在医学分割中，一个图像 Patch 可能有几百维的特征。通过 PCA 降到几十维后，分割模型的训练速度和泛化能力都会提升。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;五图拉普拉斯与海森矩阵5-分钟&#34;&gt;五、图拉普拉斯与海森矩阵（~5 分钟）
+&lt;/h2&gt;&lt;h3 id=&#34;17001930--谱分割slide-7&#34;&gt;17:00–19:30 — 谱分割（Slide 7）
+&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;核心思想：图像分割可以转化为图拉普拉斯矩阵的特征值问题。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;每个像素是一个节点，像素间的相似度是边的权重，构成相似度矩阵 $W$。度矩阵 $D$ 是对角阵 $D_{ii} = \sum_j W_{ij}$。拉普拉斯矩阵：&lt;/p&gt;
+$$
+L = D - W
+$$&lt;p&gt;&lt;strong&gt;关键定理：$L$ 的第二小特征向量 $v_2$ 给出了最优的二分类方案。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;算例：&lt;/strong&gt; 4 个像素的亮度为 $[10, 12, 50, 52]$。&lt;/p&gt;
+&lt;p&gt;相似度矩阵 $W$ 和拉普拉斯矩阵 $L$：&lt;/p&gt;
+$$
+W = \begin{bmatrix} 1.0 &amp; 0.8 &amp; 0 &amp; 0 \\ 0.8 &amp; 1.0 &amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; 1.0 &amp; 0.8 \\ 0 &amp; 0 &amp; 0.8 &amp; 1.0 \end{bmatrix}, \quad
+L = D - W = \begin{bmatrix} 1.8 &amp; -0.8 &amp; 0 &amp; 0 \\ -0.8 &amp; 0.8 &amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; 1.8 &amp; -0.8 \\ 0 &amp; 0 &amp; -0.8 &amp; 0.8 \end{bmatrix}
+$$&lt;p&gt;特征向量 $v_2 = [-0.7, -0.7, 0.7, 0.7]^\top$，对应 $\lambda_2 = 0.1$。&lt;/p&gt;
+&lt;p&gt;按 $v_2$ 的符号分割：前两个像素为负、后两个为正——完美地把两个区域分开！&lt;/p&gt;
+&lt;p&gt;这就是 Shi &amp;amp; Malik 2000 年提出的 &lt;strong&gt;Normalized Cuts 算法&lt;/strong&gt;。&lt;/p&gt;
+&lt;h3 id=&#34;19302200--海森矩阵与血管增强slide-8&#34;&gt;19:30–22:00 — 海森矩阵与血管增强（Slide 8）
+&lt;/h3&gt;&lt;p&gt;海森矩阵 $H$ 由图像的二阶偏导构成：&lt;/p&gt;
+$$
+H = \begin{bmatrix} f_{xx} &amp; f_{xy} \\ f_{yx} &amp; f_{yy} \end{bmatrix}
+$$&lt;p&gt;对于每个像素，$H$ 的特征值 $\lambda_1, \lambda_2$ 揭示局部几何结构：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;管状（血管）：&lt;/strong&gt; $|\lambda_1| \approx 0,; |\lambda_2| \gg 0$&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;斑状（肿瘤）：&lt;/strong&gt; $|\lambda_1| \approx |\lambda_2| \gg 0$&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;各向同性区域：&lt;/strong&gt; $|\lambda_1| \approx |\lambda_2| \approx 0$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;算例：&lt;/strong&gt; 水平血管模型 $f(x,y) = 100\exp\left(-\frac{x^2 + 0.1y^2}{\sigma^2}\right)$ 的 Hessian：&lt;/p&gt;
+$$
+H = \begin{bmatrix} -\frac{200}{\sigma^2} &amp; 0 \\ 0 &amp; -\frac{20}{\sigma^2} \end{bmatrix}, \quad
+\lambda_1 = -\frac{200}{\sigma^2},\; \lambda_2 = -\frac{20}{\sigma^2}
+$$&lt;p&gt;$|\lambda_1| \ll |\lambda_2|$ → 判断为管状结构。$\lambda_1$ 方向是血管走向，$\lambda_2$ 方向是截面方向。&lt;/p&gt;
+&lt;p&gt;Frangi 滤波器基于此计算&amp;quot;血管响应&amp;rdquo;：&lt;/p&gt;
+$$
+\mathcal{V} = \exp\left(-\frac{\lambda_1^2}{2\lambda_2^2}\right) \left(1 - \exp\left(-\frac{S^2}{2c^2}\right)\right)
+$$&lt;p&gt;多尺度 Hessian → 不同粗细的血管都能增强。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;六glcm-和-nmf纹理与组织分解4-分钟&#34;&gt;六、GLCM 和 NMF：纹理与组织分解（~4 分钟）
+&lt;/h2&gt;&lt;h3 id=&#34;22002400--glcm-纹理分析slide-9&#34;&gt;22:00–24:00 — GLCM 纹理分析（Slide 9）
+&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;GLCM（灰度共生矩阵）&lt;/strong&gt; 是一个统计矩阵：$P[i][j]$ 统计了图像中灰度 $i$ 和灰度 $j$ 在特定方向上相邻出现的频率。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;算例：&lt;/strong&gt; $4 \times 4$ 像素块，沿水平方向 ($\Delta = (1,0)$) 统计，4 个灰度级：&lt;/p&gt;
+$$
+\text{图像} \begin{bmatrix} 0&amp;0&amp;1&amp;1 \\ 0&amp;0&amp;1&amp;1 \\ 0&amp;2&amp;2&amp;2 \\ 2&amp;2&amp;3&amp;3 \end{bmatrix}, \quad
+\text{GLCM} \begin{bmatrix} 2&amp;2&amp;0&amp;0 \\ 1&amp;2&amp;2&amp;0 \\ 0&amp;2&amp;4&amp;2 \\ 0&amp;0&amp;2&amp;4 \end{bmatrix}
+$$&lt;p&gt;从 GLCM 计算 &lt;strong&gt;Haralick 特征&lt;/strong&gt;：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;对比度：$\sum (i-j)^2 P[i][j] = 1.2$&lt;/li&gt;
+&lt;li&gt;相关性：$\frac{\sum (i-\mu)(j-\mu)P}{\sigma^2} = 0.63$&lt;/li&gt;
+&lt;li&gt;能量：$\sum P[i][j]^2 = 0.18$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;肿瘤组织&lt;/strong&gt;通常对比度更高、相关性更低（异质性高、纹理粗糙），正常组织则相反。&lt;/p&gt;
+&lt;h3 id=&#34;24002600--nmf-组织分解slide-10&#34;&gt;24:00–26:00 — NMF 组织分解（Slide 10）
+&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;NMF（非负矩阵分解）：&lt;/strong&gt; $V_{(m \times n)} \approx W_{(m \times k)} H_{(k \times n)}$，约束 $W, H \geq 0$。&lt;/p&gt;
+&lt;p&gt;在病理学中有一个经典应用：&lt;strong&gt;H&amp;amp;E 染色分离&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;一张 H&amp;amp;E 染色的病理切片，每个像素的 RGB 值是苏木精（染细胞核）+ 伊红（染细胞质）的叠加。NMF 自动分解：&lt;/p&gt;
+$$
+\begin{bmatrix} r_1 &amp; g_1 &amp; b_1 \\ r_2 &amp; g_2 &amp; b_2 \\ \vdots &amp; \vdots &amp; \vdots \\ r_n &amp; g_n &amp; b_n \end{bmatrix}
+\approx
+\begin{bmatrix} h_1 &amp; e_1 \\ h_2 &amp; e_2 \\ \vdots &amp; \vdots \\ h_n &amp; e_n \end{bmatrix}
+\begin{bmatrix} w_{hr} &amp; w_{hg} &amp; w_{hb} \\ w_{er} &amp; w_{eg} &amp; w_{eb} \end{bmatrix}
+$$&lt;p&gt;$h_i$ = 苏木精含量（细胞核），$e_i$ = 伊红含量（细胞质）。分离后各自独立分割。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;七jacobian-与深度学习中的矩阵3-分钟&#34;&gt;七、Jacobian 与深度学习中的矩阵（~3 分钟）
+&lt;/h2&gt;&lt;h3 id=&#34;26002730--jacobian-与配准slide-11&#34;&gt;26:00–27:30 — Jacobian 与配准（Slide 11）
+&lt;/h3&gt;&lt;p&gt;图像配准：找到一种变形让两张图像对齐。变形场 $\phi: x \mapsto \phi(x)$，它的 Jacobian 矩阵 $J = \nabla \phi$ 告诉我们局部变形情况。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;算例：&lt;/strong&gt; $\phi(x,y) = (x + 0.1x,; y + 0.2y)$&lt;/p&gt;
+$$
+J = \nabla \phi = \begin{bmatrix} 1.1 &amp; 0 \\ 0 &amp; 1.2 \end{bmatrix}, \quad \det(J) = 1.1 \times 1.2 = 1.32 &gt; 1
+$$&lt;ul&gt;
+&lt;li&gt;$\det(J) &amp;gt; 1$ → 局部膨胀 32%&lt;/li&gt;
+&lt;li&gt;$\det(J) &amp;lt; 1$ → 局部收缩&lt;/li&gt;
+&lt;li&gt;$\det(J) \leq 0$ → 变形场不可逆，分割无效&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$|\det(J)-1|$ 常作为正则化项加入损失函数。&lt;/p&gt;
+&lt;h3 id=&#34;27302830--深度学习--矩阵运算slide-12&#34;&gt;27:30–28:30 — 深度学习 = 矩阵运算（Slide 12）
+&lt;/h3&gt;&lt;p&gt;深度学习模型核心就三种运算：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;全连接层：&lt;/strong&gt; $y = Wx + b$&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Self-Attention：&lt;/strong&gt; $\text{Attention}(Q,K,V) = \text{Softmax}\left(\frac{QK^\top}{\sqrt{d}}\right)V$&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;卷积：&lt;/strong&gt; 稀疏矩阵乘法&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;Attention 算例&lt;/strong&gt;（序列长度=4, 维度=3）：&lt;/p&gt;
+$$
+QK^\top_{(4 \times 4)} = \begin{bmatrix} 0.9 &amp; 0.2 &amp; 0.1 &amp; 0.0 \\ 0.3 &amp; 0.8 &amp; 0.4 &amp; 0.1 \\ 0.1 &amp; 0.3 &amp; 0.9 &amp; 0.5 \\ 0.0 &amp; 0.1 &amp; 0.5 &amp; 0.9 \end{bmatrix}
+\rightarrow
+\text{Softmax}\left(\frac{QK^\top}{\sqrt{3}}\right) = \begin{bmatrix} 0.61 &amp; 0.17 &amp; 0.14 &amp; 0.08 \\ 0.19 &amp; 0.48 &amp; 0.22 &amp; 0.11 \\ 0.11 &amp; 0.17 &amp; 0.52 &amp; 0.20 \\ 0.08 &amp; 0.12 &amp; 0.30 &amp; 0.50 \end{bmatrix}
+$$&lt;p&gt;每个输出位置 = 所有位置的加权和 → 全局信息融合。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;八张量分解与总结15-分钟&#34;&gt;八、张量分解与总结（~1.5 分钟）
+&lt;/h2&gt;&lt;h3 id=&#34;28302900--张量分解slide-13&#34;&gt;28:30–29:00 — 张量分解（Slide 13）
+&lt;/h3&gt;&lt;p&gt;多模态 MRI（T1, T1c, T2, FLAIR）构成一个三阶张量 $\mathcal{X} \in \mathbb{R}^{256 \times 256 \times 4}$。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Tucker 分解：&lt;/strong&gt;&lt;/p&gt;
+$$
+\mathcal{X}_{(I \times J \times K)} \approx \mathcal{G}_{(R_1 R_2 R_3)} \times_1 U_1 \times_2 U_2 \times_3 U_3
+$$&lt;p&gt;$U_1$ 行基，$U_2$ 列基，$U_3$ 模态基。分解后用 $U_3$ 融合模态信息 → 统一分割。&lt;/p&gt;
+&lt;h3 id=&#34;29003000--总结slide-14&#34;&gt;29:00–30:00 — 总结（Slide 14）
+&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;一句话总结：矩阵分析 = 分割算法的自然语言。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;推荐扩展阅读：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Golub &amp;amp; Van Loan: Matrix Computations&lt;/li&gt;
+&lt;li&gt;Shi &amp;amp; Malik: Normalized Cuts (PAMI 2000)&lt;/li&gt;
+&lt;li&gt;Frangi et al.: Vessel Enhancement (MICCAI 1998)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>
