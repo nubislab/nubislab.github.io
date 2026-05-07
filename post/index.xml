@@ -2932,27 +2932,6 @@ $$
 </description>
         </item>
         <item>
-        <title>矩阵乘法</title>
-        <link>https://blogbook.eu.org/p/%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95/</link>
-        <pubDate>Sun, 29 Jun 2025 21:48:44 +0800</pubDate>
-        
-        <guid>https://blogbook.eu.org/p/%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95/</guid>
-        <description>&lt;p&gt;这个是我看Transformer, 里面有提到矩阵乘法的内容，感觉很有意思。&lt;/p&gt;
-&lt;p&gt;这个对于我来说,对于矩阵的一个乘法有了一个全新的视角来进行理解.&lt;/p&gt;
-&lt;p&gt;来个例子&lt;/p&gt;
-&lt;p&gt;$AB$的矩阵相乘,其实就是$A$的每一行和$B$的每一列进行点积,然后得到一个新的矩阵.
-也就是矩阵A映射到矩阵B的一个线性变换.或者说是A到B的一个线性映射.
-假如这个A是一个&lt;/p&gt;
-$$m \times n$$&lt;p&gt;的矩阵, B是一个&lt;/p&gt;
-$$n \times p$$&lt;p&gt;的矩阵, 那么这个乘积就是一个&lt;/p&gt;
-$$m \times p$$&lt;p&gt;的矩阵.
-也就是这个乘积的行数是A的行数,列数是B的列数.
-也就是说A的维度从$n$变成了$p$,也就是A的维度从变成了B的维度.这种矩阵相乘的方式,其实就是一个线性变换的过程.
-也就是A的每一行和B的每一列进行点积,然后得到一个新的矩阵.这个新的矩阵就是A到B的一个线性映射.&lt;/p&gt;
-&lt;p&gt;############&lt;/p&gt;
-</description>
-        </item>
-        <item>
         <title>线性模型</title>
         <link>https://blogbook.eu.org/p/%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B/</link>
         <pubDate>Fri, 27 Jun 2025 00:38:46 +0800</pubDate>
