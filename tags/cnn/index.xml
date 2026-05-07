@@ -7,7 +7,275 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>云雾中的山-NubisLab</copyright>
-        <lastBuildDate>Thu, 07 May 2026 00:42:06 +0800</lastBuildDate><atom:link href="https://blogbook.eu.org/tags/cnn/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 07 May 2026 13:41:51 +0800</lastBuildDate><atom:link href="https://blogbook.eu.org/tags/cnn/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>图像分割综述：从传统方法到基础模型的演进之路</title>
+        <link>https://blogbook.eu.org/p/%E5%9B%BE%E5%83%8F%E5%88%86%E5%89%B2%E7%BB%BC%E8%BF%B0%E4%BB%8E%E4%BC%A0%E7%BB%9F%E6%96%B9%E6%B3%95%E5%88%B0%E5%9F%BA%E7%A1%80%E6%A8%A1%E5%9E%8B%E7%9A%84%E6%BC%94%E8%BF%9B%E4%B9%8B%E8%B7%AF/</link>
+        <pubDate>Thu, 07 May 2026 10:00:00 +0800</pubDate>
+        
+        <guid>https://blogbook.eu.org/p/%E5%9B%BE%E5%83%8F%E5%88%86%E5%89%B2%E7%BB%BC%E8%BF%B0%E4%BB%8E%E4%BC%A0%E7%BB%9F%E6%96%B9%E6%B3%95%E5%88%B0%E5%9F%BA%E7%A1%80%E6%A8%A1%E5%9E%8B%E7%9A%84%E6%BC%94%E8%BF%9B%E4%B9%8B%E8%B7%AF/</guid>
+        <description>&lt;h2 id=&#34;一引言&#34;&gt;一、引言
+&lt;/h2&gt;&lt;p&gt;图像分割（Image Segmentation）是计算机视觉的核心任务之一，其目标是将图像划分为若干具有语义意义的区域。与分类（整个图像一个标签）和目标检测（边界框定位）不同，分割要求&lt;strong&gt;像素级&lt;/strong&gt;的理解——为图像中的每一个像素分配一个类别标签。&lt;/p&gt;
+&lt;p&gt;按照输出粒度的不同，图像分割通常分为三个层次：&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;类型&lt;/th&gt;
+          &lt;th&gt;描述&lt;/th&gt;
+          &lt;th&gt;输出示例&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;语义分割&lt;/strong&gt; (Semantic)&lt;/td&gt;
+          &lt;td&gt;为每个像素分配类别标签，不区分个体&lt;/td&gt;
+          &lt;td&gt;所有&amp;quot;人&amp;quot;像素为红色&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;实例分割&lt;/strong&gt; (Instance)&lt;/td&gt;
+          &lt;td&gt;区分同一类别的不同个体&lt;/td&gt;
+          &lt;td&gt;人1 红色，人2 蓝色&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;全景分割&lt;/strong&gt; (Panoptic)&lt;/td&gt;
+          &lt;td&gt;语义 + 实例，覆盖所有像素&lt;/td&gt;
+          &lt;td&gt;&amp;ldquo;stuff&amp;rdquo; 语义 + &amp;ldquo;thing&amp;rdquo; 实例&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;过去十年，这一领域经历了三次范式革命：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;CNN 时代&lt;/strong&gt;（2014–2020）——从全卷积网络到编解码器架构&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Transformer 时代&lt;/strong&gt;（2020–2023）——自注意力机制捕获全局上下文&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;基础模型时代&lt;/strong&gt;（2023–至今）——大规模预训练 + 提示工程&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;本文将从传统方法出发，系统梳理这一演进脉络，重点剖析关键模型的核心思想和设计权衡。&lt;/p&gt;
+&lt;h2 id=&#34;二传统分割方法深度学习之前&#34;&gt;二、传统分割方法（深度学习之前）
+&lt;/h2&gt;&lt;p&gt;在深度学习普及之前，图像分割主要依赖手工设计的特征和经典图像处理算法。尽管这些方法在今天已被深度学习超越，但其中的许多思想——如条件随机场（CRF）、图割（Graph Cut）——在后来的深度模型中得到了复兴和融合。&lt;/p&gt;
+&lt;h3 id=&#34;21-基于阈值的方法&#34;&gt;2.1 基于阈值的方法
+&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Otsu 算法&lt;/strong&gt;（1979）是最经典的自动阈值分割方法。它通过最大化类间方差来自动选择最优阈值：&lt;/p&gt;
+$$
+\sigma^2_B(t) = \omega_1(t)\omega_2(t)[\mu_1(t) - \mu_2(t)]^2
+$$&lt;p&gt;其中 $\omega_1, \omega_2$ 是两类像素占比，$\mu_1, \mu_2$ 是两类均值。Otsu 对双峰直方图的图像效果很好，但对光照不均、噪声敏感。&lt;/p&gt;
+&lt;h3 id=&#34;22-基于边缘的方法&#34;&gt;2.2 基于边缘的方法
+&lt;/h3&gt;&lt;p&gt;检测图像中的边缘（Canny、Sobel、LoG），然后闭合边缘形成区域。核心假设是：&lt;strong&gt;语义边界对应着像素值的剧烈变化&lt;/strong&gt;。但实际中，边缘往往不连续，且纹理区域会产生大量伪边缘。&lt;/p&gt;
+&lt;h3 id=&#34;23-基于区域的方法&#34;&gt;2.3 基于区域的方法
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;区域生长&lt;/strong&gt;：从种子点开始，合并满足相似性条件的邻域像素&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;分水岭算法&lt;/strong&gt;：将梯度图像视为地形图，&amp;ldquo;水&amp;quot;从局部极小值开始上涨，不同&amp;quot;水域&amp;quot;相遇处即为分割边界。容易过分割，通常需要预处理或后处理标记控制。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;24-聚类方法&#34;&gt;2.4 聚类方法
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;K-means&lt;/strong&gt;：在颜色/特征空间中聚类像素。简单高效，但需要预设 $K$ 值，且缺乏空间一致性&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;均值漂移（Mean Shift）&lt;/strong&gt;：非参数密度估计，不需要预设类别数，但计算量大&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;25-图割与条件随机场&#34;&gt;2.5 图割与条件随机场
+&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Graph Cut&lt;/strong&gt;（Boykov &amp;amp; Kolmogorov, 2001）将分割建模为能量最小化问题：&lt;/p&gt;
+$$
+E(L) = \sum_i D_i(l_i) + \lambda \sum_{(i,j) \in \mathcal{N}} V_{ij}(l_i, l_j)
+$$&lt;p&gt;数据项 $D_i$ 衡量像素 $i$ 分配标签 $l_i$ 的代价，平滑项 $V_{ij}$ 惩罚相邻像素的标签不一致。&lt;strong&gt;CRF 作为后处理&lt;/strong&gt;在早期深度学习分割模型中广泛使用（如 DeepLab v1/v2），用来锐化分割边界。&lt;/p&gt;
+&lt;h2 id=&#34;三cnn-时代从像素到语义&#34;&gt;三、CNN 时代：从像素到语义
+&lt;/h2&gt;&lt;h3 id=&#34;31-全卷积网络fcn-2015&#34;&gt;3.1 全卷积网络（FCN, 2015）
+&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Fully Convolutional Network&lt;/strong&gt;（Long et al., CVPR 2015）是深度学习语义分割的奠基之作。核心贡献有二：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;用卷积层替换全连接层&lt;/strong&gt;，使网络可以接受任意尺寸的输入&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;跳级连接（Skip Connection）&lt;/strong&gt;，融合浅层细节与深层语义&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;FCN 将分类网络（VGG、AlexNet）末端改为一连串卷积和上采样，输出与输入同尺寸的热力图。但它的上采样结果仍然比较粗糙，对细节的恢复能力有限。&lt;/p&gt;
+&lt;h3 id=&#34;32-u-net2015&#34;&gt;3.2 U-Net（2015）
+&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;U-Net&lt;/strong&gt;（Ronneberger et al., MICCAI 2015）专为医学图像分割设计，其&lt;strong&gt;对称编解码器 + 跳接&lt;/strong&gt;结构成为后续无数模型的基石。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;输入 → [Conv × 2 → Down] × 4 → Bottleneck → [Up → Conv × 2] × 4 → 输出
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                ↓                      ↑
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;              跳接 --------------------→
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;为什么 U-Net 如此成功？&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;编码器&lt;/strong&gt;逐步下采样，扩大感受野提取语义&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;解码器&lt;/strong&gt;逐步上采样，恢复空间分辨率&lt;/li&gt;
+&lt;li&gt;**跳接（Skip Connection）**将编码器的浅层细节直接传给解码器，缓解信息损失&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;U-Net 的变体数不胜数：UNet++（密集跳接）、Attention U-Net（门控注意力）、nnU-Net（自适应配置框架），它们在医学分割领域长期占据主导地位。&lt;/p&gt;
+&lt;h3 id=&#34;33-deeplab-系列20162018&#34;&gt;3.3 DeepLab 系列（2016–2018）
+&lt;/h3&gt;&lt;p&gt;DeepLab 系列由 Google 团队开发，核心创新是&lt;strong&gt;空洞卷积（Atrous/Dilated Convolution）&lt;/strong&gt;：&lt;/p&gt;
+$$
+y[i] = \sum_k x[i + r \cdot k] \cdot w[k]
+$$&lt;p&gt;空洞率 $r$ 控制卷积核的采样间隔。相比池化下采样，空洞卷积在&lt;strong&gt;不增加参数量&lt;/strong&gt;的前提下指数级扩大感受野。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;DeepLab v1&lt;/strong&gt;（2015）：VGG-16 + 空洞卷积 + CRF 后处理&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;DeepLab v2&lt;/strong&gt;（2017）：&lt;strong&gt;ASPP（Atrous Spatial Pyramid Pooling）&lt;/strong&gt;——以不同空洞率并行采样，捕获多尺度上下文&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;DeepLab v3&lt;/strong&gt;（2017）：改进 ASPP，加入全局平均池化分支，去掉 CRF&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;DeepLab v3+&lt;/strong&gt;（2018）：加入编解码器结构，Xception 作为骨干&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;34-pspnet2017&#34;&gt;3.4 PSPNet（2017）
+&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Pyramid Scene Parsing Network&lt;/strong&gt;（Zhao et al., CVPR 2017）提出了&lt;strong&gt;金字塔池化模块（PPM）&lt;/strong&gt;：将特征图划分为不同尺度的网格（1×1、2×2、3×3、6×6），分别池化后再上采样拼接。PPM 的核心问题是处理&lt;strong&gt;场景中物体的尺度差异&lt;/strong&gt;——同一个类别在近处和远处可能尺寸相差数十倍。&lt;/p&gt;
+&lt;h3 id=&#34;35-mask-r-cnn2017&#34;&gt;3.5 Mask R-CNN（2017）
+&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Mask R-CNN&lt;/strong&gt;（He et al., ICCV 2017）将 Faster R-CNN 扩展为实例分割模型，在检测分支之外增加了一个并行的掩码预测分支：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;ROI Align&lt;/strong&gt;：解决 ROI Pooling 的量化误差，使用双线性插值保持空间对应&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;多任务损失&lt;/strong&gt;：分类 + 边界框回归 + 二值掩码&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Mask R-CNN 是两阶段实例分割的标杆，后来的很多工作（Cascade Mask R-CNN、Hybrid Task Cascade）都是在其基础上的改进。&lt;/p&gt;
+&lt;h2 id=&#34;四transformer-时代全局上下文的新范式&#34;&gt;四、Transformer 时代：全局上下文的新范式
+&lt;/h2&gt;&lt;h3 id=&#34;41-vit-带来的冲击&#34;&gt;4.1 ViT 带来的冲击
+&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Vision Transformer&lt;/strong&gt;（Dosovitskiy et al., ICLR 2021）证明：将图像分割为固定大小的 Patch（如 16×16），线性投影后送入标准 Transformer Encoder，在图像分类上可以超越 CNN。&lt;/p&gt;
+&lt;p&gt;这对分割领域的启示是深远的：CNN 受限于局部感受野，而 Transformer 的自注意力机制可以&lt;strong&gt;直接建模任意两个像素之间的关系&lt;/strong&gt;。研究者迅速跟进，试图将 Transformer 引入分割架构。&lt;/p&gt;
+&lt;h3 id=&#34;42-setr2021&#34;&gt;4.2 SETR（2021）
+&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;SETR（SEgmentation TRansformer）&lt;/strong&gt;（Zheng et al., CVPR 2021）是最早的纯 Transformer 分割模型之一。它使用 ViT 作为编码器提取特征，然后通过渐进式上采样解码器恢复分辨率。&lt;/p&gt;
+&lt;p&gt;但 SETR 的问题也很明显：ViT 的 self-attention 计算量与输入尺寸平方相关，高分辨率的医学图像或高清街景图在计算上不可行。&lt;/p&gt;
+&lt;h3 id=&#34;43-transunet2021&#34;&gt;4.3 TransUNet（2021）
+&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;TransUNet&lt;/strong&gt;（Chen et al., 2021）采取了更务实的策略：CNN 作为底层特征提取器，Transformer 在瓶颈处处理特征序列，再接 U-Net 式解码器。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;CNN 编码器 → Transformer 瓶颈 → CNN 解码器 + 跳接
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;这种&lt;strong&gt;混合架构&lt;/strong&gt;的思路在后续工作中被广泛采用——不是用 Transformer 完全替代 CNN，而是在需要全局建模的地方引入注意力机制。&lt;/p&gt;
+&lt;h3 id=&#34;44-segformer2021&#34;&gt;4.4 SegFormer（2021）
+&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;SegFormer&lt;/strong&gt;（Xie et al., NeurIPS 2021）将分层 Transformer 编码器与轻量级 MLP 解码器结合：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;分层 Transformer 编码器&lt;/strong&gt;：输出多尺度特征（类似 ResNet 的层次结构），且位置编码是&lt;strong&gt;零初始化的条件位置编码&lt;/strong&gt;，适应任意分辨率&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;MLP 解码器&lt;/strong&gt;：简单地将多尺度特征上采样到同一尺寸，拼接后通过 MLP 预测分割图&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;SegFormer 在多个基准上达到了当时最优（SOTA），且速度远超 DeepLab 等模型。它代表了 Transformer 分割模型的成熟——简洁、高效、无需位置编码微调。&lt;/p&gt;
+&lt;h3 id=&#34;45-mask2former20212022&#34;&gt;4.5 Mask2Former（2021–2022）
+&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Mask2Former&lt;/strong&gt;（Cheng et al., CVPR 2022）统一了语义、实例和全景分割，提出了一种通用的&lt;strong&gt;掩码分类&lt;/strong&gt;框架：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;从 Transformer 解码器学习一组可学习的 &lt;strong&gt;query&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;每个 query 预测一个二值掩码 + 类别标签&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Masked Attention&lt;/strong&gt;：只让 query 关注预测掩码区域内的特征，大幅降低计算量&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Mask2Former 的关键创新是 masked attention，它解决了 Transformer 解码器中 query 需要关注全图的低效问题。一个 query 只关注其感兴趣的区域，计算复杂度从 $\mathcal{O}(N^2)$ 降至 $\mathcal{O}(N \cdot M)$（$M \ll N$）。&lt;/p&gt;
+&lt;h2 id=&#34;五基础模型时代sam-与提示分割&#34;&gt;五、基础模型时代：SAM 与提示分割
+&lt;/h2&gt;&lt;h3 id=&#34;51-segment-anything-modelsam-2023&#34;&gt;5.1 Segment Anything Model（SAM, 2023）
+&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;SAM&lt;/strong&gt;（Kirillov et al., ICCV 2023）是图像分割领域的 GPT 时刻。它在大规模数据集 SA-1B（11亿掩码，1100万图像）上训练，具有强大的零样本泛化能力。&lt;/p&gt;
+&lt;p&gt;SAM 的三组件架构：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;┌──────────┐    ┌──────────┐    ┌──────────┐
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;│ 图像编码器 │───→│ 提示编码器 │───→│ 掩码解码器 │
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;│ (ViT-H)   │    │ (点/框/文本)│    │ (轻量级)  │
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;└──────────┘    └──────────┘    └──────────┘
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;图像编码器&lt;/strong&gt;：MAE 预训练的 ViT-Huge，每张图只需推理一次&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;提示编码器&lt;/strong&gt;：支持点（prompt points）、边界框、文本（通过 CLIP 或 Grounding DINO）作为提示&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;掩码解码器&lt;/strong&gt;：轻量级 Transformer，运行提示和图像特征之间的交叉注意力&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;SAM 的设计体现了 &lt;strong&gt;&amp;ldquo;提示工程&amp;rdquo;&lt;/strong&gt; 的革命性理念：不再是训练一个模型做特定任务，而是训练一个通用模型，用户通过提示（prompt）指定要分割什么。&lt;strong&gt;一次图像编码，多次提示查询&lt;/strong&gt;的架构使其具有极高的交互效率。&lt;/p&gt;
+&lt;h3 id=&#34;52-sam-22024&#34;&gt;5.2 SAM 2（2024）
+&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;SAM 2&lt;/strong&gt;（Ravi et al., 2024）将 SAM 扩展到了&lt;strong&gt;视频分割&lt;/strong&gt;领域：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;引入&lt;strong&gt;记忆机制&lt;/strong&gt;（Memory Attention），在帧之间传递分割信息&lt;/li&gt;
+&lt;li&gt;支持流式处理：对新帧自动传播上一帧的掩码&lt;/li&gt;
+&lt;li&gt;在 SA-V 数据集（35K 视频，53K 掩码）上训练&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;SAM 2 的架构统一了图像和视频分割——图像可以视为单帧视频。这一统一意味着&lt;strong&gt;一个模型可以完成交互式分割、自动分割、视频对象跟踪等多个任务&lt;/strong&gt;。&lt;/p&gt;
+&lt;h3 id=&#34;53-医学领域的-sam-变体&#34;&gt;5.3 医学领域的 SAM 变体
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;SAM-Med2D&lt;/strong&gt;：在 SAM 基础上使用 46K 医学图像、460 万掩码微调，大幅提升医学场景的精度&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;SAM-Med3D&lt;/strong&gt;：扩展到 CT/MRI 体数据（三维）&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;MedSAM&lt;/strong&gt;：一个统一的医学图像分割模型，覆盖 10+ 模态&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;基础模型的出现改变了研究范式：从&amp;quot;设计特定任务的架构&amp;quot;转向&amp;quot;如何高效地适配/微调通用模型&amp;rdquo;。&lt;/p&gt;
+&lt;h2 id=&#34;六评估指标&#34;&gt;六、评估指标
+&lt;/h2&gt;&lt;h3 id=&#34;61-iou--jaccard-index&#34;&gt;6.1 IoU / Jaccard Index
+&lt;/h3&gt;&lt;p&gt;最广泛使用的分割评估指标：&lt;/p&gt;
+$$
+\text{IoU} = \frac{|A \cap B|}{|A \cup B|}
+$$&lt;h3 id=&#34;62-dice-similarity-coefficient&#34;&gt;6.2 Dice Similarity Coefficient
+&lt;/h3&gt;&lt;p&gt;医学分割领域偏好 Dice，因为它对类别不平衡更鲁棒：&lt;/p&gt;
+$$
+\text{Dice} = \frac{2|A \cap B|}{|A| + |B|}
+$$&lt;p&gt;两者之间的关系：$\text{Dice} = \frac{2 \cdot \text{IoU}}{1 + \text{IoU}}$&lt;/p&gt;
+&lt;h3 id=&#34;63-其他指标&#34;&gt;6.3 其他指标
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Pixel Accuracy&lt;/strong&gt;：正确分类的像素占比。简单但容易被大区域主导&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Mean Accuracy&lt;/strong&gt;：逐类计算准确率后取平均，缓解类别不平衡&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Precision / Recall / F1&lt;/strong&gt;：在掩码级别（实例分割）评估&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Hausdorff Distance&lt;/strong&gt;：评估分割边界与标注边界的最大偏差，在医学分割中常用&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;七应用领域&#34;&gt;七、应用领域
+&lt;/h2&gt;&lt;h3 id=&#34;71-医学图像分析&#34;&gt;7.1 医学图像分析
+&lt;/h3&gt;&lt;p&gt;图像分割在医学领域的应用最为广泛且深入：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;器官分割&lt;/strong&gt;：CT 中的肝脏/肾脏/肺分割、MRI 中的脑组织分割&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;病灶分割&lt;/strong&gt;：肿瘤、病变区域的分割（脑肿瘤、肺结节、视网膜病变）&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;细胞分割&lt;/strong&gt;：显微镜图像中的细胞核/膜分割&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;手术导航&lt;/strong&gt;：实时分割指导机器人手术&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;医学图像分割面临的独特挑战：标注昂贵（需要专家知识）、模态多样（CT/MRI/超声/PET）、类别极度不平衡。&lt;/p&gt;
+&lt;h3 id=&#34;72-自动驾驶&#34;&gt;7.2 自动驾驶
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;道路理解&lt;/strong&gt;：车道线、可行驶区域、路面障碍物分割&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;语义场景解析&lt;/strong&gt;：Cityscapes、BDD100K 数据集上的街景分割&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;实例分割&lt;/strong&gt;：车辆、行人等独立个体的分割&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;73-遥感与地理空间&#34;&gt;7.3 遥感与地理空间
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;土地利用分类（建筑、植被、水体）&lt;/li&gt;
+&lt;li&gt;道路提取&lt;/li&gt;
+&lt;li&gt;变化检测&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;74-工业与农业&#34;&gt;7.4 工业与农业
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;产品质检：缺陷检测分割&lt;/li&gt;
+&lt;li&gt;农作物长势监测&lt;/li&gt;
+&lt;li&gt;机器人抓取：物体分割 + 姿态估计&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;八挑战与未来方向&#34;&gt;八、挑战与未来方向
+&lt;/h2&gt;&lt;h3 id=&#34;81-当前挑战&#34;&gt;8.1 当前挑战
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;标注瓶颈&lt;/strong&gt;：高质量像素级标注成本极高。半监督、弱监督、自监督方法仍是研究热点&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;边界模糊&lt;/strong&gt;：在医学图像中，病灶边界往往模糊不清，不同专家的标注也存在差异&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;小目标分割&lt;/strong&gt;：小物体在深度网络中容易在下采样过程中丢失&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;域迁移&lt;/strong&gt;：在不同数据集/设备/中心之间，模型性能往往大幅下降&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;开放世界分割&lt;/strong&gt;：如何分割训练时未见过的类别（open-vocabulary / open-set segmentation）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;82-未来趋势&#34;&gt;8.2 未来趋势
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;基础模型 + 适配器（Adapter）&lt;/strong&gt;：不再训练完整模型，而是以 SAM 等为基础，通过轻量适配器适配特定任务&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;多模态融合&lt;/strong&gt;：整合文本、图像、知识图谱等多模态信息进行分割（如 CLIPSeg、Grounded SAM）&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;3D 与视频分割的融合&lt;/strong&gt;：从 2D 单帧扩展到 3D 体数据和视频流&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;交互式 + 自动化的结合&lt;/strong&gt;：用户提供少量点或框提示，模型自动完成精细分割&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;高效推理&lt;/strong&gt;：将大模型（SAM 等）蒸馏为适合部署的小模型，支持边缘端医疗设备&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;与多模态大语言模型的结合&lt;/strong&gt;：LISA、LLaVA-Seg 等工作将分割能力集成到大语言模型中，实现&amp;quot;对话式分割&amp;quot;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;九总结&#34;&gt;九、总结
+&lt;/h2&gt;&lt;p&gt;图像分割在过去十年经历了从手工特征到深度学习、从 CNN 到 Transformer、从专门模型到通用基础模型的范式跃迁。&lt;strong&gt;U-Net 奠定了编解码器架构的基石，DeepLab 的空洞卷积和 ASPP 推动了多尺度理解，Mask R-CNN 定义了实例分割的范式，而 SAM 开启了分割的基础模型时代。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;当前，语义分割在标准基准上的精度已经趋于饱和，但&lt;strong&gt;通用性、鲁棒性、交互性和跨模态能力&lt;/strong&gt;仍是未完全解决的问题。未来的分割模型将不再是孤立的视觉模块，而是多模态智能系统中与语言、知识深度耦合的组成部分。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;主要参考：&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Long et al., &amp;ldquo;Fully Convolutional Networks for Semantic Segmentation&amp;rdquo;, CVPR 2015&lt;/li&gt;
+&lt;li&gt;Ronneberger et al., &amp;ldquo;U-Net: Convolutional Networks for Biomedical Image Segmentation&amp;rdquo;, MICCAI 2015&lt;/li&gt;
+&lt;li&gt;Chen et al., &amp;ldquo;DeepLab: Semantic Image Segmentation with Deep Convolutional Nets, Atrous Convolution, and Fully Connected CRFs&amp;rdquo;, TPAMI 2017&lt;/li&gt;
+&lt;li&gt;He et al., &amp;ldquo;Mask R-CNN&amp;rdquo;, ICCV 2017&lt;/li&gt;
+&lt;li&gt;Vaswani et al., &amp;ldquo;Attention Is All You Need&amp;rdquo;, NeurIPS 2017&lt;/li&gt;
+&lt;li&gt;Dosovitskiy et al., &amp;ldquo;An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale&amp;rdquo;, ICLR 2021&lt;/li&gt;
+&lt;li&gt;Xie et al., &amp;ldquo;SegFormer: Simple and Efficient Design for Semantic Segmentation with Transformers&amp;rdquo;, NeurIPS 2021&lt;/li&gt;
+&lt;li&gt;Cheng et al., &amp;ldquo;Masked-attention Mask Transformer for Universal Image Segmentation&amp;rdquo;, CVPR 2022&lt;/li&gt;
+&lt;li&gt;Kirillov et al., &amp;ldquo;Segment Anything&amp;rdquo;, ICCV 2023&lt;/li&gt;
+&lt;li&gt;Ravi et al., &amp;ldquo;SAM 2: Segment Anything Model in Images and Videos&amp;rdquo;, 2024&lt;/li&gt;
+&lt;/ol&gt;</description>
+        </item>
+        <item>
         <title>医学图像分割的范式跃迁 — 45 分钟讲稿（含 CNN 扩展）</title>
         <link>https://blogbook.eu.org/p/%E5%8C%BB%E5%AD%A6%E5%9B%BE%E5%83%8F%E5%88%86%E5%89%B2%E7%9A%84%E8%8C%83%E5%BC%8F%E8%B7%83%E8%BF%81-45-%E5%88%86%E9%92%9F%E8%AE%B2%E7%A8%BF%E5%90%AB-cnn-%E6%89%A9%E5%B1%95/</link>
         <pubDate>Wed, 06 May 2026 22:00:00 +0800</pubDate>

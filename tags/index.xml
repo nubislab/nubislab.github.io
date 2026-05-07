@@ -7,7 +7,63 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>云雾中的山-NubisLab</copyright>
-        <lastBuildDate>Thu, 07 May 2026 00:49:31 +0800</lastBuildDate><atom:link href="https://blogbook.eu.org/tags/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 07 May 2026 13:41:51 +0800</lastBuildDate><atom:link href="https://blogbook.eu.org/tags/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Cnn</title>
+        <link>https://blogbook.eu.org/tags/cnn/</link>
+        <pubDate>Thu, 07 May 2026 10:00:00 +0800</pubDate>
+        
+        <guid>https://blogbook.eu.org/tags/cnn/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Computer-Vision</title>
+        <link>https://blogbook.eu.org/tags/computer-vision/</link>
+        <pubDate>Thu, 07 May 2026 10:00:00 +0800</pubDate>
+        
+        <guid>https://blogbook.eu.org/tags/computer-vision/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Deep-Learning</title>
+        <link>https://blogbook.eu.org/tags/deep-learning/</link>
+        <pubDate>Thu, 07 May 2026 10:00:00 +0800</pubDate>
+        
+        <guid>https://blogbook.eu.org/tags/deep-learning/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Image-Segmentation</title>
+        <link>https://blogbook.eu.org/tags/image-segmentation/</link>
+        <pubDate>Thu, 07 May 2026 10:00:00 +0800</pubDate>
+        
+        <guid>https://blogbook.eu.org/tags/image-segmentation/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Sam</title>
+        <link>https://blogbook.eu.org/tags/sam/</link>
+        <pubDate>Thu, 07 May 2026 10:00:00 +0800</pubDate>
+        
+        <guid>https://blogbook.eu.org/tags/sam/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Survey</title>
+        <link>https://blogbook.eu.org/tags/survey/</link>
+        <pubDate>Thu, 07 May 2026 10:00:00 +0800</pubDate>
+        
+        <guid>https://blogbook.eu.org/tags/survey/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Transformer</title>
+        <link>https://blogbook.eu.org/tags/transformer/</link>
+        <pubDate>Thu, 07 May 2026 10:00:00 +0800</pubDate>
+        
+        <guid>https://blogbook.eu.org/tags/transformer/</guid>
+        <description></description>
+        </item>
+        <item>
         <title>Academic-Radar</title>
         <link>https://blogbook.eu.org/tags/academic-radar/</link>
         <pubDate>Wed, 06 May 2026 23:38:55 +0800</pubDate>
@@ -24,43 +80,11 @@
         <description></description>
         </item>
         <item>
-        <title>Computer-Vision</title>
-        <link>https://blogbook.eu.org/tags/computer-vision/</link>
-        <pubDate>Wed, 06 May 2026 23:38:55 +0800</pubDate>
-        
-        <guid>https://blogbook.eu.org/tags/computer-vision/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>Image-Segmentation</title>
-        <link>https://blogbook.eu.org/tags/image-segmentation/</link>
-        <pubDate>Wed, 06 May 2026 23:38:55 +0800</pubDate>
-        
-        <guid>https://blogbook.eu.org/tags/image-segmentation/</guid>
-        <description></description>
-        </item>
-        <item>
         <title>Clip</title>
         <link>https://blogbook.eu.org/tags/clip/</link>
         <pubDate>Wed, 06 May 2026 22:00:00 +0800</pubDate>
         
         <guid>https://blogbook.eu.org/tags/clip/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>Cnn</title>
-        <link>https://blogbook.eu.org/tags/cnn/</link>
-        <pubDate>Wed, 06 May 2026 22:00:00 +0800</pubDate>
-        
-        <guid>https://blogbook.eu.org/tags/cnn/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>Deep-Learning</title>
-        <link>https://blogbook.eu.org/tags/deep-learning/</link>
-        <pubDate>Wed, 06 May 2026 22:00:00 +0800</pubDate>
-        
-        <guid>https://blogbook.eu.org/tags/deep-learning/</guid>
         <description></description>
         </item>
         <item>
@@ -93,14 +117,6 @@
         <pubDate>Wed, 06 May 2026 22:00:00 +0800</pubDate>
         
         <guid>https://blogbook.eu.org/tags/medical-image-segmentation/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>Transformer</title>
-        <link>https://blogbook.eu.org/tags/transformer/</link>
-        <pubDate>Wed, 06 May 2026 22:00:00 +0800</pubDate>
-        
-        <guid>https://blogbook.eu.org/tags/transformer/</guid>
         <description></description>
         </item>
         <item>

@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="系统回顾图像分割领域的发展历程：从传统方法到深度学习（FCN、U-Net、DeepLab、Mask R-CNN），再到 Transformer 时代（ViT、SegFormer、Mask2Former），以及以 SAM 为代表的基础模型。涵盖核心思想、关键突破与未来趋势。">
+<title>图像分割综述：从传统方法到基础模型的演进之路</title>
+
+<link rel='canonical' href='https://blogbook.eu.org/p/%E5%9B%BE%E5%83%8F%E5%88%86%E5%89%B2%E7%BB%BC%E8%BF%B0%E4%BB%8E%E4%BC%A0%E7%BB%9F%E6%96%B9%E6%B3%95%E5%88%B0%E5%9F%BA%E7%A1%80%E6%A8%A1%E5%9E%8B%E7%9A%84%E6%BC%94%E8%BF%9B%E4%B9%8B%E8%B7%AF/'>
+
+<link rel="stylesheet" href="/scss/style.min.03ded39faa1bb33582d6d05db2f6240439e163f1b1db6983e5e232aef938d111.css"><meta property='og:title' content="图像分割综述：从传统方法到基础模型的演进之路">
+<meta property='og:description' content="系统回顾图像分割领域的发展历程：从传统方法到深度学习（FCN、U-Net、DeepLab、Mask R-CNN），再到 Transformer 时代（ViT、SegFormer、Mask2Former），以及以 SAM 为代表的基础模型。涵盖核心思想、关键突破与未来趋势。">
+<meta property='og:url' content='https://blogbook.eu.org/p/%E5%9B%BE%E5%83%8F%E5%88%86%E5%89%B2%E7%BB%BC%E8%BF%B0%E4%BB%8E%E4%BC%A0%E7%BB%9F%E6%96%B9%E6%B3%95%E5%88%B0%E5%9F%BA%E7%A1%80%E6%A8%A1%E5%9E%8B%E7%9A%84%E6%BC%94%E8%BF%9B%E4%B9%8B%E8%B7%AF/'>
+<meta property='og:site_name' content='云雾中的山-Nubislab'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='deep-learning' /><meta property='article:tag' content='image-segmentation' /><meta property='article:tag' content='computer-vision' /><meta property='article:tag' content='survey' /><meta property='article:tag' content='cnn' /><meta property='article:tag' content='transformer' /><meta property='article:tag' content='sam' /><meta property='article:published_time' content='2026-05-07T10:00:00&#43;08:00'/><meta property='article:modified_time' content='2026-05-07T13:41:51&#43;08:00'/>
+<meta name="twitter:title" content="图像分割综述：从传统方法到基础模型的演进之路">
+<meta name="twitter:description" content="系统回顾图像分割领域的发展历程：从传统方法到深度学习（FCN、U-Net、DeepLab、Mask R-CNN），再到 Transformer 时代（ViT、SegFormer、Mask2Former），以及以 SAM 为代表的基础模型。涵盖核心思想、关键突破与未来趋势。">
+    <link rel="shortcut icon" href="/favicon.ico" />
+
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']]
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    }
+  };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu_753105a7bfb94ca6.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">♾️</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">云雾中的山-Nubislab</a></h1>
+            <h2 class="site-description">欢迎来到我的博客</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://space.bilibili.com/290719760'
+                        target="_blank"
+                        
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.0.0-beta2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M488.6 104.1C505.3 122.2 513 143.8 511.9 169.8V372.2C511.5 398.6 502.7 420.3 485.4 437.3C468.2 454.3 446.3 463.2 419.9 464H92.02C65.57 463.2 43.81 454.2 26.74 436.8C9.682 419.4 .7667 396.5 0 368.2V169.8C.7667 143.8 9.682 122.2 26.74 104.1C43.81 87.75 65.57 78.77 92.02 78H121.4L96.05 52.19C90.3 46.46 87.42 39.19 87.42 30.4C87.42 21.6 90.3 14.34 96.05 8.603C101.8 2.868 109.1 0 117.9 0C126.7 0 134 2.868 139.8 8.603L213.1 78H301.1L375.6 8.603C381.7 2.868 389.2 0 398 0C406.8 0 414.1 2.868 419.9 8.603C425.6 14.34 428.5 21.6 428.5 30.4C428.5 39.19 425.6 46.46 419.9 52.19L394.6 78L423.9 78C450.3 78.77 471.9 87.75 488.6 104.1H488.6zM449.8 173.8C449.4 164.2 446.1 156.4 439.1 150.3C433.9 144.2 425.1 140.9 416.4 140.5H96.05C86.46 140.9 78.6 144.2 72.47 150.3C66.33 156.4 63.07 164.2 62.69 173.8V368.2C62.69 377.4 65.95 385.2 72.47 391.7C78.99 398.2 86.85 401.5 96.05 401.5H416.4C425.6 401.5 433.4 398.2 439.7 391.7C446 385.2 449.4 377.4 449.8 368.2L449.8 173.8zM185.5 216.5C191.8 222.8 195.2 230.6 195.6 239.7V273C195.2 282.2 191.9 289.9 185.8 296.2C179.6 302.5 171.8 305.7 162.2 305.7C152.6 305.7 144.7 302.5 138.6 296.2C132.5 289.9 129.2 282.2 128.8 273V239.7C129.2 230.6 132.6 222.8 138.9 216.5C145.2 210.2 152.1 206.9 162.2 206.5C171.4 206.9 179.2 210.2 185.5 216.5H185.5zM377 216.5C383.3 222.8 386.7 230.6 387.1 239.7V273C386.7 282.2 383.4 289.9 377.3 296.2C371.2 302.5 363.3 305.7 353.7 305.7C344.1 305.7 336.3 302.5 330.1 296.2C323.1 289.9 320.7 282.2 320.4 273V239.7C320.7 230.6 324.1 222.8 330.4 216.5C336.7 210.2 344.5 206.9 353.7 206.5C362.9 206.9 370.7 210.2 377 216.5H377z"/></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/NubisMons'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://twitter.com'
+                        target="_blank"
+                        title="Twitter"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Links</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+                    
+                        <li id="i18n-switch">  
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                            <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
+                                
+                                    <option value="https://blogbook.eu.org/en/" >English</option>
+                                
+                                    <option value="https://blogbook.eu.org/" selected>简体中文</option>
+                                
+                            </select>
+                        </li>
+                    
+                
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#一引言">一、引言</a></li>
+    <li><a href="#二传统分割方法深度学习之前">二、传统分割方法（深度学习之前）</a>
+      <ol>
+        <li><a href="#21-基于阈值的方法">2.1 基于阈值的方法</a></li>
+        <li><a href="#22-基于边缘的方法">2.2 基于边缘的方法</a></li>
+        <li><a href="#23-基于区域的方法">2.3 基于区域的方法</a></li>
+        <li><a href="#24-聚类方法">2.4 聚类方法</a></li>
+        <li><a href="#25-图割与条件随机场">2.5 图割与条件随机场</a></li>
+      </ol>
+    </li>
+    <li><a href="#三cnn-时代从像素到语义">三、CNN 时代：从像素到语义</a>
+      <ol>
+        <li><a href="#31-全卷积网络fcn-2015">3.1 全卷积网络（FCN, 2015）</a></li>
+        <li><a href="#32-u-net2015">3.2 U-Net（2015）</a></li>
+        <li><a href="#33-deeplab-系列20162018">3.3 DeepLab 系列（2016–2018）</a></li>
+        <li><a href="#34-pspnet2017">3.4 PSPNet（2017）</a></li>
+        <li><a href="#35-mask-r-cnn2017">3.5 Mask R-CNN（2017）</a></li>
+      </ol>
+    </li>
+    <li><a href="#四transformer-时代全局上下文的新范式">四、Transformer 时代：全局上下文的新范式</a>
+      <ol>
+        <li><a href="#41-vit-带来的冲击">4.1 ViT 带来的冲击</a></li>
+        <li><a href="#42-setr2021">4.2 SETR（2021）</a></li>
+        <li><a href="#43-transunet2021">4.3 TransUNet（2021）</a></li>
+        <li><a href="#44-segformer2021">4.4 SegFormer（2021）</a></li>
+        <li><a href="#45-mask2former20212022">4.5 Mask2Former（2021–2022）</a></li>
+      </ol>
+    </li>
+    <li><a href="#五基础模型时代sam-与提示分割">五、基础模型时代：SAM 与提示分割</a>
+      <ol>
+        <li><a href="#51-segment-anything-modelsam-2023">5.1 Segment Anything Model（SAM, 2023）</a></li>
+        <li><a href="#52-sam-22024">5.2 SAM 2（2024）</a></li>
+        <li><a href="#53-医学领域的-sam-变体">5.3 医学领域的 SAM 变体</a></li>
+      </ol>
+    </li>
+    <li><a href="#六评估指标">六、评估指标</a>
+      <ol>
+        <li><a href="#61-iou--jaccard-index">6.1 IoU / Jaccard Index</a></li>
+        <li><a href="#62-dice-similarity-coefficient">6.2 Dice Similarity Coefficient</a></li>
+        <li><a href="#63-其他指标">6.3 其他指标</a></li>
+      </ol>
+    </li>
+    <li><a href="#七应用领域">七、应用领域</a>
+      <ol>
+        <li><a href="#71-医学图像分析">7.1 医学图像分析</a></li>
+        <li><a href="#72-自动驾驶">7.2 自动驾驶</a></li>
+        <li><a href="#73-遥感与地理空间">7.3 遥感与地理空间</a></li>
+        <li><a href="#74-工业与农业">7.4 工业与农业</a></li>
+      </ol>
+    </li>
+    <li><a href="#八挑战与未来方向">八、挑战与未来方向</a>
+      <ol>
+        <li><a href="#81-当前挑战">8.1 当前挑战</a></li>
+        <li><a href="#82-未来趋势">8.2 未来趋势</a></li>
+      </ol>
+    </li>
+    <li><a href="#九总结">九、总结</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/ai/" >
+                AI
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/%E5%9B%BE%E5%83%8F%E5%88%86%E5%89%B2%E7%BB%BC%E8%BF%B0%E4%BB%8E%E4%BC%A0%E7%BB%9F%E6%96%B9%E6%B3%95%E5%88%B0%E5%9F%BA%E7%A1%80%E6%A8%A1%E5%9E%8B%E7%9A%84%E6%BC%94%E8%BF%9B%E4%B9%8B%E8%B7%AF/">图像分割综述：从传统方法到基础模型的演进之路</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            系统回顾图像分割领域的发展历程：从传统方法到深度学习（FCN、U-Net、DeepLab、Mask R-CNN），再到 Transformer 时代（ViT、SegFormer、Mask2Former），以及以 SAM 为代表的基础模型。涵盖核心思想、关键突破与未来趋势。
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2026-05-07</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 11 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h2 id="一引言">一、引言
+</h2><p>图像分割（Image Segmentation）是计算机视觉的核心任务之一，其目标是将图像划分为若干具有语义意义的区域。与分类（整个图像一个标签）和目标检测（边界框定位）不同，分割要求<strong>像素级</strong>的理解——为图像中的每一个像素分配一个类别标签。</p>
+<p>按照输出粒度的不同，图像分割通常分为三个层次：</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>类型</th>
+          <th>描述</th>
+          <th>输出示例</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>语义分割</strong> (Semantic)</td>
+          <td>为每个像素分配类别标签，不区分个体</td>
+          <td>所有&quot;人&quot;像素为红色</td>
+      </tr>
+      <tr>
+          <td><strong>实例分割</strong> (Instance)</td>
+          <td>区分同一类别的不同个体</td>
+          <td>人1 红色，人2 蓝色</td>
+      </tr>
+      <tr>
+          <td><strong>全景分割</strong> (Panoptic)</td>
+          <td>语义 + 实例，覆盖所有像素</td>
+          <td>&ldquo;stuff&rdquo; 语义 + &ldquo;thing&rdquo; 实例</td>
+      </tr>
+  </tbody>
+</table></div>
+<p>过去十年，这一领域经历了三次范式革命：</p>
+<ol>
+<li><strong>CNN 时代</strong>（2014–2020）——从全卷积网络到编解码器架构</li>
+<li><strong>Transformer 时代</strong>（2020–2023）——自注意力机制捕获全局上下文</li>
+<li><strong>基础模型时代</strong>（2023–至今）——大规模预训练 + 提示工程</li>
+</ol>
+<p>本文将从传统方法出发，系统梳理这一演进脉络，重点剖析关键模型的核心思想和设计权衡。</p>
+<h2 id="二传统分割方法深度学习之前">二、传统分割方法（深度学习之前）
+</h2><p>在深度学习普及之前，图像分割主要依赖手工设计的特征和经典图像处理算法。尽管这些方法在今天已被深度学习超越，但其中的许多思想——如条件随机场（CRF）、图割（Graph Cut）——在后来的深度模型中得到了复兴和融合。</p>
+<h3 id="21-基于阈值的方法">2.1 基于阈值的方法
+</h3><p><strong>Otsu 算法</strong>（1979）是最经典的自动阈值分割方法。它通过最大化类间方差来自动选择最优阈值：</p>
+$$
+\sigma^2_B(t) = \omega_1(t)\omega_2(t)[\mu_1(t) - \mu_2(t)]^2
+$$<p>其中 $\omega_1, \omega_2$ 是两类像素占比，$\mu_1, \mu_2$ 是两类均值。Otsu 对双峰直方图的图像效果很好，但对光照不均、噪声敏感。</p>
+<h3 id="22-基于边缘的方法">2.2 基于边缘的方法
+</h3><p>检测图像中的边缘（Canny、Sobel、LoG），然后闭合边缘形成区域。核心假设是：<strong>语义边界对应着像素值的剧烈变化</strong>。但实际中，边缘往往不连续，且纹理区域会产生大量伪边缘。</p>
+<h3 id="23-基于区域的方法">2.3 基于区域的方法
+</h3><ul>
+<li><strong>区域生长</strong>：从种子点开始，合并满足相似性条件的邻域像素</li>
+<li><strong>分水岭算法</strong>：将梯度图像视为地形图，&ldquo;水&quot;从局部极小值开始上涨，不同&quot;水域&quot;相遇处即为分割边界。容易过分割，通常需要预处理或后处理标记控制。</li>
+</ul>
+<h3 id="24-聚类方法">2.4 聚类方法
+</h3><ul>
+<li><strong>K-means</strong>：在颜色/特征空间中聚类像素。简单高效，但需要预设 $K$ 值，且缺乏空间一致性</li>
+<li><strong>均值漂移（Mean Shift）</strong>：非参数密度估计，不需要预设类别数，但计算量大</li>
+</ul>
+<h3 id="25-图割与条件随机场">2.5 图割与条件随机场
+</h3><p><strong>Graph Cut</strong>（Boykov &amp; Kolmogorov, 2001）将分割建模为能量最小化问题：</p>
+$$
+E(L) = \sum_i D_i(l_i) + \lambda \sum_{(i,j) \in \mathcal{N}} V_{ij}(l_i, l_j)
+$$<p>数据项 $D_i$ 衡量像素 $i$ 分配标签 $l_i$ 的代价，平滑项 $V_{ij}$ 惩罚相邻像素的标签不一致。<strong>CRF 作为后处理</strong>在早期深度学习分割模型中广泛使用（如 DeepLab v1/v2），用来锐化分割边界。</p>
+<h2 id="三cnn-时代从像素到语义">三、CNN 时代：从像素到语义
+</h2><h3 id="31-全卷积网络fcn-2015">3.1 全卷积网络（FCN, 2015）
+</h3><p><strong>Fully Convolutional Network</strong>（Long et al., CVPR 2015）是深度学习语义分割的奠基之作。核心贡献有二：</p>
+<ol>
+<li><strong>用卷积层替换全连接层</strong>，使网络可以接受任意尺寸的输入</li>
+<li><strong>跳级连接（Skip Connection）</strong>，融合浅层细节与深层语义</li>
+</ol>
+<p>FCN 将分类网络（VGG、AlexNet）末端改为一连串卷积和上采样，输出与输入同尺寸的热力图。但它的上采样结果仍然比较粗糙，对细节的恢复能力有限。</p>
+<h3 id="32-u-net2015">3.2 U-Net（2015）
+</h3><p><strong>U-Net</strong>（Ronneberger et al., MICCAI 2015）专为医学图像分割设计，其<strong>对称编解码器 + 跳接</strong>结构成为后续无数模型的基石。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">输入 → [Conv × 2 → Down] × 4 → Bottleneck → [Up → Conv × 2] × 4 → 输出
+</span></span><span class="line"><span class="cl">                ↓                      ↑
+</span></span><span class="line"><span class="cl">              跳接 --------------------→
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>为什么 U-Net 如此成功？</p>
+<ul>
+<li><strong>编码器</strong>逐步下采样，扩大感受野提取语义</li>
+<li><strong>解码器</strong>逐步上采样，恢复空间分辨率</li>
+<li>**跳接（Skip Connection）**将编码器的浅层细节直接传给解码器，缓解信息损失</li>
+</ul>
+<p>U-Net 的变体数不胜数：UNet++（密集跳接）、Attention U-Net（门控注意力）、nnU-Net（自适应配置框架），它们在医学分割领域长期占据主导地位。</p>
+<h3 id="33-deeplab-系列20162018">3.3 DeepLab 系列（2016–2018）
+</h3><p>DeepLab 系列由 Google 团队开发，核心创新是<strong>空洞卷积（Atrous/Dilated Convolution）</strong>：</p>
+$$
+y[i] = \sum_k x[i + r \cdot k] \cdot w[k]
+$$<p>空洞率 $r$ 控制卷积核的采样间隔。相比池化下采样，空洞卷积在<strong>不增加参数量</strong>的前提下指数级扩大感受野。</p>
+<ul>
+<li><strong>DeepLab v1</strong>（2015）：VGG-16 + 空洞卷积 + CRF 后处理</li>
+<li><strong>DeepLab v2</strong>（2017）：<strong>ASPP（Atrous Spatial Pyramid Pooling）</strong>——以不同空洞率并行采样，捕获多尺度上下文</li>
+<li><strong>DeepLab v3</strong>（2017）：改进 ASPP，加入全局平均池化分支，去掉 CRF</li>
+<li><strong>DeepLab v3+</strong>（2018）：加入编解码器结构，Xception 作为骨干</li>
+</ul>
+<h3 id="34-pspnet2017">3.4 PSPNet（2017）
+</h3><p><strong>Pyramid Scene Parsing Network</strong>（Zhao et al., CVPR 2017）提出了<strong>金字塔池化模块（PPM）</strong>：将特征图划分为不同尺度的网格（1×1、2×2、3×3、6×6），分别池化后再上采样拼接。PPM 的核心问题是处理<strong>场景中物体的尺度差异</strong>——同一个类别在近处和远处可能尺寸相差数十倍。</p>
+<h3 id="35-mask-r-cnn2017">3.5 Mask R-CNN（2017）
+</h3><p><strong>Mask R-CNN</strong>（He et al., ICCV 2017）将 Faster R-CNN 扩展为实例分割模型，在检测分支之外增加了一个并行的掩码预测分支：</p>
+<ul>
+<li><strong>ROI Align</strong>：解决 ROI Pooling 的量化误差，使用双线性插值保持空间对应</li>
+<li><strong>多任务损失</strong>：分类 + 边界框回归 + 二值掩码</li>
+</ul>
+<p>Mask R-CNN 是两阶段实例分割的标杆，后来的很多工作（Cascade Mask R-CNN、Hybrid Task Cascade）都是在其基础上的改进。</p>
+<h2 id="四transformer-时代全局上下文的新范式">四、Transformer 时代：全局上下文的新范式
+</h2><h3 id="41-vit-带来的冲击">4.1 ViT 带来的冲击
+</h3><p><strong>Vision Transformer</strong>（Dosovitskiy et al., ICLR 2021）证明：将图像分割为固定大小的 Patch（如 16×16），线性投影后送入标准 Transformer Encoder，在图像分类上可以超越 CNN。</p>
+<p>这对分割领域的启示是深远的：CNN 受限于局部感受野，而 Transformer 的自注意力机制可以<strong>直接建模任意两个像素之间的关系</strong>。研究者迅速跟进，试图将 Transformer 引入分割架构。</p>
+<h3 id="42-setr2021">4.2 SETR（2021）
+</h3><p><strong>SETR（SEgmentation TRansformer）</strong>（Zheng et al., CVPR 2021）是最早的纯 Transformer 分割模型之一。它使用 ViT 作为编码器提取特征，然后通过渐进式上采样解码器恢复分辨率。</p>
+<p>但 SETR 的问题也很明显：ViT 的 self-attention 计算量与输入尺寸平方相关，高分辨率的医学图像或高清街景图在计算上不可行。</p>
+<h3 id="43-transunet2021">4.3 TransUNet（2021）
+</h3><p><strong>TransUNet</strong>（Chen et al., 2021）采取了更务实的策略：CNN 作为底层特征提取器，Transformer 在瓶颈处处理特征序列，再接 U-Net 式解码器。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">CNN 编码器 → Transformer 瓶颈 → CNN 解码器 + 跳接
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>这种<strong>混合架构</strong>的思路在后续工作中被广泛采用——不是用 Transformer 完全替代 CNN，而是在需要全局建模的地方引入注意力机制。</p>
+<h3 id="44-segformer2021">4.4 SegFormer（2021）
+</h3><p><strong>SegFormer</strong>（Xie et al., NeurIPS 2021）将分层 Transformer 编码器与轻量级 MLP 解码器结合：</p>
+<ul>
+<li><strong>分层 Transformer 编码器</strong>：输出多尺度特征（类似 ResNet 的层次结构），且位置编码是<strong>零初始化的条件位置编码</strong>，适应任意分辨率</li>
+<li><strong>MLP 解码器</strong>：简单地将多尺度特征上采样到同一尺寸，拼接后通过 MLP 预测分割图</li>
+</ul>
+<p>SegFormer 在多个基准上达到了当时最优（SOTA），且速度远超 DeepLab 等模型。它代表了 Transformer 分割模型的成熟——简洁、高效、无需位置编码微调。</p>
+<h3 id="45-mask2former20212022">4.5 Mask2Former（2021–2022）
+</h3><p><strong>Mask2Former</strong>（Cheng et al., CVPR 2022）统一了语义、实例和全景分割，提出了一种通用的<strong>掩码分类</strong>框架：</p>
+<ol>
+<li>从 Transformer 解码器学习一组可学习的 <strong>query</strong></li>
+<li>每个 query 预测一个二值掩码 + 类别标签</li>
+<li><strong>Masked Attention</strong>：只让 query 关注预测掩码区域内的特征，大幅降低计算量</li>
+</ol>
+<p>Mask2Former 的关键创新是 masked attention，它解决了 Transformer 解码器中 query 需要关注全图的低效问题。一个 query 只关注其感兴趣的区域，计算复杂度从 $\mathcal{O}(N^2)$ 降至 $\mathcal{O}(N \cdot M)$（$M \ll N$）。</p>
+<h2 id="五基础模型时代sam-与提示分割">五、基础模型时代：SAM 与提示分割
+</h2><h3 id="51-segment-anything-modelsam-2023">5.1 Segment Anything Model（SAM, 2023）
+</h3><p><strong>SAM</strong>（Kirillov et al., ICCV 2023）是图像分割领域的 GPT 时刻。它在大规模数据集 SA-1B（11亿掩码，1100万图像）上训练，具有强大的零样本泛化能力。</p>
+<p>SAM 的三组件架构：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">┌──────────┐    ┌──────────┐    ┌──────────┐
+</span></span><span class="line"><span class="cl">│ 图像编码器 │───→│ 提示编码器 │───→│ 掩码解码器 │
+</span></span><span class="line"><span class="cl">│ (ViT-H)   │    │ (点/框/文本)│    │ (轻量级)  │
+</span></span><span class="line"><span class="cl">└──────────┘    └──────────┘    └──────────┘
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li><strong>图像编码器</strong>：MAE 预训练的 ViT-Huge，每张图只需推理一次</li>
+<li><strong>提示编码器</strong>：支持点（prompt points）、边界框、文本（通过 CLIP 或 Grounding DINO）作为提示</li>
+<li><strong>掩码解码器</strong>：轻量级 Transformer，运行提示和图像特征之间的交叉注意力</li>
+</ul>
+<p>SAM 的设计体现了 <strong>&ldquo;提示工程&rdquo;</strong> 的革命性理念：不再是训练一个模型做特定任务，而是训练一个通用模型，用户通过提示（prompt）指定要分割什么。<strong>一次图像编码，多次提示查询</strong>的架构使其具有极高的交互效率。</p>
+<h3 id="52-sam-22024">5.2 SAM 2（2024）
+</h3><p><strong>SAM 2</strong>（Ravi et al., 2024）将 SAM 扩展到了<strong>视频分割</strong>领域：</p>
+<ul>
+<li>引入<strong>记忆机制</strong>（Memory Attention），在帧之间传递分割信息</li>
+<li>支持流式处理：对新帧自动传播上一帧的掩码</li>
+<li>在 SA-V 数据集（35K 视频，53K 掩码）上训练</li>
+</ul>
+<p>SAM 2 的架构统一了图像和视频分割——图像可以视为单帧视频。这一统一意味着<strong>一个模型可以完成交互式分割、自动分割、视频对象跟踪等多个任务</strong>。</p>
+<h3 id="53-医学领域的-sam-变体">5.3 医学领域的 SAM 变体
+</h3><ul>
+<li><strong>SAM-Med2D</strong>：在 SAM 基础上使用 46K 医学图像、460 万掩码微调，大幅提升医学场景的精度</li>
+<li><strong>SAM-Med3D</strong>：扩展到 CT/MRI 体数据（三维）</li>
+<li><strong>MedSAM</strong>：一个统一的医学图像分割模型，覆盖 10+ 模态</li>
+</ul>
+<p>基础模型的出现改变了研究范式：从&quot;设计特定任务的架构&quot;转向&quot;如何高效地适配/微调通用模型&rdquo;。</p>
+<h2 id="六评估指标">六、评估指标
+</h2><h3 id="61-iou--jaccard-index">6.1 IoU / Jaccard Index
+</h3><p>最广泛使用的分割评估指标：</p>
+$$
+\text{IoU} = \frac{|A \cap B|}{|A \cup B|}
+$$<h3 id="62-dice-similarity-coefficient">6.2 Dice Similarity Coefficient
+</h3><p>医学分割领域偏好 Dice，因为它对类别不平衡更鲁棒：</p>
+$$
+\text{Dice} = \frac{2|A \cap B|}{|A| + |B|}
+$$<p>两者之间的关系：$\text{Dice} = \frac{2 \cdot \text{IoU}}{1 + \text{IoU}}$</p>
+<h3 id="63-其他指标">6.3 其他指标
+</h3><ul>
+<li><strong>Pixel Accuracy</strong>：正确分类的像素占比。简单但容易被大区域主导</li>
+<li><strong>Mean Accuracy</strong>：逐类计算准确率后取平均，缓解类别不平衡</li>
+<li><strong>Precision / Recall / F1</strong>：在掩码级别（实例分割）评估</li>
+<li><strong>Hausdorff Distance</strong>：评估分割边界与标注边界的最大偏差，在医学分割中常用</li>
+</ul>
+<h2 id="七应用领域">七、应用领域
+</h2><h3 id="71-医学图像分析">7.1 医学图像分析
+</h3><p>图像分割在医学领域的应用最为广泛且深入：</p>
+<ul>
+<li><strong>器官分割</strong>：CT 中的肝脏/肾脏/肺分割、MRI 中的脑组织分割</li>
+<li><strong>病灶分割</strong>：肿瘤、病变区域的分割（脑肿瘤、肺结节、视网膜病变）</li>
+<li><strong>细胞分割</strong>：显微镜图像中的细胞核/膜分割</li>
+<li><strong>手术导航</strong>：实时分割指导机器人手术</li>
+</ul>
+<p>医学图像分割面临的独特挑战：标注昂贵（需要专家知识）、模态多样（CT/MRI/超声/PET）、类别极度不平衡。</p>
+<h3 id="72-自动驾驶">7.2 自动驾驶
+</h3><ul>
+<li><strong>道路理解</strong>：车道线、可行驶区域、路面障碍物分割</li>
+<li><strong>语义场景解析</strong>：Cityscapes、BDD100K 数据集上的街景分割</li>
+<li><strong>实例分割</strong>：车辆、行人等独立个体的分割</li>
+</ul>
+<h3 id="73-遥感与地理空间">7.3 遥感与地理空间
+</h3><ul>
+<li>土地利用分类（建筑、植被、水体）</li>
+<li>道路提取</li>
+<li>变化检测</li>
+</ul>
+<h3 id="74-工业与农业">7.4 工业与农业
+</h3><ul>
+<li>产品质检：缺陷检测分割</li>
+<li>农作物长势监测</li>
+<li>机器人抓取：物体分割 + 姿态估计</li>
+</ul>
+<h2 id="八挑战与未来方向">八、挑战与未来方向
+</h2><h3 id="81-当前挑战">8.1 当前挑战
+</h3><ol>
+<li><strong>标注瓶颈</strong>：高质量像素级标注成本极高。半监督、弱监督、自监督方法仍是研究热点</li>
+<li><strong>边界模糊</strong>：在医学图像中，病灶边界往往模糊不清，不同专家的标注也存在差异</li>
+<li><strong>小目标分割</strong>：小物体在深度网络中容易在下采样过程中丢失</li>
+<li><strong>域迁移</strong>：在不同数据集/设备/中心之间，模型性能往往大幅下降</li>
+<li><strong>开放世界分割</strong>：如何分割训练时未见过的类别（open-vocabulary / open-set segmentation）</li>
+</ol>
+<h3 id="82-未来趋势">8.2 未来趋势
+</h3><ol>
+<li><strong>基础模型 + 适配器（Adapter）</strong>：不再训练完整模型，而是以 SAM 等为基础，通过轻量适配器适配特定任务</li>
+<li><strong>多模态融合</strong>：整合文本、图像、知识图谱等多模态信息进行分割（如 CLIPSeg、Grounded SAM）</li>
+<li><strong>3D 与视频分割的融合</strong>：从 2D 单帧扩展到 3D 体数据和视频流</li>
+<li><strong>交互式 + 自动化的结合</strong>：用户提供少量点或框提示，模型自动完成精细分割</li>
+<li><strong>高效推理</strong>：将大模型（SAM 等）蒸馏为适合部署的小模型，支持边缘端医疗设备</li>
+<li><strong>与多模态大语言模型的结合</strong>：LISA、LLaVA-Seg 等工作将分割能力集成到大语言模型中，实现&quot;对话式分割&quot;</li>
+</ol>
+<h2 id="九总结">九、总结
+</h2><p>图像分割在过去十年经历了从手工特征到深度学习、从 CNN 到 Transformer、从专门模型到通用基础模型的范式跃迁。<strong>U-Net 奠定了编解码器架构的基石，DeepLab 的空洞卷积和 ASPP 推动了多尺度理解，Mask R-CNN 定义了实例分割的范式，而 SAM 开启了分割的基础模型时代。</strong></p>
+<p>当前，语义分割在标准基准上的精度已经趋于饱和，但<strong>通用性、鲁棒性、交互性和跨模态能力</strong>仍是未完全解决的问题。未来的分割模型将不再是孤立的视觉模块，而是多模态智能系统中与语言、知识深度耦合的组成部分。</p>
+<hr>
+<p><strong>主要参考：</strong></p>
+<ol>
+<li>Long et al., &ldquo;Fully Convolutional Networks for Semantic Segmentation&rdquo;, CVPR 2015</li>
+<li>Ronneberger et al., &ldquo;U-Net: Convolutional Networks for Biomedical Image Segmentation&rdquo;, MICCAI 2015</li>
+<li>Chen et al., &ldquo;DeepLab: Semantic Image Segmentation with Deep Convolutional Nets, Atrous Convolution, and Fully Connected CRFs&rdquo;, TPAMI 2017</li>
+<li>He et al., &ldquo;Mask R-CNN&rdquo;, ICCV 2017</li>
+<li>Vaswani et al., &ldquo;Attention Is All You Need&rdquo;, NeurIPS 2017</li>
+<li>Dosovitskiy et al., &ldquo;An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale&rdquo;, ICLR 2021</li>
+<li>Xie et al., &ldquo;SegFormer: Simple and Efficient Design for Semantic Segmentation with Transformers&rdquo;, NeurIPS 2021</li>
+<li>Cheng et al., &ldquo;Masked-attention Mask Transformer for Universal Image Segmentation&rdquo;, CVPR 2022</li>
+<li>Kirillov et al., &ldquo;Segment Anything&rdquo;, ICCV 2023</li>
+<li>Ravi et al., &ldquo;SAM 2: Segment Anything Model in Images and Videos&rdquo;, 2024</li>
+</ol>
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/deep-learning/">Deep-Learning</a>
+        
+            <a href="/tags/image-segmentation/">Image-Segmentation</a>
+        
+            <a href="/tags/computer-vision/">Computer-Vision</a>
+        
+            <a href="/tags/survey/">Survey</a>
+        
+            <a href="/tags/cnn/">Cnn</a>
+        
+            <a href="/tags/transformer/">Transformer</a>
+        
+            <a href="/tags/sam/">Sam</a>
+        
+    </section>
+
+
+    <section class="article-lastmod">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <span>
+            最后更新于 2026-05-07 13:41
+        </span>
+    </section></footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+	const mainArticleElement = document.querySelector(".main-article");
+        renderMathInElement(mainArticleElement, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });})
+</script>
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/p/%E5%8C%BB%E5%AD%A6%E5%9B%BE%E5%83%8F%E5%88%86%E5%89%B2%E7%9A%84%E8%8C%83%E5%BC%8F%E8%B7%83%E8%BF%81-45-%E5%88%86%E9%92%9F%E8%AE%B2%E7%A8%BF%E5%90%AB-cnn-%E6%89%A9%E5%B1%95/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">医学图像分割的范式跃迁 — 45 分钟讲稿（含 CNN 扩展）</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/%E5%8C%BB%E5%AD%A6%E5%9B%BE%E5%83%8F%E5%88%86%E5%89%B2%E4%B8%8E%E7%9F%A9%E9%98%B5%E5%88%86%E6%9E%90-30-%E5%88%86%E9%92%9F%E8%AE%B2%E7%A8%BF/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">医学图像分割与矩阵分析 — 30 分钟讲稿</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-05-06/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">学术雷达日报 2026-05-06</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-05-05/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">学术雷达日报 2026-05-05</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-05-01/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">学术雷达日报 2026-05-01</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2025 - 
+        
+        2026 云雾中的山-NubisLab
+    </section>
+    
+    <section class="powerby">
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.30.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.1e9a3bafd846ced4c345d084b355fb8c7bae75701c338f8a1f8a82c780137826.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>
