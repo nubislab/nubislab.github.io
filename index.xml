@@ -7,6 +7,82 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>云雾中的山-NubisLab</copyright><atom:link href="https://blogbook.eu.org/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>学术雷达日报 2026-05-13</title>
+        <link>https://blogbook.eu.org/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-05-13/</link>
+        <pubDate>Wed, 13 May 2026 23:59:28 +0800</pubDate>
+        
+        <guid>https://blogbook.eu.org/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-05-13/</guid>
+        <description>&lt;h2 id=&#34;今日论文速览&#34;&gt;今日论文速览
+&lt;/h2&gt;&lt;p&gt;抓取时间（北京时间）：2026-05-13 23:59:28&lt;/p&gt;
+&lt;h3 id=&#34;1-futcr-future-targeted-contrast-and-repulsion-for-continual-panoptic-segmentation&#34;&gt;1. FuTCR: Future-Targeted Contrast and Repulsion for Continual Panoptic Segmentation
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;ArXiv: &lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/2605.12451v1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://arxiv.org/abs/2605.12451v1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;发布时间: 2026-05-13 01:41:19 (北京时间)&lt;/li&gt;
+&lt;li&gt;作者: Nicholas Ikechukwu, Keanu Nichols, Deepti Ghadiyaram, Bryan A. Plummer&lt;/li&gt;
+&lt;li&gt;标签: 分割&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;AI 深度解析&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;TL;DR：提出一种面向持续全景分割的未来目标对比与排斥框架，通过提前重构未标注区域的表征空间，显著提升新类别学习能力。&lt;/p&gt;
+&lt;p&gt;核心贡献：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;提出未来目标对比与排斥（FuTCR）框架，在引入新类别前主动重构特征表示，解决传统方法将未标注对象统一归为背景导致的表征混淆问题。&lt;/li&gt;
+&lt;li&gt;设计置信未来区域发现机制，通过分析模型预测中背景像素的非背景logits，自动识别潜在新类别区域。&lt;/li&gt;
+&lt;li&gt;创新性引入像素到区域对比学习，从未标注区域构建连贯原型，同时将背景特征从已知类别原型推开，显式预留未来类别的表征空间。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;方法类型：其他（基于对比学习的持续分割框架）&lt;/p&gt;
+&lt;p&gt;适用场景：通用分割（持续全景分割）&lt;/p&gt;
+&lt;p&gt;评估指标：新类别全景质量（相对提升28%）、基类性能（提升4%）&lt;/p&gt;
+&lt;p&gt;代码可用性：未提及&lt;/p&gt;
+&lt;p&gt;领域启发：该论文对图像分割与目标识别研究及工程落地的价值体现在：1）提出了一种解决持续学习中“背景混淆”问题的通用范式，通过主动预留表征空间而非被动适应，为增量学习场景提供了新思路；2）像素到区域对比学习策略可迁移至其他密集预测任务（如语义分割、实例分割），尤其适用于类别动态变化的自动驾驶、机器人导航等场景；3）无需额外标注即可挖掘潜在新类别，降低了持续学习系统的部署成本，对工业界持续更新模型具有实际指导意义。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;2-aoi-ssl-self-supervised-framework-for-efficient-segmentation-of-wire-bonded-semiconductors-in-optical-inspection&#34;&gt;2. AOI-SSL: Self-Supervised Framework for Efficient Segmentation of Wire-bonded Semiconductors In Optical Inspection
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;ArXiv: &lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/2605.12430v1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://arxiv.org/abs/2605.12430v1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;发布时间: 2026-05-13 01:27:25 (北京时间)&lt;/li&gt;
+&lt;li&gt;作者: Joaquín Figueira, Rob Van Gastel, Giacomo D&amp;rsquo;Amicantonio, Zhuoran Liu, Ioan Gabriel Bucur, Faysal Boughorbel, Egor Bondarev&lt;/li&gt;
+&lt;li&gt;标签: 检测&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;AI 深度解析&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;TL;DR：提出AOI-SSL框架，结合小域自监督预训练与上下文推理，高效实现键合半导体光学检测中的语义分割，显著减少标注需求。&lt;/p&gt;
+&lt;p&gt;核心贡献：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;在小规模工业检测数据集上预训练自监督算法，发现Masked Autoencoders（MAE）在少数据场景下最有效，能提升下游分割性能并减少标注微调工作量。&lt;/li&gt;
+&lt;li&gt;引入基于上下文的补丁级检索方法，直接从密集编码器嵌入预测掩码，仅需极少额外训练；实验表明简单相似性检索与复杂注意力聚合方法性能相当。&lt;/li&gt;
+&lt;li&gt;证明在固定微调计算预算下，自监督预训练相比从头训练和ImageNet预训练骨干显著提升分割质量；针对单设备图像，基于检索的分割优于微调，实现近即时适应困难样本。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;方法类型：Transformer（Vision Transformer）&lt;/p&gt;
+&lt;p&gt;适用场景：工业光学检测（键合半导体分割）&lt;/p&gt;
+&lt;p&gt;评估指标：未明确列出具体数值（如mIoU等），但提及分割质量提升和性能对比。&lt;/p&gt;
+&lt;p&gt;代码可用性：未提及&lt;/p&gt;
+&lt;p&gt;领域启发：该论文对图像分割与目标识别研究及工程落地的价值在于：首先，验证了自监督预训练在小样本工业场景中的有效性，为低资源分割任务提供了高效范式；其次，提出的上下文检索方法简化了分割流程，降低了计算成本，适合快速部署；最后，强调模型对设备变化的适应性，为自动化光学检测的泛化性研究提供了新思路，尤其适用于需要频繁切换目标或处理分布偏移的工业应用。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;3-vip-visual-guided-prompt-evolution-for-efficient-dense-vision-language-inference&#34;&gt;3. VIP: Visual-guided Prompt Evolution for Efficient Dense Vision-Language Inference
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;ArXiv: &lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/2605.12325v1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://arxiv.org/abs/2605.12325v1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;发布时间: 2026-05-13 00:08:18 (北京时间)&lt;/li&gt;
+&lt;li&gt;作者: Hao Zhu, Shuo Jin, Wenbin Liao, Jiayu Xiao, Yan Zhu, Siyue Yu, Feng Dai&lt;/li&gt;
+&lt;li&gt;标签: 检测&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;AI 深度解析&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;TL;DR：提出视觉引导的提示进化方法（VIP），利用dino.txt框架的空间感知能力，通过视觉引导蒸馏机制修正文本查询的语义模糊性，实现高效、无需训练的开词汇语义分割。&lt;/p&gt;
+&lt;p&gt;核心贡献：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;提出视觉引导的提示进化（VIP）方法，通过别名扩展和视觉引导蒸馏机制挖掘语义线索，解决dino.txt中文本查询语义模糊导致的跨模态不匹配问题。&lt;/li&gt;
+&lt;li&gt;设计显著性感知聚合策略，稳健融合多源语义线索，生成高保真分割预测。&lt;/li&gt;
+&lt;li&gt;在多个基准上超越现有方法1.4%~8.4%平均mIoU，且推理时间和内存开销极低。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;方法类型：混合架构（基于dino.txt框架，结合CLIP语义与空间感知）&lt;/p&gt;
+&lt;p&gt;适用场景：通用分割（开词汇语义分割，适用于多样化领域）&lt;/p&gt;
+&lt;p&gt;评估指标：mIoU（平均交并比，提升1.4%~8.4%）&lt;/p&gt;
+&lt;p&gt;代码可用性：是（https://github.com/MiSsU-HH/VIP）&lt;/p&gt;
+&lt;p&gt;领域启发：该论文为图像分割与目标识别提供了重要启发：首先，它展示了如何利用空间感知框架（如dino.txt）弥补CLIP在密集预测任务中的空间偏差，无需额外训练即可实现高效分割；其次，视觉引导的提示进化方法为跨模态语义对齐提供了新思路，通过动态修正文本查询的语义表达，显著提升细粒度目标感知能力；最后，其低推理开销和强泛化性使其在自动驾驶、遥感等实时或资源受限场景中具有工程落地潜力。&lt;/p&gt;
+&lt;hr&gt;
+</description>
+        </item>
+        <item>
         <title>学术雷达日报 2026-05-12</title>
         <link>https://blogbook.eu.org/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-05-12/</link>
         <pubDate>Tue, 12 May 2026 23:47:10 +0800</pubDate>
