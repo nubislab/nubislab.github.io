@@ -7,7 +7,61 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>云雾中的山-NubisLab</copyright>
-        <lastBuildDate>Wed, 13 May 2026 15:59:43 +0000</lastBuildDate><atom:link href="https://blogbook.eu.org/tags/academic-radar/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 14 May 2026 15:37:50 +0000</lastBuildDate><atom:link href="https://blogbook.eu.org/tags/academic-radar/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>学术雷达日报 2026-05-14</title>
+        <link>https://blogbook.eu.org/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-05-14/</link>
+        <pubDate>Thu, 14 May 2026 23:37:19 +0800</pubDate>
+        
+        <guid>https://blogbook.eu.org/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-05-14/</guid>
+        <description>&lt;h2 id=&#34;今日论文速览&#34;&gt;今日论文速览
+&lt;/h2&gt;&lt;p&gt;抓取时间（北京时间）：2026-05-14 23:37:19&lt;/p&gt;
+&lt;h3 id=&#34;1-omnilidar-a-unified-diffusion-framework-for-multi-domain-3d-lidar-generation&#34;&gt;1. OmniLiDAR: A Unified Diffusion Framework for Multi-Domain 3D LiDAR Generation
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;ArXiv: &lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/2605.13815v1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://arxiv.org/abs/2605.13815v1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;发布时间: 2026-05-14 01:42:20 (北京时间)&lt;/li&gt;
+&lt;li&gt;作者: Youquan Liu, Weidong Yang, Ao Liang, Xiang Xu, Lingdong Kong, Yang Wu, Dekai Zhu, Xin Li, Runnan Chen, Ben Fei, Tongliang Liu, Wanli Ouyang&lt;/li&gt;
+&lt;li&gt;标签: 检测&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;AI 深度解析&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;TL;DR：提出OmniLiDAR，一个统一的文本条件扩散框架，能够在多领域（恶劣天气、传感器配置变化、跨平台采集）下生成3D LiDAR扫描，通过跨域训练策略和特征建模实现单模型多域生成。&lt;/p&gt;
+&lt;p&gt;核心贡献：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;提出跨域训练策略（CDTS），通过混合不同域样本到同一小批量中，并利用条件控制引导生成，避免单域优化隔离，实现单模型训练。&lt;/li&gt;
+&lt;li&gt;提出跨域特征建模（CDFM），沿方位角和仰角轴捕获方向依赖性，反映距离图像的各向异性扫描结构，提升生成质量。&lt;/li&gt;
+&lt;li&gt;提出域自适应特征缩放（DAFS），作为轻量级调制模块，在去噪过程中处理结构化域依赖的特征偏移，增强跨域适应性。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;方法类型：扩散模型&lt;/p&gt;
+&lt;p&gt;适用场景：自动驾驶（LiDAR生成、语义分割、3D目标检测、鲁棒性评估）&lt;/p&gt;
+&lt;p&gt;评估指标：未提供具体数值（论文中提及生成保真度、下游任务增益等）&lt;/p&gt;
+&lt;p&gt;代码可用性：未提及&lt;/p&gt;
+&lt;p&gt;领域启发：该论文对图像分割与目标识别研究的价值在于：1）展示了扩散模型在多域生成中的统一能力，为跨域分割/检测任务提供数据增强新思路；2）提出的跨域训练策略（CDTS）和特征建模（CDFM）可迁移至图像分割中处理多传感器/多场景数据；3）域自适应特征缩放（DAFS）为轻量级域适应提供参考，有助于提升模型在恶劣天气、传感器变化等实际场景下的鲁棒性，对工程落地中降低数据采集成本有重要意义。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;2-generative-texture-diversification-of-3d-pedestrians-for-robust-autonomous-driving-perception&#34;&gt;2. Generative Texture Diversification of 3D Pedestrians for Robust Autonomous Driving Perception
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;ArXiv: &lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/2605.13755v1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://arxiv.org/abs/2605.13755v1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;发布时间: 2026-05-14 00:35:50 (北京时间)&lt;/li&gt;
+&lt;li&gt;作者: Arka Bhowmick, Enes Ozeren, Ahmed Abdullah, Oliver Wasenmuller&lt;/li&gt;
+&lt;li&gt;标签: 检测&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;AI 深度解析&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;TL;DR：提出一种利用StyleGAN2生成多样化面部纹理并映射到3D网格的方法，实现3D行人资产的规模化外观多样化，提升自动驾驶感知模型在2D和3D目标检测中的鲁棒性。&lt;/p&gt;
+&lt;p&gt;核心贡献：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;提出基于StyleGAN2的生成式纹理多样化方法，从单一3D基础资产生成多个具有不同面部纹理和身份级外观变化的行人实例。&lt;/li&gt;
+&lt;li&gt;实现自动纹理映射到3D网格，无需为每个实例设计新几何结构，实现可扩展的外观级资产多样化。&lt;/li&gt;
+&lt;li&gt;通过混合真实与合成数据训练，系统分析2D和3D目标检测中的域迁移影响，揭示几何驱动分布偏移对3D感知模型的敏感性。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;方法类型：其他（生成式AI + 传统3D渲染）&lt;/p&gt;
+&lt;p&gt;适用场景：自动驾驶（行人检测与感知）&lt;/p&gt;
+&lt;p&gt;评估指标：未明确列出具体数值（论文主要关注鲁棒性分析）&lt;/p&gt;
+&lt;p&gt;代码可用性：未提及&lt;/p&gt;
+&lt;p&gt;领域启发：该论文对图像分割与目标识别研究的价值在于：1) 展示了生成式AI（如StyleGAN2）在合成数据增强中的潜力，可低成本生成高多样性训练样本，缓解真实数据标注成本高的问题；2) 强调了外观多样化对2D检测鲁棒性的提升，同时揭示了3D感知模型对几何域间隙的敏感性，为多模态感知系统的数据生成策略提供指导；3) 方法简单有效，易于集成到现有自动驾驶仿真管线中，对工程落地具有直接参考意义。&lt;/p&gt;
+&lt;hr&gt;
+</description>
+        </item>
+        <item>
         <title>学术雷达日报 2026-05-13</title>
         <link>https://blogbook.eu.org/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-05-13/</link>
         <pubDate>Wed, 13 May 2026 23:59:28 +0800</pubDate>
