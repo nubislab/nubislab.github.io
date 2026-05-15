@@ -7,7 +7,61 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>云雾中的山-NubisLab</copyright>
-        <lastBuildDate>Thu, 14 May 2026 15:37:50 +0000</lastBuildDate><atom:link href="https://blogbook.eu.org/categories/academic-radar/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Fri, 15 May 2026 15:32:25 +0000</lastBuildDate><atom:link href="https://blogbook.eu.org/categories/academic-radar/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>学术雷达日报 2026-05-15</title>
+        <link>https://blogbook.eu.org/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-05-15/</link>
+        <pubDate>Fri, 15 May 2026 23:32:09 +0800</pubDate>
+        
+        <guid>https://blogbook.eu.org/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-05-15/</guid>
+        <description>&lt;h2 id=&#34;今日论文速览&#34;&gt;今日论文速览
+&lt;/h2&gt;&lt;p&gt;抓取时间（北京时间）：2026-05-15 23:32:09&lt;/p&gt;
+&lt;h3 id=&#34;1-quantitative-video-world-model-evaluation-for-geometric-consistency&#34;&gt;1. Quantitative Video World Model Evaluation for Geometric-Consistency
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;ArXiv: &lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/2605.15185v1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://arxiv.org/abs/2605.15185v1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;发布时间: 2026-05-15 01:59:04 (北京时间)&lt;/li&gt;
+&lt;li&gt;作者: Jiaxin Wu, Yihao Pi, Yinling Zhang, Yuheng Li, Xueyan Zou&lt;/li&gt;
+&lt;li&gt;标签: 检测&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;AI 深度解析&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;TL;DR：提出PDI-Bench定量框架，通过几何一致性残差评估生成视频的3D物理合理性，揭示现有视频生成模型在尺度深度对齐、3D运动一致性和结构刚性方面的系统性缺陷。&lt;/p&gt;
+&lt;p&gt;核心贡献：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;提出基于投影几何残差的定量评估框架PDI-Bench，通过分割、点跟踪和单目重建将生成视频映射到3D世界坐标，计算三类几何一致性指标（尺度深度对齐、3D运动一致性、3D结构刚性）&lt;/li&gt;
+&lt;li&gt;构建PDI-Dataset数据集，覆盖多种几何约束压力场景（如透视畸变、非刚性运动等），用于系统性评估视频生成模型的几何失败模式&lt;/li&gt;
+&lt;li&gt;实验证明PDI指标能捕捉到现有感知指标（如FVD、CLIP相似度）无法反映的几何特异性失败模式，为物理世界模型提供诊断信号&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;方法类型：混合架构（SAM 2 + MegaSaM + CoTracker3 + 单目重建）&lt;/p&gt;
+&lt;p&gt;适用场景：视频生成评估 / 物理世界模型验证 / 几何一致性审计&lt;/p&gt;
+&lt;p&gt;评估指标：尺度深度对齐残差、3D运动一致性残差、3D结构刚性残差（具体数值见论文实验部分）&lt;/p&gt;
+&lt;p&gt;代码可用性：是（https://pdi-bench.github.io/）&lt;/p&gt;
+&lt;p&gt;领域启发：该工作为图像分割与目标识别领域提供了重要启示——传统分割/跟踪方法（如SAM、CoTracker）可作为几何一致性审计的底层工具，通过将2D分割结果提升到3D空间并计算物理约束残差，可反向诊断生成模型的几何缺陷。对于工程落地，该方法可迁移至自动驾驶场景中的视频质量监控（如检测运动物体尺度畸变）、AR/VR中的3D内容验证（如检查物体刚性保持），以及视频生成模型的自动调试（替代人工标注几何错误）。其核心价值在于将分割/跟踪从“感知任务”升级为“物理合理性验证器”，为多模态生成模型的可靠性评估提供了可量化的几何先验。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;2-characterizing-the-visual-representation-of-objects-from-the-childs-view&#34;&gt;2. Characterizing the visual representation of objects from the child&amp;rsquo;s view
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;ArXiv: &lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/2605.14990v1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://arxiv.org/abs/2605.14990v1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;发布时间: 2026-05-14 23:52:20 (北京时间)&lt;/li&gt;
+&lt;li&gt;作者: Jane Yang, Tarun Sepuri, Alvin Wei Ming Tan, Khai Loong Aw, Michael C. Frank, Bria Long&lt;/li&gt;
+&lt;li&gt;标签: 检测&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;AI 深度解析&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;TL;DR：通过分析婴儿第一视角视频数据，发现儿童视觉经验中物体类别分布高度倾斜、视角多变且遮挡严重，但超类别结构（如动物、食物）比标准照片数据集更强，为视觉类别学习的鲁棒性和效率提供了新见解。&lt;/p&gt;
+&lt;p&gt;核心贡献：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;利用BabyView数据集（31名参与者，868小时，5-36个月）首次大规模分析儿童第一视角视觉经验，提取超过300万帧中的常见物体类别。&lt;/li&gt;
+&lt;li&gt;发现儿童视觉经验中类别分布高度倾斜（如杯子、椅子占主导），且物体以非典型角度、高度杂乱场景和部分遮挡出现，许多类别（尤其是动物）常以图像形式呈现。&lt;/li&gt;
+&lt;li&gt;揭示尽管视觉输入高度可变，但检测到的类别在超类别（如动物、食物）内的分组强度高于标准照片数据集，且该模式在自监督视觉和多模态模型嵌入中复现。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;方法类型：其他（基于监督目标检测模型分析第一视角视频数据）&lt;/p&gt;
+&lt;p&gt;适用场景：其他（儿童认知发展、视觉学习、第一视角视频分析）&lt;/p&gt;
+&lt;p&gt;评估指标：未提及具体数值&lt;/p&gt;
+&lt;p&gt;代码可用性：未提及&lt;/p&gt;
+&lt;p&gt;领域启发：该研究对图像分割与目标识别领域具有重要启发：首先，它强调在真实、非规范场景（如遮挡、杂乱背景、非典型视角）下训练模型的重要性，提示现有基准数据集可能过于理想化；其次，超类别结构的强分组性表明，模型可受益于利用高层语义关系（如动物、食物）来提升鲁棒性，这为设计更高效的分割与识别架构（如引入类别层次先验或自监督学习）提供了方向；最后，稀疏、可变样本的学习挑战提示需要开发能处理长尾分布和低数据量的方法，对工程落地（如机器人视觉、辅助技术）有直接价值。&lt;/p&gt;
+&lt;hr&gt;
+</description>
+        </item>
+        <item>
         <title>学术雷达日报 2026-05-14</title>
         <link>https://blogbook.eu.org/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-05-14/</link>
         <pubDate>Thu, 14 May 2026 23:37:19 +0800</pubDate>
