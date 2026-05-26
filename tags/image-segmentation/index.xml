@@ -7,7 +7,61 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>云雾中的山-NubisLab</copyright>
-        <lastBuildDate>Tue, 19 May 2026 16:33:16 +0000</lastBuildDate><atom:link href="https://blogbook.eu.org/tags/image-segmentation/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Tue, 26 May 2026 16:54:45 +0000</lastBuildDate><atom:link href="https://blogbook.eu.org/tags/image-segmentation/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>学术雷达日报 2026-05-27</title>
+        <link>https://blogbook.eu.org/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-05-27/</link>
+        <pubDate>Wed, 27 May 2026 00:54:28 +0800</pubDate>
+        
+        <guid>https://blogbook.eu.org/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-05-27/</guid>
+        <description>&lt;h2 id=&#34;今日论文速览&#34;&gt;今日论文速览
+&lt;/h2&gt;&lt;p&gt;抓取时间（北京时间）：2026-05-27 00:54:28&lt;/p&gt;
+&lt;h3 id=&#34;1-pixel-level-pavement-distress-assessment-using-instance-segmentation&#34;&gt;1. Pixel-Level Pavement Distress Assessment Using Instance Segmentation
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;ArXiv: &lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/2605.26095v1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://arxiv.org/abs/2605.26095v1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;发布时间: 2026-05-26 01:53:23 (北京时间)&lt;/li&gt;
+&lt;li&gt;作者: Logan Dewick, Bibesh Pyakurel, Kong Pheng Yang, Nazim Choudhury, M. G. Sarwar Murshed&lt;/li&gt;
+&lt;li&gt;标签: 分割&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;AI 深度解析&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;TL;DR：本文提出基于Mask R-CNN实例分割的像素级路面病害评估系统，在自建UWGB-StreetCrack数据集上实现高精度裂缝面积估计，验证了实例分割在路面检测中的实用性。&lt;/p&gt;
+&lt;p&gt;核心贡献：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;构建了UWGB-StreetCrack路面病害数据集，包含纵向裂缝、横向裂缝、龟裂和坑洞四种病害的像素级多边形标注，并采用车载智能手机采集真实道路图像。&lt;/li&gt;
+&lt;li&gt;系统评估了五种Detectron2框架下Mask R-CNN骨干网络变体（含ResNet-101 FPN），在自定义边界框匹配协议下达到84.23%精度、90.04%召回率和87.04% F1分数。&lt;/li&gt;
+&lt;li&gt;提出聚合裂缝面积分数（aggregate predicted crack-area fraction）作为量化指标，模型预测值2.164%与真实值2.170%高度吻合，验证了实例分割在面积估计中的可靠性。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;方法类型：CNN（Mask R-CNN + FPN骨干网络）&lt;/p&gt;
+&lt;p&gt;适用场景：路面病害检测（裂缝、坑洞等不规则目标的分割与量化）&lt;/p&gt;
+&lt;p&gt;评估指标：精度84.23%、召回率90.04%、F1分数87.04%、裂缝面积分数误差0.006%&lt;/p&gt;
+&lt;p&gt;代码可用性：未提及&lt;/p&gt;
+&lt;p&gt;领域启发：该论文对图像分割与目标识别研究及工程落地的价值体现在：1）证明了实例分割相比目标检测（YOLO仅27.5%精度）在细长、不规则裂缝定位上的显著优势，为道路维护量化分析提供了可行方案；2）暴露了标注一致性、类别不平衡、混淆因素抑制等开放挑战，提示后续研究需关注数据质量与评估基准的标准化；3）裂缝面积分数这一量化指标为分割结果与工程需求（如维修成本估算）的衔接提供了新思路，推动分割技术从定性检测向定量评估演进。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;2-instructsam-segment-any-instance-with-any-instructions&#34;&gt;2. InstructSAM: Segment Any Instance with Any Instructions
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;ArXiv: &lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/2605.26102v1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://arxiv.org/abs/2605.26102v1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;发布时间: 2026-05-26 01:58:03 (北京时间)&lt;/li&gt;
+&lt;li&gt;作者: Yuqian Yuan, Wentong Li, Zhaocheng Li, Yutong Lin, Juncheng Li, Siliang Tang, Jun Xiao, Yueting Zhuang, Wenqiao Zhang&lt;/li&gt;
+&lt;li&gt;标签: 检测&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;AI 深度解析&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;TL;DR：InstructSAM提出统一框架，通过可学习实例查询与混合注意力机制，将视觉语言模型与SAM3结合，实现单次前向传播下的任意指令驱动多实例分割。&lt;/p&gt;
+&lt;p&gt;核心贡献：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;提出显式推理到实例查询接口，将可学习实例查询注入视觉语言模型，结合指令与视觉信息实现实例感知槽，支持组合推理。&lt;/li&gt;
+&lt;li&gt;设计混合注意力机制，促进实例查询、视觉令牌与指令令牌间的交互，提升实例枚举能力并减少重复预测。&lt;/li&gt;
+&lt;li&gt;构建Inst2Seg大规模高质量指令驱动实例分割数据集与基准，支持自由形式指令与实例级掩码配对，推动评估标准化。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;方法类型：混合架构（SAM系列 + Transformer + 视觉语言模型）&lt;/p&gt;
+&lt;p&gt;适用场景：通用分割（指令驱动实例分割、短语级指代分割）&lt;/p&gt;
+&lt;p&gt;评估指标：在复杂指令驱动与短语级指代分割基准上，2B规模InstructSAM超越先前端到端方法与SAM3代理流水线，具体数值未在摘要中列出。&lt;/p&gt;
+&lt;p&gt;代码可用性：未提及&lt;/p&gt;
+&lt;p&gt;领域启发：InstructSAM通过将指令理解与实例级集合预测无缝集成，解决了SAM3在高层语义推理与多实例枚举上的短板，为图像分割与目标识别提供了高效单次推理范式。其设计不修改SAM3核心架构，便于工程落地，尤其适用于需要灵活交互与实时响应的场景（如机器人视觉、交互式编辑）。同时，Inst2Seg数据集为后续研究提供了标准化评估平台，推动指令驱动分割从短语级向自由形式指令扩展。&lt;/p&gt;
+&lt;hr&gt;
+</description>
+        </item>
+        <item>
         <title>学术雷达日报 2026-05-20</title>
         <link>https://blogbook.eu.org/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-05-20/</link>
         <pubDate>Wed, 20 May 2026 00:32:44 +0800</pubDate>
