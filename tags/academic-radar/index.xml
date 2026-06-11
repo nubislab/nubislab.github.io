@@ -7,7 +7,39 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>云雾中的山-NubisLab</copyright>
-        <lastBuildDate>Tue, 26 May 2026 16:54:45 +0000</lastBuildDate><atom:link href="https://blogbook.eu.org/tags/academic-radar/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 11 Jun 2026 17:05:22 +0000</lastBuildDate><atom:link href="https://blogbook.eu.org/tags/academic-radar/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>学术雷达日报 2026-06-12</title>
+        <link>https://blogbook.eu.org/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-06-12/</link>
+        <pubDate>Fri, 12 Jun 2026 01:03:00 +0800</pubDate>
+        
+        <guid>https://blogbook.eu.org/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-06-12/</guid>
+        <description>&lt;h2 id=&#34;今日论文速览&#34;&gt;今日论文速览
+&lt;/h2&gt;&lt;p&gt;抓取时间（北京时间）：2026-06-12 01:03:00&lt;/p&gt;
+&lt;h3 id=&#34;1-a-turbo-inference-strategy-for-object-detection-and-instance-segmentation&#34;&gt;1. A Turbo-Inference Strategy for Object Detection and Instance Segmentation
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;ArXiv: &lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/2606.12371v1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://arxiv.org/abs/2606.12371v1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;发布时间: 2026-06-11 01:38:22 (北京时间)&lt;/li&gt;
+&lt;li&gt;作者: Zhen Zhao, Gang Zhang, Xiaolin Hu, Liang Tang&lt;/li&gt;
+&lt;li&gt;标签: 检测&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;AI 深度解析&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;TL;DR：提出一种无需重新训练的涡轮推理策略，通过迭代式任务间信息互补，同时提升目标检测与实例分割精度。&lt;/p&gt;
+&lt;p&gt;核心贡献：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;设计涡轮检测头（turbo-detection head）和涡轮分割头（turbo-segmentation head），实现检测与分割任务的闭环信息交互&lt;/li&gt;
+&lt;li&gt;提出无需重新训练的迭代推理机制，利用任务间互补信息逐步优化检测框和分割掩码&lt;/li&gt;
+&lt;li&gt;在COCO、iFLYTEK、Cityscapes三个数据集上验证了方法在精度与速度之间的有效权衡&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;方法类型：其他（基于CNN的检测-分割联合推理策略）&lt;/p&gt;
+&lt;p&gt;适用场景：通用分割（目标检测与实例分割联合任务）&lt;/p&gt;
+&lt;p&gt;评估指标：COCO AP（检测与分割）、iFLYTEK AP、Cityscapes AP（具体数值需查阅原文）&lt;/p&gt;
+&lt;p&gt;代码可用性：是（https://github.com/zhaozhen2333/Turbo-Learning.git）&lt;/p&gt;
+&lt;p&gt;领域启发：该工作打破了传统“检测→分割”单向流程的局限，通过迭代式任务间信息反馈机制，在不增加训练成本的前提下显著提升联合任务性能。对工程落地具有重要价值：1）可直接应用于现有检测-分割级联系统，无需重新训练即可获得精度提升；2）为多任务学习提供了轻量级后处理优化思路，尤其适合计算资源受限但精度要求高的场景（如自动驾驶、工业质检）；3）任务间互补信息的闭环设计思想可推广至其他视觉任务对（如关键点检测+姿态估计、语义分割+深度估计），为多任务协同推理提供新范式。&lt;/p&gt;
+&lt;hr&gt;
+</description>
+        </item>
+        <item>
         <title>学术雷达日报 2026-05-27</title>
         <link>https://blogbook.eu.org/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-05-27/</link>
         <pubDate>Wed, 27 May 2026 00:54:28 +0800</pubDate>

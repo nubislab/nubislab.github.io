@@ -532,45 +532,45 @@
 </div><h3 id="32-vit-多尺度分支">3.2 ViT 多尺度分支
 </h3><p>这是 LViT 的核心。4 个 VisionTransformer 实例分别处理不同分辨率：</p>
 <div class="table-wrapper"><table>
-  <thead>
-      <tr>
-          <th>层级</th>
-          <th>patch_size</th>
-          <th>输入分辨率</th>
-          <th>embed_dim</th>
-          <th>token 数</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>downVit</td>
-          <td>16</td>
-          <td>224×224</td>
-          <td>64</td>
-          <td>196</td>
-      </tr>
-      <tr>
-          <td>downVit1</td>
-          <td>8</td>
-          <td>112×112</td>
-          <td>128</td>
-          <td>196</td>
-      </tr>
-      <tr>
-          <td>downVit2</td>
-          <td>4</td>
-          <td>56×56</td>
-          <td>256</td>
-          <td>196</td>
-      </tr>
-      <tr>
-          <td>downVit3</td>
-          <td>2</td>
-          <td>28×28</td>
-          <td>512</td>
-          <td>196</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>层级</th>
+					<th>patch_size</th>
+					<th>输入分辨率</th>
+					<th>embed_dim</th>
+					<th>token 数</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>downVit</td>
+					<td>16</td>
+					<td>224×224</td>
+					<td>64</td>
+					<td>196</td>
+			</tr>
+			<tr>
+					<td>downVit1</td>
+					<td>8</td>
+					<td>112×112</td>
+					<td>128</td>
+					<td>196</td>
+			</tr>
+			<tr>
+					<td>downVit2</td>
+					<td>4</td>
+					<td>56×56</td>
+					<td>256</td>
+					<td>196</td>
+			</tr>
+			<tr>
+					<td>downVit3</td>
+					<td>2</td>
+					<td>28×28</td>
+					<td>512</td>
+					<td>196</td>
+			</tr>
+	</tbody>
 </table></div>
 <p>每一层保证了相同的 token 数（196），但 embedding 维度随通道数翻倍。这样一来，浅层捕获细粒度纹理，深层捕获高级语义。</p>
 <p>每个 ViT 实例包含：</p>
@@ -675,86 +675,86 @@ $$
 $$<p>权重为 <code>[0.4, 0.6]</code>，对负样本的 BCE 给略高的权重——这是为了应对医学图像中正样本（病灶）通常远少于负样本（背景）的类不平衡问题。</p>
 <h2 id="五训练策略">五、训练策略
 </h2><div class="table-wrapper"><table>
-  <thead>
-      <tr>
-          <th>配置项</th>
-          <th>设定</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>优化器</td>
-          <td>Adam, lr=3e-4 (Covid19) / 1e-3 (MoNuSeg)</td>
-      </tr>
-      <tr>
-          <td>LR 调度</td>
-          <td>CosineAnnealingWarmRestarts (T_0=10, eta_min=1e-4)</td>
-      </tr>
-      <tr>
-          <td>Batch Size</td>
-          <td>2（论文建议 2 优于 4）</td>
-      </tr>
-      <tr>
-          <td>Epochs</td>
-          <td>2000</td>
-      </tr>
-      <tr>
-          <td>Early Stopping</td>
-          <td>patience=50, 监控 val Dice</td>
-      </tr>
-      <tr>
-          <td>输入尺寸</td>
-          <td>224×224</td>
-      </tr>
-      <tr>
-          <td>数据增强</td>
-          <td>随机 90° 旋转 + 随机翻转 + 随机旋转 ±20°</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>配置项</th>
+					<th>设定</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>优化器</td>
+					<td>Adam, lr=3e-4 (Covid19) / 1e-3 (MoNuSeg)</td>
+			</tr>
+			<tr>
+					<td>LR 调度</td>
+					<td>CosineAnnealingWarmRestarts (T_0=10, eta_min=1e-4)</td>
+			</tr>
+			<tr>
+					<td>Batch Size</td>
+					<td>2（论文建议 2 优于 4）</td>
+			</tr>
+			<tr>
+					<td>Epochs</td>
+					<td>2000</td>
+			</tr>
+			<tr>
+					<td>Early Stopping</td>
+					<td>patience=50, 监控 val Dice</td>
+			</tr>
+			<tr>
+					<td>输入尺寸</td>
+					<td>224×224</td>
+			</tr>
+			<tr>
+					<td>数据增强</td>
+					<td>随机 90° 旋转 + 随机翻转 + 随机旋转 ±20°</td>
+			</tr>
+	</tbody>
 </table></div>
 <p>还支持 <code>LViT_pretrain</code> 模式：先在 MoNuSeg 上预训练 U-Net 的卷积部分，再迁移到目标数据集。</p>
 <h2 id="六实验结果">六、实验结果
 </h2><div class="table-wrapper"><table>
-  <thead>
-      <tr>
-          <th>数据集</th>
-          <th>U-Net</th>
-          <th>LViT-T</th>
-          <th>提升</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>QaTa-COV19</td>
-          <td>79.02%</td>
-          <td><strong>83.66%</strong></td>
-          <td>+4.64</td>
-      </tr>
-      <tr>
-          <td>MosMedData+</td>
-          <td>64.60%</td>
-          <td><strong>74.57%</strong></td>
-          <td>+9.97</td>
-      </tr>
-      <tr>
-          <td>MoNuSeg</td>
-          <td>76.45%</td>
-          <td><strong>80.36%</strong></td>
-          <td>+3.91</td>
-      </tr>
-      <tr>
-          <td>BKAI-Poly</td>
-          <td>-</td>
-          <td><strong>92.07%</strong></td>
-          <td>-</td>
-      </tr>
-      <tr>
-          <td>ESO-CT</td>
-          <td>-</td>
-          <td><strong>68.27%</strong></td>
-          <td>-</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>数据集</th>
+					<th>U-Net</th>
+					<th>LViT-T</th>
+					<th>提升</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>QaTa-COV19</td>
+					<td>79.02%</td>
+					<td><strong>83.66%</strong></td>
+					<td>+4.64</td>
+			</tr>
+			<tr>
+					<td>MosMedData+</td>
+					<td>64.60%</td>
+					<td><strong>74.57%</strong></td>
+					<td>+9.97</td>
+			</tr>
+			<tr>
+					<td>MoNuSeg</td>
+					<td>76.45%</td>
+					<td><strong>80.36%</strong></td>
+					<td>+3.91</td>
+			</tr>
+			<tr>
+					<td>BKAI-Poly</td>
+					<td>-</td>
+					<td><strong>92.07%</strong></td>
+					<td>-</td>
+			</tr>
+			<tr>
+					<td>ESO-CT</td>
+					<td>-</td>
+					<td><strong>68.27%</strong></td>
+					<td>-</td>
+			</tr>
+	</tbody>
 </table></div>
 <p>在三个主要数据集上稳定超越 U-Net baseline 3-10 个百分点。MosMedData+ 数据集上提升最大，可能是因为该数据集病灶形态多变，文本先验的辅助作用更明显。</p>
 <h2 id="七代码走读中的发现">七、代码走读中的发现
