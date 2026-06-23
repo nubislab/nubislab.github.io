@@ -7,7 +7,39 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>云雾中的山-NubisLab</copyright>
-        <lastBuildDate>Thu, 11 Jun 2026 17:05:22 +0000</lastBuildDate><atom:link href="https://blogbook.eu.org/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Tue, 23 Jun 2026 16:07:46 +0000</lastBuildDate><atom:link href="https://blogbook.eu.org/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>学术雷达日报 2026-06-24</title>
+        <link>https://blogbook.eu.org/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-06-24/</link>
+        <pubDate>Wed, 24 Jun 2026 00:07:27 +0800</pubDate>
+        
+        <guid>https://blogbook.eu.org/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-06-24/</guid>
+        <description>&lt;h2 id=&#34;今日论文速览&#34;&gt;今日论文速览
+&lt;/h2&gt;&lt;p&gt;抓取时间（北京时间）：2026-06-24 00:07:27&lt;/p&gt;
+&lt;h3 id=&#34;1-dvla-rl-reinforcement-learning-over-denoising-trajectories-for-discrete-diffusion-vision-language-action-models&#34;&gt;1. dVLA-RL: Reinforcement Learning over Denoising Trajectories for Discrete Diffusion Vision-Language-Action Models
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;ArXiv: &lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/2606.23623v1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://arxiv.org/abs/2606.23623v1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;发布时间: 2026-06-23 01:19:03 (北京时间)&lt;/li&gt;
+&lt;li&gt;作者: Yuhao Wu, Yitian Liu, Weijie Shen, Mishuo Han, Wenjie Xu, Haotian Liang, Zhongshan Liu, Yinan Mao, Lei Xu, Xinping Guan, Ru Ying, Ran Zheng, Wei Sui, Xiaokang Yang, Wenbo Ding, Yao Mu&lt;/li&gt;
+&lt;li&gt;标签: 检测&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;AI 深度解析&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;TL;DR：提出dVLA-RL方法，通过将去噪过程建模为马尔可夫决策过程，将强化学习目标从边际动作概率转向采样路径的联合概率，首次实现离散扩散视觉-语言-动作模型的强化学习训练，在LIBERO上达到99.7%成功率。&lt;/p&gt;
+&lt;p&gt;核心贡献：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;提出将离散扩散VLA模型的去噪过程建模为马尔可夫决策过程（MDP），将学习目标从难以计算的边际动作概率转化为可处理的路径联合概率&lt;/li&gt;
+&lt;li&gt;设计统一的步长调度方法，根据任务复杂度自适应调整去噪步数，在提升成功率的同时优化计算效率&lt;/li&gt;
+&lt;li&gt;首次将强化学习应用于离散扩散VLA模型训练，在RoboTwin 2.0上相比SFT基线提升30.6%成功率&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;方法类型：扩散模型 + 强化学习（混合架构）&lt;/p&gt;
+&lt;p&gt;适用场景：机器人操作（通用操控任务）&lt;/p&gt;
+&lt;p&gt;评估指标：成功率（LIBERO上99.7%，RoboTwin 2.0上相对SFT提升30.6%）&lt;/p&gt;
+&lt;p&gt;代码可用性：未提及&lt;/p&gt;
+&lt;p&gt;领域启发：该论文对图像分割与目标识别研究的核心启发在于：1）将生成模型的去噪过程转化为可微的决策路径，为分割/检测中的迭代细化策略提供了强化学习优化框架；2）提出的路径概率建模方法可迁移至分割掩码的逐步精化任务，通过RL优化中间步骤的联合概率而非最终结果；3）自适应步长调度思想对目标检测中的多尺度特征融合和分割中的级联网络设计具有参考价值，可根据样本复杂度动态调整推理深度。&lt;/p&gt;
+&lt;hr&gt;
+</description>
+        </item>
+        <item>
         <title>学术雷达日报 2026-06-12</title>
         <link>https://blogbook.eu.org/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-06-12/</link>
         <pubDate>Fri, 12 Jun 2026 01:03:00 +0800</pubDate>
