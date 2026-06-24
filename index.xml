@@ -9,32 +9,54 @@
         <copyright>云雾中的山-NubisLab</copyright><atom:link href="https://blogbook.eu.org/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>学术雷达日报 2026-06-24</title>
         <link>https://blogbook.eu.org/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-06-24/</link>
-        <pubDate>Wed, 24 Jun 2026 00:07:27 +0800</pubDate>
+        <pubDate>Wed, 24 Jun 2026 23:39:12 +0800</pubDate>
         
         <guid>https://blogbook.eu.org/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-06-24/</guid>
         <description>&lt;h2 id=&#34;今日论文速览&#34;&gt;今日论文速览
-&lt;/h2&gt;&lt;p&gt;抓取时间（北京时间）：2026-06-24 00:07:27&lt;/p&gt;
-&lt;h3 id=&#34;1-dvla-rl-reinforcement-learning-over-denoising-trajectories-for-discrete-diffusion-vision-language-action-models&#34;&gt;1. dVLA-RL: Reinforcement Learning over Denoising Trajectories for Discrete Diffusion Vision-Language-Action Models
+&lt;/h2&gt;&lt;p&gt;抓取时间（北京时间）：2026-06-24 23:39:12&lt;/p&gt;
+&lt;h3 id=&#34;1-vision-language-model-reasoning-for-contextual-semantic-mapping-in-intralogistics&#34;&gt;1. Vision-Language Model Reasoning for Contextual Semantic Mapping in Intralogistics
 &lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;ArXiv: &lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/2606.23623v1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://arxiv.org/abs/2606.23623v1&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;发布时间: 2026-06-23 01:19:03 (北京时间)&lt;/li&gt;
-&lt;li&gt;作者: Yuhao Wu, Yitian Liu, Weijie Shen, Mishuo Han, Wenjie Xu, Haotian Liang, Zhongshan Liu, Yinan Mao, Lei Xu, Xinping Guan, Ru Ying, Ran Zheng, Wei Sui, Xiaokang Yang, Wenbo Ding, Yao Mu&lt;/li&gt;
+&lt;li&gt;ArXiv: &lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/2606.24814v1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://arxiv.org/abs/2606.24814v1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;发布时间: 2026-06-24 00:59:52 (北京时间)&lt;/li&gt;
+&lt;li&gt;作者: Marvin Rüdt, Hao Pang, Constantin Enke, Zäzilia Seibold, Kai Furmans&lt;/li&gt;
+&lt;li&gt;标签: 分割&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;AI 深度解析&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;TL;DR：提出一种结合SLAM、SAM实例分割与VLM多视角推理的流水线，在零样本、开放词汇条件下为物流机器人生成包含几何结构、物体类别和可移动性的上下文语义地图。&lt;/p&gt;
+&lt;p&gt;核心贡献：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;创新性地将VLM多视角推理引入语义地图构建，通过零样本查询推断物体上下文属性（如可移动性），无需任务特定训练或预定义类别。&lt;/li&gt;
+&lt;li&gt;设计模块化流水线，集成SLAM几何建图、SAM实例分割、实例聚类与VLM推理，实现从多视角观测到上下文语义地图的端到端生成。&lt;/li&gt;
+&lt;li&gt;通过组件分析明确VLM推理是上下文理解的主要瓶颈，实例聚类是全景性能的主要限制，为后续优化提供方向。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;方法类型：SAM 系列 / 混合架构（SLAM+SAM+VLM）&lt;/p&gt;
+&lt;p&gt;适用场景：其他（室内物流、自主移动机器人导航）&lt;/p&gt;
+&lt;p&gt;评估指标：语义分类mIoU 98.93%，物体可移动性估计mAcc 89.17%&lt;/p&gt;
+&lt;p&gt;代码可用性：未提及&lt;/p&gt;
+&lt;p&gt;领域启发：该论文展示了将大语言模型（VLM）与经典视觉分割方法（SAM）结合在工业场景中的巨大潜力。对于图像分割与目标识别研究，其核心价值在于：1）证明了零样本VLM推理可有效替代传统监督学习来获取物体上下文属性（如可移动性），极大降低了对标注数据的依赖；2）多视角聚合策略提升了单帧分割的鲁棒性，为动态环境下的语义建图提供了新思路；3）组件瓶颈分析为后续优化（如改进聚类算法或轻量化VLM推理）提供了明确方向，对工程落地具有直接指导意义。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;2-ddstereo-efficient-dual-decoder-transformers-for-stereo-3d-road-anomaly-detection&#34;&gt;2. DDStereo: Efficient Dual Decoder Transformers for Stereo 3D Road Anomaly Detection
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;ArXiv: &lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/2606.24805v1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://arxiv.org/abs/2606.24805v1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;发布时间: 2026-06-24 00:54:11 (北京时间)&lt;/li&gt;
+&lt;li&gt;作者: Shiyi Mu, Zichong Gu, Zhiqi Ai, Yilin Gao, Shugong Xu&lt;/li&gt;
 &lt;li&gt;标签: 检测&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;strong&gt;AI 深度解析&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;TL;DR：提出dVLA-RL方法，通过将去噪过程建模为马尔可夫决策过程，将强化学习目标从边际动作概率转向采样路径的联合概率，首次实现离散扩散视觉-语言-动作模型的强化学习训练，在LIBERO上达到99.7%成功率。&lt;/p&gt;
+&lt;p&gt;TL;DR：提出一种基于双解码器Transformer的立体3D道路异常检测方法，首次实现与单目方法相当的实时性能，同时支持开放集检测。&lt;/p&gt;
 &lt;p&gt;核心贡献：&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;提出将离散扩散VLA模型的去噪过程建模为马尔可夫决策过程（MDP），将学习目标从难以计算的边际动作概率转化为可处理的路径联合概率&lt;/li&gt;
-&lt;li&gt;设计统一的步长调度方法，根据任务复杂度自适应调整去噪步数，在提升成功率的同时优化计算效率&lt;/li&gt;
-&lt;li&gt;首次将强化学习应用于离散扩散VLA模型训练，在RoboTwin 2.0上相比SFT基线提升30.6%成功率&lt;/li&gt;
+&lt;li&gt;设计双解码器Transformer架构，包含一个用于开放集前景2D检测的轻量解码器和一个用于3D属性回归的解码器，通过共享目标级查询实现统一对齐。&lt;/li&gt;
+&lt;li&gt;提出紧凑型视差特征提取器和精简解码器架构，显著提升推理效率，实现实时性能。&lt;/li&gt;
+&lt;li&gt;在封闭集和开放集协议下均达到最先进精度，首次实现与单目方法相当的推理速度。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;方法类型：扩散模型 + 强化学习（混合架构）&lt;/p&gt;
-&lt;p&gt;适用场景：机器人操作（通用操控任务）&lt;/p&gt;
-&lt;p&gt;评估指标：成功率（LIBERO上99.7%，RoboTwin 2.0上相对SFT提升30.6%）&lt;/p&gt;
+&lt;p&gt;方法类型：Transformer&lt;/p&gt;
+&lt;p&gt;适用场景：自动驾驶（立体3D道路异常检测）&lt;/p&gt;
+&lt;p&gt;评估指标：未在摘要中提供具体数值&lt;/p&gt;
 &lt;p&gt;代码可用性：未提及&lt;/p&gt;
-&lt;p&gt;领域启发：该论文对图像分割与目标识别研究的核心启发在于：1）将生成模型的去噪过程转化为可微的决策路径，为分割/检测中的迭代细化策略提供了强化学习优化框架；2）提出的路径概率建模方法可迁移至分割掩码的逐步精化任务，通过RL优化中间步骤的联合概率而非最终结果；3）自适应步长调度思想对目标检测中的多尺度特征融合和分割中的级联网络设计具有参考价值，可根据样本复杂度动态调整推理深度。&lt;/p&gt;
+&lt;p&gt;领域启发：该论文对图像分割与目标识别研究的价值在于：1）双解码器设计为多任务学习提供了新思路，可推广至其他需要同时处理2D和3D信息的场景；2）紧凑型特征提取器和精简解码器架构为实时性要求高的应用（如自动驾驶、机器人导航）提供了高效解决方案；3）开放集检测能力增强了模型在真实道路场景中的泛化性和安全性，对工程落地具有重要参考价值。&lt;/p&gt;
 &lt;hr&gt;
 </description>
         </item>
