@@ -7,7 +7,39 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>云雾中的山-NubisLab</copyright>
-        <lastBuildDate>Wed, 24 Jun 2026 15:39:32 +0000</lastBuildDate><atom:link href="https://blogbook.eu.org/categories/academic-radar/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Fri, 26 Jun 2026 15:32:27 +0000</lastBuildDate><atom:link href="https://blogbook.eu.org/categories/academic-radar/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>学术雷达日报 2026-06-26</title>
+        <link>https://blogbook.eu.org/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-06-26/</link>
+        <pubDate>Fri, 26 Jun 2026 23:32:07 +0800</pubDate>
+        
+        <guid>https://blogbook.eu.org/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-06-26/</guid>
+        <description>&lt;h2 id=&#34;今日论文速览&#34;&gt;今日论文速览
+&lt;/h2&gt;&lt;p&gt;抓取时间（北京时间）：2026-06-26 23:32:07&lt;/p&gt;
+&lt;h3 id=&#34;1-octosense-self-supervised-learning-for-multimodal-robot-perception&#34;&gt;1. OctoSense: Self-Supervised Learning for Multimodal Robot Perception
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;ArXiv: &lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/2606.27317v1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://arxiv.org/abs/2606.27317v1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;发布时间: 2026-06-26 01:30:49 (北京时间)&lt;/li&gt;
+&lt;li&gt;作者: Anthony Bisulco, Jeremy Wang, Kostas Daniilidis, Randall Balestriero, Pratik Chaudhari&lt;/li&gt;
+&lt;li&gt;标签: 检测&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;AI 深度解析&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;TL;DR：提出OctoSense多模态传感器平台与数据集，并基于“晚融合”掩码自编码器实现多模态自监督学习，在多种退化条件下仍能鲁棒估计光流、深度、语义分割和自运动。&lt;/p&gt;
+&lt;p&gt;核心贡献：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;构建了包含立体RGB、事件相机、LiDAR、热成像、IMU、RTK-GPS和本体感知（CAN总线/关节角）的59小时多模态数据集，覆盖不同环境与时间，含传感器退化场景。&lt;/li&gt;
+&lt;li&gt;提出“晚融合”掩码自编码器架构，通过模态特定分词器处理不同时空特性，并在推理时缓存模态特定token以支持异步流式输入。&lt;/li&gt;
+&lt;li&gt;在NVIDIA 5090和Orin NX上分别实现6.68ms和112ms的快速推理，在光流、深度、语义分割和自运动估计任务上超越现有纯图像基础模型，且在夜间或传感器退化场景下保持鲁棒性。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;方法类型：混合架构（Transformer + 掩码自编码器 + 多模态融合）&lt;/p&gt;
+&lt;p&gt;适用场景：自动驾驶 / 机器人感知 / 多模态融合感知&lt;/p&gt;
+&lt;p&gt;评估指标：未提供具体数值（如mIoU、Dice等），但提及在光流、深度、语义分割和自运动估计任务上优于纯图像基础模型。&lt;/p&gt;
+&lt;p&gt;代码可用性：是（项目页面提供数据集、代码和补充视频：https://abisulco.com/octosense/）&lt;/p&gt;
+&lt;p&gt;领域启发：该工作对图像分割与目标识别研究的价值在于：1）展示了多模态自监督学习在传感器退化（如夜间、遮挡）下的鲁棒性，为实际工程中应对传感器失效提供了可行方案；2）“晚融合”架构通过缓存机制实现异步流式处理，解决了多传感器频率和延迟不一致的工程难题，可推广至实时机器人或自动驾驶系统；3）其模态特定分词器设计为处理异构传感器（如事件相机、热成像）提供了新思路，启发分割模型向多模态、多尺度特征融合方向发展。&lt;/p&gt;
+&lt;hr&gt;
+</description>
+        </item>
+        <item>
         <title>学术雷达日报 2026-06-24</title>
         <link>https://blogbook.eu.org/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-06-24/</link>
         <pubDate>Wed, 24 Jun 2026 23:39:12 +0800</pubDate>
