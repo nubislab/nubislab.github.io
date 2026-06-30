@@ -7,7 +7,40 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>云雾中的山-NubisLab</copyright>
-        <lastBuildDate>Fri, 26 Jun 2026 15:32:27 +0000</lastBuildDate><atom:link href="https://blogbook.eu.org/tags/computer-vision/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Tue, 30 Jun 2026 15:43:42 +0000</lastBuildDate><atom:link href="https://blogbook.eu.org/tags/computer-vision/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>学术雷达日报 2026-06-30</title>
+        <link>https://blogbook.eu.org/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-06-30/</link>
+        <pubDate>Tue, 30 Jun 2026 23:43:25 +0800</pubDate>
+        
+        <guid>https://blogbook.eu.org/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-06-30/</guid>
+        <description>&lt;h2 id=&#34;今日论文速览&#34;&gt;今日论文速览
+&lt;/h2&gt;&lt;p&gt;抓取时间（北京时间）：2026-06-30 23:43:25&lt;/p&gt;
+&lt;h3 id=&#34;1-april-medseg-a-modular-medical-image-segmentation-toolbox-embracing-modern-paradigms&#34;&gt;1. APRIL-MedSeg: A Modular Medical Image Segmentation Toolbox Embracing Modern Paradigms
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;ArXiv: &lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/2606.30577v1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://arxiv.org/abs/2606.30577v1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;发布时间: 2026-06-30 01:20:26 (北京时间)&lt;/li&gt;
+&lt;li&gt;作者: Juntao Jiang, Jinsheng Bai, Linxuan Fan, Yali Bi, Jiangning Zhang, Yong Liu&lt;/li&gt;
+&lt;li&gt;标签: 检测&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;AI 深度解析&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;TL;DR：APRIL-MedSeg 是一个基于 YAML 驱动的模块化医学图像分割工具箱，集成了半监督、域适应、知识蒸馏、弱监督、文本引导分割及基础模型支持等现代范式，提供可复用组件和可复现实验管理。&lt;/p&gt;
+&lt;p&gt;核心贡献：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;提出 YAML 驱动的模块化框架，将分割网络分解为可复用组件，支持灵活组合与扩展。&lt;/li&gt;
+&lt;li&gt;集成多种先进范式，包括半监督学习、域适应、知识蒸馏、弱监督学习、文本引导分割及基础模型支持，覆盖现代分割研究前沿。&lt;/li&gt;
+&lt;li&gt;实现基于注册表的配置系统与继承机制，支持模型、数据集和训练策略的无缝切换，确保实验可复现性。&lt;/li&gt;
+&lt;li&gt;提供统一接口用于医学数据集、数据增强管道、部署工具和模型集成，桥接算法创新与实际部署。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;方法类型：其他（模块化框架，非特定模型架构）&lt;/p&gt;
+&lt;p&gt;适用场景：医学图像（2D 医学图像分割）&lt;/p&gt;
+&lt;p&gt;评估指标：未提及具体数值&lt;/p&gt;
+&lt;p&gt;代码可用性：是（https://github.com/juntaoJianggavin/APRIL-MedSeg，Apache 2.0 许可）&lt;/p&gt;
+&lt;p&gt;领域启发：该框架通过模块化设计和多范式集成，显著降低了医学图像分割研究的重复开发成本，尤其适合需要快速切换不同训练策略（如半监督、域适应）或集成基础模型（如 SAM）的场景。其 YAML 驱动配置和注册表机制为工程落地提供了标准化实验管理模板，有助于推动算法从研究到临床部署的转化。对于目标识别领域，类似的模块化设计思路可迁移至多任务学习或跨域检测框架的构建。&lt;/p&gt;
+&lt;hr&gt;
+</description>
+        </item>
+        <item>
         <title>学术雷达日报 2026-06-26</title>
         <link>https://blogbook.eu.org/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-06-26/</link>
         <pubDate>Fri, 26 Jun 2026 23:32:07 +0800</pubDate>
