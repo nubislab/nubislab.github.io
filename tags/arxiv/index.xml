@@ -7,7 +7,83 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>云雾中的山-NubisLab</copyright>
-        <lastBuildDate>Tue, 30 Jun 2026 15:43:42 +0000</lastBuildDate><atom:link href="https://blogbook.eu.org/tags/arxiv/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Fri, 03 Jul 2026 15:29:52 +0000</lastBuildDate><atom:link href="https://blogbook.eu.org/tags/arxiv/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>学术雷达日报 2026-07-03</title>
+        <link>https://blogbook.eu.org/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-07-03/</link>
+        <pubDate>Fri, 03 Jul 2026 23:29:16 +0800</pubDate>
+        
+        <guid>https://blogbook.eu.org/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-07-03/</guid>
+        <description>&lt;h2 id=&#34;今日论文速览&#34;&gt;今日论文速览
+&lt;/h2&gt;&lt;p&gt;抓取时间（北京时间）：2026-07-03 23:29:16&lt;/p&gt;
+&lt;h3 id=&#34;1-interpretation-oriented-cloud-removal-via-observation-anchored-residual-flow-with-geo-contextual-alignment&#34;&gt;1. Interpretation-Oriented Cloud Removal via Observation-Anchored Residual Flow with Geo-Contextual Alignment
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;ArXiv: &lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/2607.02471v1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://arxiv.org/abs/2607.02471v1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;发布时间: 2026-07-03 01:39:23 (北京时间)&lt;/li&gt;
+&lt;li&gt;作者: Ziyao Wang, Maonan Wang, Yucheng He, Xianping Ma, Ziyi Wang, Hongyang Zhang, Yirong Cheng, Man-on Pun&lt;/li&gt;
+&lt;li&gt;标签: 检测&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;AI 深度解析&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;TL;DR：提出一种面向遥感图像去云任务的统一框架GACR，通过观测锚定残差流和地理上下文先验对齐，在保证高质量重建的同时提升下游语义分割等任务的准确性。&lt;/p&gt;
+&lt;p&gt;核心贡献：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;提出观测锚定残差流（OAR-Flow），将去云任务重构为物理约束的残差逆过程，以云观测图像而非纯噪声作为生成轨迹锚点，实现快速稳定且保真的重建。&lt;/li&gt;
+&lt;li&gt;设计地理上下文先验对齐（GCPA）模块，利用视觉基础模型（VFM）构建语义流形约束，确保重建结果保留复杂地物的空间-语义完整性。&lt;/li&gt;
+&lt;li&gt;在6个去云数据集和12个下游任务上验证，证明该方法在重建质量和下游任务精度上均优于现有方法。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;方法类型：混合架构（基于流的生成模型+视觉基础模型）&lt;/p&gt;
+&lt;p&gt;适用场景：遥感（光学卫星图像去云）&lt;/p&gt;
+&lt;p&gt;评估指标：未在摘要中提供具体数值，但提及在6个数据集和12个下游任务上表现更优。&lt;/p&gt;
+&lt;p&gt;代码可用性：是（https://github.com/wzy6055/GACR）&lt;/p&gt;
+&lt;p&gt;领域启发：该论文对图像分割与目标识别研究的核心价值在于：1）揭示了图像恢复任务与下游分析任务之间的语义漂移问题，为设计“恢复-理解”联合优化框架提供了新思路；2）提出的观测锚定残差流方法可推广至其他图像修复任务（如去雨、去雾），通过物理约束加速生成过程并保持语义一致性；3）地理上下文先验对齐策略展示了如何利用预训练视觉基础模型（如SAM）的语义先验来约束生成过程，这对提升分割模型在退化图像上的鲁棒性具有直接借鉴意义。在工程落地上，该方法通过锚定观测图像避免了扩散模型的多步采样，显著提升了推理效率，适合部署于遥感卫星数据实时处理系统。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;2-visionaid-an-offline-first-multimodal-android-assistant-for-people-with-visual-impairment-featuring-personalized-object-retrieval&#34;&gt;2. VisionAId: An Offline-First Multimodal Android Assistant for People with Visual Impairment, Featuring Personalized Object Retrieval
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;ArXiv: &lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/2607.02371v1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://arxiv.org/abs/2607.02371v1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;发布时间: 2026-07-03 00:12:50 (北京时间)&lt;/li&gt;
+&lt;li&gt;作者: Cristian-Gabriel Florea, Stelian Spînu&lt;/li&gt;
+&lt;li&gt;标签: 检测&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;AI 深度解析&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;TL;DR：VisionAId 是一款离线优先的多模态 Android 助手，通过集成多个深度学习模型和个性化物体检索管道，帮助视障人士实时感知环境并定位个人物品。&lt;/p&gt;
+&lt;p&gt;核心贡献：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;提出了一种基于少量样本的个性化物体检索管道，用户只需拍摄物体多个角度，系统即可在环境中定位该特定实例，并通过增强现实标记、空间音频和距离比例触觉反馈引导用户。&lt;/li&gt;
+&lt;li&gt;实现了完全在设备端运行的六模型集成系统（包括度量单目深度估计、实例分割、视觉和面部嵌入、人脸检测及自定义纸币检测器），通过 ONNX Runtime 优化，并可选云大语言模型用于场景描述和自动标签。&lt;/li&gt;
+&lt;li&gt;通过 INT8 量化将深度估计延迟从约 1200 ms 降至约 491 ms，自定义纸币检测器达到 mAP@50 为 0.986，且在 3 米内度量深度误差低于 1 厘米。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;方法类型：混合架构（CNN + 嵌入模型 + 云大语言模型）&lt;/p&gt;
+&lt;p&gt;适用场景：其他（辅助视障人士的实时环境感知与物体检索）&lt;/p&gt;
+&lt;p&gt;评估指标：mAP@50（0.986）、深度延迟（~491 ms）、深度误差（&amp;lt;1 cm 在 3 m 内）&lt;/p&gt;
+&lt;p&gt;代码可用性：未提及&lt;/p&gt;
+&lt;p&gt;领域启发：该论文展示了如何将实例分割、深度估计和嵌入模型结合，构建一个实用的离线优先辅助系统。对于图像分割和目标识别研究，其价值在于：1）个性化物体检索管道为少样本学习在特定实例定位中的应用提供了新思路，可启发开发更灵活、用户定制的分割与识别系统；2）通过量化与 ONNX Runtime 优化实现设备端实时推理，证明了轻量化模型在资源受限设备上的可行性，对工程落地有直接参考意义；3）多模态反馈（视觉、音频、触觉）的集成设计，为分割与识别结果的人机交互提供了可借鉴的范式。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;3-q-gain-a-python-package-for-machine-learning-and-physically-informed-analysis-applications&#34;&gt;3. Q-GAIN: A Python Package for Machine Learning and Physically Informed Analysis Applications
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;ArXiv: &lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/2607.02413v1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://arxiv.org/abs/2607.02413v1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;发布时间: 2026-07-03 00:45:34 (北京时间)&lt;/li&gt;
+&lt;li&gt;作者: M. Doris, S. Guo, S. M. Koh, L. Ritter, A. R. Fritsch, S. Mukherjee, I. B. Spielman, J. P. Zwolak&lt;/li&gt;
+&lt;li&gt;标签: 检测&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;AI 深度解析&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;TL;DR：Q-GAIN是一个用于冷原子实验的Python包，集成了机器学习与物理信息分析，支持分类、目标检测和物理信息特征识别，并展示了在MNIST、孤子检测和涡旋识别中的应用。&lt;/p&gt;
+&lt;p&gt;核心贡献：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;提出模块化工作流框架，整合数据加载、预处理、ML特征识别和传统分析，支持快速部署冷原子实验分析。&lt;/li&gt;
+&lt;li&gt;实现物理信息度量（physics-informed metrics）用于特征检测，将物理约束融入机器学习模型，提升在冷原子图像中的检测精度。&lt;/li&gt;
+&lt;li&gt;开发了针对环状BEC图像中量子涡旋的目标检测工具，扩展了Q-GAIN在复杂冷原子现象中的应用。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;方法类型：其他（基于机器学习的物理信息分析框架，包含CNN等基础模型）&lt;/p&gt;
+&lt;p&gt;适用场景：其他（冷原子实验图像分析，如BEC中的孤子和涡旋检测）&lt;/p&gt;
+&lt;p&gt;评估指标：未提及具体数值&lt;/p&gt;
+&lt;p&gt;代码可用性：是（Python包，名称Q-GAIN）&lt;/p&gt;
+&lt;p&gt;领域启发：该论文对图像分割与目标识别研究的价值在于展示了如何将物理先验知识（如冷原子系统的动力学约束）融入机器学习流程，从而提升在特定科学图像（如低信噪比、稀疏特征）中的检测鲁棒性。对于工程落地，其模块化设计（数据加载→ML识别→传统分析）提供了一种可复用的分析流水线，尤其适用于需要结合领域知识的科学图像分析任务（如材料科学、生物成像），启发研究者开发类似“物理信息+ML”的定制化工具包。&lt;/p&gt;
+&lt;hr&gt;
+</description>
+        </item>
+        <item>
         <title>学术雷达日报 2026-06-30</title>
         <link>https://blogbook.eu.org/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-06-30/</link>
         <pubDate>Tue, 30 Jun 2026 23:43:25 +0800</pubDate>
