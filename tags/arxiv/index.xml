@@ -7,7 +7,39 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>云雾中的山-NubisLab</copyright>
-        <lastBuildDate>Fri, 03 Jul 2026 15:29:52 +0000</lastBuildDate><atom:link href="https://blogbook.eu.org/tags/arxiv/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Tue, 07 Jul 2026 15:58:23 +0000</lastBuildDate><atom:link href="https://blogbook.eu.org/tags/arxiv/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>学术雷达日报 2026-07-07</title>
+        <link>https://blogbook.eu.org/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-07-07/</link>
+        <pubDate>Tue, 07 Jul 2026 23:58:07 +0800</pubDate>
+        
+        <guid>https://blogbook.eu.org/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-07-07/</guid>
+        <description>&lt;h2 id=&#34;今日论文速览&#34;&gt;今日论文速览
+&lt;/h2&gt;&lt;p&gt;抓取时间（北京时间）：2026-07-07 23:58:07&lt;/p&gt;
+&lt;h3 id=&#34;1-deep-learning-for-semen-analysis-in-male-infertility-computer-vision-multimodal-fusion-and-clinical-translation&#34;&gt;1. Deep Learning for Semen Analysis in Male Infertility: Computer Vision, Multimodal Fusion, and Clinical Translation
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;ArXiv: &lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/2607.05311v1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://arxiv.org/abs/2607.05311v1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;发布时间: 2026-07-07 00:51:49 (北京时间)&lt;/li&gt;
+&lt;li&gt;作者: Runwei Guan, Shaofeng Liang, Jiacheng Weng, Xiaoyi Gu, Jia Weng, Daizong Liu, Duo Pan, Qingxin Zhang, Xiao Liang, Weiping Ding, Suoyu Zhu, Ming Yuan, Yanhua Fei&lt;/li&gt;
+&lt;li&gt;标签: 检测&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;AI 深度解析&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;TL;DR：本文系统综述了深度学习在男性不育症精液分析中的应用，涵盖计算机视觉、多模态融合及临床转化，重点讨论了精子检测、追踪、分割、形态分类等任务的方法、数据集、挑战及临床部署路径。&lt;/p&gt;
+&lt;p&gt;核心贡献：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;系统梳理了基于深度学习的精子分析任务，包括检测与计数、追踪、语义/实例分割、形态与缺陷分类、功能评估及遗传完整性评价，并总结了相关公开数据集、基准和评估指标。&lt;/li&gt;
+&lt;li&gt;提出了多模态融合策略，整合显微图像、延时视频、CASA参数、DNA完整性检测和临床元数据，以提升分析鲁棒性和临床相关性。&lt;/li&gt;
+&lt;li&gt;识别了实际部署的关键障碍（如数据稀缺、跨中心域偏移、标注不一致、可解释性、不确定性校准、隐私保护学习等），并规划了从技术标准化到上市后监测的分阶段临床转化路线图。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;方法类型：混合架构（CNN、Transformer、多模态融合等）
+适用场景：医学图像（精液分析、男性不育症诊断）
+评估指标：未提及具体数值（涉及检测、追踪、分割、分类等通用指标）
+代码可用性：未提及
+领域启发：该综述对图像分割与目标识别研究及工程落地的价值在于：首先，它展示了深度学习在医学微观图像（如精子）中从检测到分割再到分类的完整任务链，强调了实例分割在精子形态分析中的关键作用，为细粒度医学目标分割提供了参考；其次，多模态融合策略（如结合视频时序信息和DNA检测数据）提示了在分割任务中融合多源信息以提升鲁棒性的方向；最后，对域偏移、标注不一致和可解释性等实际部署问题的讨论，为将分割模型从实验室推向临床提供了工程化落地的关键考量，如数据标准化、隐私保护学习和人机协同验证。&lt;/p&gt;
+&lt;hr&gt;
+</description>
+        </item>
+        <item>
         <title>学术雷达日报 2026-07-03</title>
         <link>https://blogbook.eu.org/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-07-03/</link>
         <pubDate>Fri, 03 Jul 2026 23:29:16 +0800</pubDate>
