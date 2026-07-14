@@ -7,7 +7,66 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>云雾中的山-NubisLab</copyright>
-        <lastBuildDate>Fri, 10 Jul 2026 15:41:24 +0000</lastBuildDate><atom:link href="https://blogbook.eu.org/tags/image-segmentation/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Tue, 14 Jul 2026 15:05:15 +0000</lastBuildDate><atom:link href="https://blogbook.eu.org/tags/image-segmentation/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>学术雷达日报 2026-07-14</title>
+        <link>https://blogbook.eu.org/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-07-14/</link>
+        <pubDate>Tue, 14 Jul 2026 23:04:59 +0800</pubDate>
+        
+        <guid>https://blogbook.eu.org/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-07-14/</guid>
+        <description>&lt;h2 id=&#34;今日论文速览&#34;&gt;今日论文速览
+&lt;/h2&gt;&lt;p&gt;抓取时间（北京时间）：2026-07-14 23:04:59&lt;/p&gt;
+&lt;h3 id=&#34;1-haste-a-platform-for-rapid-post-disaster-building-damage-assessment&#34;&gt;1. HASTE: A Platform for Rapid Post-Disaster Building Damage Assessment
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;ArXiv: &lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/2607.11838v1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://arxiv.org/abs/2607.11838v1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;发布时间: 2026-07-14 01:27:53 (北京时间)&lt;/li&gt;
+&lt;li&gt;作者: Caleb Robinson, Anthony Ortiz, Simone Fobi Nsutezo, Cameron Birge, Meygha Machado, Marcelo Duarte, Joaquin Rivero Rodriguez, Anthony Cintron Roman, Kevin White, Inbal Becker-Reshef, Juan M. Lavista Ferres&lt;/li&gt;
+&lt;li&gt;标签: 分割&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;AI 深度解析&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;TL;DR：HASTE是一个面向灾后建筑损伤评估的无代码Web平台，通过两种方法（基于小样本语义分割和基于预训练模型嵌入的逻辑回归）实现快速、低标注成本的建筑损伤制图，已在30余次真实灾害响应中验证。&lt;/p&gt;
+&lt;p&gt;核心贡献：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;提出两种互补的灾后建筑损伤评估方法：方法一通过用户标注少量多边形训练小样本语义分割模型，并利用现有建筑足迹将像素级输出转为建筑级损伤图；方法二利用预训练视觉模型提取建筑足迹嵌入，结合浏览器内逻辑回归，仅需标注少量建筑即可在数秒内完成全场景评分。&lt;/li&gt;
+&lt;li&gt;在xBD数据集上验证：基于基础模型嵌入的建筑足迹池化方法，仅用全监督ResNet-50基线1/20的标注量即可达到相当的性能，显著降低标注成本。&lt;/li&gt;
+&lt;li&gt;构建了完整的工程化平台，支持无代码操作，已应用于地震、飓风、洪水、野火等30余次真实灾害响应，数小时内即可交付结果。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;方法类型：其他（混合方法：语义分割CNN + 预训练视觉模型嵌入 + 逻辑回归）&lt;/p&gt;
+&lt;p&gt;适用场景：遥感（灾后建筑损伤评估）&lt;/p&gt;
+&lt;p&gt;评估指标：未明确给出具体数值（仅提及匹配全监督ResNet-50基线性能，标注量为其1/20）&lt;/p&gt;
+&lt;p&gt;代码可用性：是（https://github.com/microsoft/haste）&lt;/p&gt;
+&lt;p&gt;领域启发：该论文对图像分割与目标识别研究及工程落地的价值在于：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;小样本与零样本学习范式&lt;/strong&gt;：展示了在缺乏历史训练数据时，如何利用预训练基础模型（如视觉Transformer）的嵌入特征，结合极少量标注（甚至单场景标注）实现高精度分割与分类，为遥感、医疗等标注稀缺场景提供了可复用的技术路径。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;工程化落地思路&lt;/strong&gt;：强调“无代码”和“浏览器内推理”，降低了AI模型在应急响应等时效性要求极高场景的使用门槛，提示研究者应关注模型轻量化、部署便捷性与用户交互设计。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;多模态与主动学习方向&lt;/strong&gt;：论文结尾指出的视觉-语言评估、主动学习等方向，提示未来可结合自然语言描述（如“严重倒塌”）进行更灵活的损伤分级，或通过主动采样策略进一步减少人工标注量，提升系统在动态灾害场景中的自适应能力。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;2-gfr-sam-training-free-referring-camouflaged-object-segmentation-via-cross-image-prompting&#34;&gt;2. GFR-SAM: Training-Free Referring Camouflaged Object Segmentation via Cross-Image Prompting
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;ArXiv: &lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/2607.11732v1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://arxiv.org/abs/2607.11732v1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;发布时间: 2026-07-13 23:55:45 (北京时间)&lt;/li&gt;
+&lt;li&gt;作者: Yilong Yang, Jianxin Tian, Shengchuan Zhang, Liujuan Cao&lt;/li&gt;
+&lt;li&gt;标签: 分割&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;AI 深度解析&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;TL;DR：提出一种无需训练的“生成-过滤-精炼”三阶段框架GFR-SAM，通过跨图像上下文提示实现参考伪装目标分割，性能超越现有无训练方法并接近有监督方法。&lt;/p&gt;
+&lt;p&gt;核心贡献：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;提出上下文示例引导分割（In-Context Exemplar-guided Segmentation），使SAM3具备跨图像推理能力，通过全局视觉示例生成候选掩码，突破其原生单图像限制。&lt;/li&gt;
+&lt;li&gt;设计区域-全局对比过滤模块（Region-Global Contrastive Filtering），基于DINOv3原型对齐对候选掩码排序，有效抑制背景干扰。&lt;/li&gt;
+&lt;li&gt;引入几何-语义精炼模块（Geometric-Semantic Refinement），协同使用边界框和文本提示恢复精细边界并提升实例召回率。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;方法类型：SAM 系列&lt;/p&gt;
+&lt;p&gt;适用场景：其他（参考伪装目标分割）&lt;/p&gt;
+&lt;p&gt;评估指标：加权F-measure（F_β^w）提升8.7%&lt;/p&gt;
+&lt;p&gt;代码可用性：未提及&lt;/p&gt;
+&lt;p&gt;领域启发：该工作展示了无需微调即可激活基础模型跨图像上下文推理能力的潜力，为图像分割领域提供了新范式：通过设计巧妙的提示策略（如跨图像示例、对比过滤）替代昂贵的数据标注和模型微调。对目标识别研究的启发在于，将稀疏点提示扩展为全局视觉示例，降低了定位误差敏感性；工程上，这种训练自由框架可直接部署于标注稀缺的伪装目标检测场景，如军事侦察、野生动物监测等，显著降低应用门槛。&lt;/p&gt;
+&lt;hr&gt;
+</description>
+        </item>
+        <item>
         <title>学术雷达日报 2026-07-10</title>
         <link>https://blogbook.eu.org/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-07-10/</link>
         <pubDate>Fri, 10 Jul 2026 23:41:07 +0800</pubDate>
