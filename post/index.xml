@@ -7,7 +7,61 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>云雾中的山-NubisLab</copyright>
-        <lastBuildDate>Wed, 15 Jul 2026 15:03:19 +0000</lastBuildDate><atom:link href="https://blogbook.eu.org/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Tue, 21 Jul 2026 15:19:04 +0000</lastBuildDate><atom:link href="https://blogbook.eu.org/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>学术雷达日报 2026-07-21</title>
+        <link>https://blogbook.eu.org/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-07-21/</link>
+        <pubDate>Tue, 21 Jul 2026 23:18:48 +0800</pubDate>
+        
+        <guid>https://blogbook.eu.org/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-07-21/</guid>
+        <description>&lt;h2 id=&#34;今日论文速览&#34;&gt;今日论文速览
+&lt;/h2&gt;&lt;p&gt;抓取时间（北京时间）：2026-07-21 23:18:48&lt;/p&gt;
+&lt;h3 id=&#34;1-occlusion-aware-panoptic-segmentation-with-joint-position-embedding-and-occlusion-level-attention&#34;&gt;1. Occlusion-Aware Panoptic Segmentation with Joint Position Embedding and Occlusion-Level Attention
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;ArXiv: &lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/2607.18112v1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://arxiv.org/abs/2607.18112v1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;发布时间: 2026-07-21 00:08:57 (北京时间)&lt;/li&gt;
+&lt;li&gt;作者: Wenbo Wei, Jun Wang, Shan Raza, Abhir Bhalerao&lt;/li&gt;
+&lt;li&gt;标签: 检测&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;AI 深度解析&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;TL;DR：提出一种基于位置嵌入调制与遮挡级别注意力的遮挡感知全景分割模块PEMOLA，通过引入遮挡先验显著提升复杂场景下的分割质量。&lt;/p&gt;
+&lt;p&gt;核心贡献：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;提出PEMOLA模块，通过联合位置嵌入调制和遮挡级别注意力机制，将遮挡先验无缝集成到基于Transformer的全景分割框架中。&lt;/li&gt;
+&lt;li&gt;在COCO-OLAC数据集上训练遮挡分类器，生成遮挡级别注意力作为空间引导，并将遮挡标签编码为可学习嵌入以产生通道权重，实现遮挡建模的精细化。&lt;/li&gt;
+&lt;li&gt;为Cityscapes数据集标注遮挡级别（Cityscapes-OLAC），验证PEMOLA的跨数据集泛化能力，并在两个数据集上证明其以极小计算开销持续提升全景分割质量。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;方法类型：Transformer&lt;/p&gt;
+&lt;p&gt;适用场景：通用分割（复杂场景下的全景分割，尤其遮挡场景）&lt;/p&gt;
+&lt;p&gt;评估指标：全景分割质量（PQ），具体数值未在摘要中列出&lt;/p&gt;
+&lt;p&gt;代码可用性：是（https://github.com/wenbo-wei/PEMOLA）&lt;/p&gt;
+&lt;p&gt;领域启发：该论文强调了遮挡建模在全景分割中的重要性，通过轻量级模块（PEMOLA）有效提升遮挡场景下的分割鲁棒性。其创新在于将遮挡先验以注意力机制和位置嵌入调制的方式融入Transformer架构，为图像分割与目标识别领域提供了可借鉴的遮挡处理思路。工程上，该模块计算开销小、可即插即用，适合部署于自动驾驶、监控等复杂遮挡场景的实时系统，具有较高的实用价值。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;2-technical-design-review-of-duke-robotics-clubs-oogway--crush-auvs-for-robosub-2026&#34;&gt;2. Technical Design Review of Duke Robotics Club&amp;rsquo;s Oogway &amp;amp; Crush: AUVs for RoboSub 2026
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;ArXiv: &lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/2607.18075v1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://arxiv.org/abs/2607.18075v1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;发布时间: 2026-07-20 23:44:15 (北京时间)&lt;/li&gt;
+&lt;li&gt;作者: Patrick Zheng, Saagar Arya, Hung Le, Mathew Chu, Nathanael Ren, Niko Weaver, Isabella Chen, Jill Wang, Raine Cheng, Siddharth Kini, Avrick Altmann, Srinath Iyer, Ivan Chen, Ian Suh, Parker Jones, Pierson Jones, Sebastian deSouza, Suhaani Sriram, Suvas Aggarwal&lt;/li&gt;
+&lt;li&gt;标签: 检测&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;AI 深度解析&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;TL;DR：杜克机器人俱乐部为RoboSub 2026设计了两款AUV，通过机械、电气和软件三大子系统的可靠性改进，首次尝试完成全部四项设计目标。&lt;/p&gt;
+&lt;p&gt;核心贡献：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;机械子系统：为Crush增加两个推进器并采用CFD优化外壳，显著提升俯仰稳定性。&lt;/li&gt;
+&lt;li&gt;电气子系统：修复累积故障点，升级推进器控制硬件，并重新设计声学系统，采用高阶滤波器定制PCB，提高声学定位可靠性。&lt;/li&gt;
+&lt;li&gt;软件子系统：改进状态估计、基于声纳的目标检测、视觉驱动的任务规划及内部视觉通信（IVC），实现更协调的自主运行。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;方法类型：其他（AUV系统集成与可靠性优化）&lt;/p&gt;
+&lt;p&gt;适用场景：其他（水下自主机器人竞赛与任务执行）&lt;/p&gt;
+&lt;p&gt;评估指标：未提及具体数值&lt;/p&gt;
+&lt;p&gt;代码可用性：未提及&lt;/p&gt;
+&lt;p&gt;领域启发：该论文对图像分割与目标识别研究的价值在于，其强调了在复杂水下环境中视觉系统的可靠性设计。具体启发包括：1）视觉驱动的任务规划需要与状态估计、声纳检测等多模态感知系统协同，而非孤立优化单一视觉模型；2）工程落地中，硬件可靠性（如连接修复、PCB设计）对视觉算法实际表现的影响不容忽视，提示研究者在追求模型精度的同时需关注系统鲁棒性；3）通过扩展任务范围验证视觉系统在多样化场景下的泛化能力，为水下目标识别提供了从实验室到真实部署的工程实践参考。&lt;/p&gt;
+&lt;hr&gt;
+</description>
+        </item>
+        <item>
         <title>学术雷达日报 2026-07-15</title>
         <link>https://blogbook.eu.org/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-07-15/</link>
         <pubDate>Wed, 15 Jul 2026 23:02:59 +0800</pubDate>
