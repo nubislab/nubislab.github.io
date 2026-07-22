@@ -7,7 +7,39 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>云雾中的山-NubisLab</copyright>
-        <lastBuildDate>Tue, 21 Jul 2026 15:19:04 +0000</lastBuildDate><atom:link href="https://blogbook.eu.org/categories/academic-radar/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Wed, 22 Jul 2026 15:18:31 +0000</lastBuildDate><atom:link href="https://blogbook.eu.org/categories/academic-radar/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>学术雷达日报 2026-07-22</title>
+        <link>https://blogbook.eu.org/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-07-22/</link>
+        <pubDate>Wed, 22 Jul 2026 23:18:13 +0800</pubDate>
+        
+        <guid>https://blogbook.eu.org/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-07-22/</guid>
+        <description>&lt;h2 id=&#34;今日论文速览&#34;&gt;今日论文速览
+&lt;/h2&gt;&lt;p&gt;抓取时间（北京时间）：2026-07-22 23:18:13&lt;/p&gt;
+&lt;h3 id=&#34;1-iggt4d-streaming-4d-instance-grounded-geometry-transformer&#34;&gt;1. IGGT4D: Streaming 4D Instance-Grounded Geometry Transformer
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;ArXiv: &lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/2607.19228v1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://arxiv.org/abs/2607.19228v1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;发布时间: 2026-07-22 00:00:01 (北京时间)&lt;/li&gt;
+&lt;li&gt;作者: Zhengyu Zou, Hao Li, Kuixuan Jiao, Liu Liu, Tingyang Xiao, Xiaolin Zhou, Fangzhou Hong, Zhizhong Su, Dingwen Zhang, Ziwei Liu&lt;/li&gt;
+&lt;li&gt;标签: 分割&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;AI 深度解析&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;TL;DR：提出IGGT4D，一种流式实例感知几何Transformer，通过因果时空建模实现动态场景中几何与实例一致的在线4D重建与理解。&lt;/p&gt;
+&lt;p&gt;核心贡献：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;提出流式实例感知几何Transformer架构，支持在线处理视频帧，通过因果时空建模复用历史上下文，增量更新相机运动、几何和物体身份的统一表示。&lt;/li&gt;
+&lt;li&gt;构建大规模数据集InsScene4D-147K，涵盖真实/合成、静态/动态场景，包含RGB图像、深度、姿态和时序一致实例掩码，由自动几何引导标注管线生成。&lt;/li&gt;
+&lt;li&gt;在3D重建、姿态估计、实例空间跟踪和开放词汇分割任务上，超越现有流式基线方法，支持长动态序列的可扩展在线推理。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;方法类型：Transformer&lt;/p&gt;
+&lt;p&gt;适用场景：视频 / 自动驾驶 / 动态场景理解 / 4D重建&lt;/p&gt;
+&lt;p&gt;评估指标：3D重建、姿态估计、实例空间跟踪、开放词汇分割（具体数值未在摘要中提供）&lt;/p&gt;
+&lt;p&gt;代码可用性：未提及&lt;/p&gt;
+&lt;p&gt;领域启发：该论文对图像分割与目标识别研究的价值在于：1）将实例分割与几何重建统一在流式框架中，解决了动态场景中物体随时间变化（出现、消失、移动）的时序一致性问题；2）提出的因果时空建模方法可启发视频分割任务中高效利用历史信息的设计；3）自动几何引导标注管线为大规模时序实例分割数据集构建提供了新思路，有助于推动开放词汇分割在动态场景中的工程落地。&lt;/p&gt;
+&lt;hr&gt;
+</description>
+        </item>
+        <item>
         <title>学术雷达日报 2026-07-21</title>
         <link>https://blogbook.eu.org/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-07-21/</link>
         <pubDate>Tue, 21 Jul 2026 23:18:48 +0800</pubDate>
