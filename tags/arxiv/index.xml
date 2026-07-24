@@ -7,7 +7,61 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>云雾中的山-NubisLab</copyright>
-        <lastBuildDate>Thu, 23 Jul 2026 15:28:19 +0000</lastBuildDate><atom:link href="https://blogbook.eu.org/tags/arxiv/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Fri, 24 Jul 2026 15:10:34 +0000</lastBuildDate><atom:link href="https://blogbook.eu.org/tags/arxiv/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>学术雷达日报 2026-07-24</title>
+        <link>https://blogbook.eu.org/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-07-24/</link>
+        <pubDate>Fri, 24 Jul 2026 23:10:18 +0800</pubDate>
+        
+        <guid>https://blogbook.eu.org/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-07-24/</guid>
+        <description>&lt;h2 id=&#34;今日论文速览&#34;&gt;今日论文速览
+&lt;/h2&gt;&lt;p&gt;抓取时间（北京时间）：2026-07-24 23:10:18&lt;/p&gt;
+&lt;h3 id=&#34;1-unified-video-dense-prediction-from-disjoint-data&#34;&gt;1. Unified Video Dense Prediction from Disjoint Data
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;ArXiv: &lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/2607.21592v1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://arxiv.org/abs/2607.21592v1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;发布时间: 2026-07-24 01:59:50 (北京时间)&lt;/li&gt;
+&lt;li&gt;作者: Yihong Sun, Seoung Wug Oh, Jiahui Huang, Bharath Hariharan, Joon-Young Lee&lt;/li&gt;
+&lt;li&gt;标签: 检测&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;AI 深度解析&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;TL;DR：提出UniD统一视频模型，通过蒸馏策略从分散数据集联合学习八种密集场景属性，无需标注重叠或伪标签，利用预训练扩散模型的视觉先验弥合域差距。&lt;/p&gt;
+&lt;p&gt;核心贡献：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;提出一种轻量级蒸馏方法，利用任务专家通过任务投影器监督统一骨干网络，避免了对完全共标注数据或伪标签计算开销的依赖。&lt;/li&gt;
+&lt;li&gt;发现预训练扩散模型的强视觉先验足以弥合分散训练数据引入的域差距，使模型能泛化到训练中未见过的场景-任务组合。&lt;/li&gt;
+&lt;li&gt;在多个密集预测任务上达到与单任务专家和多任务基线竞争的性能，并在分布外场景中展现出强泛化能力及时间一致性和跨任务一致性。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;方法类型：混合架构（扩散模型+任务专家蒸馏）&lt;/p&gt;
+&lt;p&gt;适用场景：视频密集预测（深度、表面法线、语义分割、边界、人体部件、反照率、阴影、材质）&lt;/p&gt;
+&lt;p&gt;评估指标：未在摘要中提供具体数值&lt;/p&gt;
+&lt;p&gt;代码可用性：是（https://unid-video.github.io/）&lt;/p&gt;
+&lt;p&gt;领域启发：该论文对图像分割与目标识别研究及工程落地的价值在于：1）提出了一种高效利用分散标注数据的方法，降低了多任务学习对昂贵共标注数据的依赖，为实际场景中数据碎片化问题提供了可行解决方案；2）验证了预训练扩散模型作为通用视觉先验的潜力，可迁移至多种密集预测任务，启发后续研究探索扩散模型在统一感知框架中的更广泛应用；3）通过蒸馏策略实现多任务联合学习，提升了模型在视频场景中的时间一致性和跨任务一致性，对自动驾驶、视频理解等需要鲁棒感知的工程应用具有直接参考意义。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;2-synthetic-data-generation-framework-for-quality-control-automation-in-gravure-printing&#34;&gt;2. Synthetic data generation framework for quality control automation in gravure printing
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;ArXiv: &lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/2607.21577v1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://arxiv.org/abs/2607.21577v1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;发布时间: 2026-07-24 01:55:21 (北京时间)&lt;/li&gt;
+&lt;li&gt;作者: Korota Arsène Coulibaly, Mohamed Hamlich, Khalid Hmali, Andrea Trombin&lt;/li&gt;
+&lt;li&gt;标签: 检测&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;AI 深度解析&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;TL;DR：提出一种针对凹版印刷质量控制自动化的合成数据生成框架，通过生成高保真缺陷图像训练目标检测模型，在真实工业样本上达到80.9% mAP，实现零成本快速部署。&lt;/p&gt;
+&lt;p&gt;核心贡献：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;提出面向凹版印刷缺陷的自动化合成数据生成流水线，可生成折痕、条纹、套印不准等特定缺陷的高保真图像及对应边界框和标注&lt;/li&gt;
+&lt;li&gt;验证了合成数据训练的目标检测模型（RFDETR）在真实工业测试样本上的有效性，mAP达80.9%&lt;/li&gt;
+&lt;li&gt;提供零成本、快速部署的解决方案，无需大量人工数据采集即可实现印刷线缺陷检测自动化&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;方法类型：其他（合成数据生成框架 + 目标检测模型RFDETR）&lt;/p&gt;
+&lt;p&gt;适用场景：其他（工业印刷质量控制、表面缺陷检测）&lt;/p&gt;
+&lt;p&gt;评估指标：mAP（80.9%）&lt;/p&gt;
+&lt;p&gt;代码可用性：未提及&lt;/p&gt;
+&lt;p&gt;领域启发：该研究展示了合成数据在工业缺陷检测中的巨大潜力，对图像分割与目标识别领域具有重要价值：1）为数据稀缺的工业场景提供了可复用的数据增强范式，可推广至其他制造缺陷检测任务；2）验证了合成数据训练模型在真实场景中的泛化能力，降低了对昂贵人工标注的依赖；3）框架的自动化特性为工程落地提供了高效路径，尤其适合需要快速部署的产线质检场景。&lt;/p&gt;
+&lt;hr&gt;
+</description>
+        </item>
+        <item>
         <title>学术雷达日报 2026-07-23</title>
         <link>https://blogbook.eu.org/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-07-23/</link>
         <pubDate>Thu, 23 Jul 2026 23:27:59 +0800</pubDate>
