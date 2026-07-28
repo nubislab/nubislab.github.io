@@ -7,7 +7,66 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>云雾中的山-NubisLab</copyright>
-        <lastBuildDate>Fri, 24 Jul 2026 15:10:34 +0000</lastBuildDate><atom:link href="https://blogbook.eu.org/tags/computer-vision/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Tue, 28 Jul 2026 15:38:48 +0000</lastBuildDate><atom:link href="https://blogbook.eu.org/tags/computer-vision/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>学术雷达日报 2026-07-28</title>
+        <link>https://blogbook.eu.org/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-07-28/</link>
+        <pubDate>Tue, 28 Jul 2026 23:38:30 +0800</pubDate>
+        
+        <guid>https://blogbook.eu.org/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-07-28/</guid>
+        <description>&lt;h2 id=&#34;今日论文速览&#34;&gt;今日论文速览
+&lt;/h2&gt;&lt;p&gt;抓取时间（北京时间）：2026-07-28 23:38:30&lt;/p&gt;
+&lt;h3 id=&#34;1-sade-sparse-atom-support-decontamination-for-few-shot-segmentation-with-weak-support-annotations&#34;&gt;1. SADe: Sparse-Atom Support Decontamination for Few-Shot Segmentation with Weak Support Annotations
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;ArXiv: &lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/2607.24706v1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://arxiv.org/abs/2607.24706v1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;发布时间: 2026-07-28 01:46:18 (北京时间)&lt;/li&gt;
+&lt;li&gt;作者: Hang Xing, Guangjun Liu, Yan Xia, Xueming Ding&lt;/li&gt;
+&lt;li&gt;标签: 检测&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;AI 深度解析&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;TL;DR：提出一种与预测器无关的支持去污染层SADe，通过稀疏自编码器原子证据估计弱标注支持掩码中每个补丁的可靠性，无需查询信息即可生成干净支持掩码，显著提升少样本分割在弱标注下的性能。&lt;/p&gt;
+&lt;p&gt;核心贡献：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;提出基于稀疏自编码器（SAE）的原子证据机制：利用稀疏自编码器对弱标注区域内外原子激活的对比，提供因子级别的可靠性线索，区分目标与纹理相似干扰物。&lt;/li&gt;
+&lt;li&gt;设计轻量级路由器：结合原子证据、密集相似度和片段统计量，预测每个支持补丁的可靠性，生成去污染后的支持掩码，无需查询信息。&lt;/li&gt;
+&lt;li&gt;实现预测器无关的即插即用：训练一次后冻结，可独立预测或通过原生支持接口集成到多种少样本分割模型（如ProMi、SAM3等），不改变查询侧推理。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;方法类型：其他（基于稀疏自编码器的支持去污染层，可集成到SAM系列/Transformer/CNN等架构）&lt;/p&gt;
+&lt;p&gt;适用场景：通用分割（少样本分割中的弱标注场景，如框、点、涂鸦、粗掩码、伪掩码）&lt;/p&gt;
+&lt;p&gt;评估指标：mIoU（在9个独立提示-查询组合中6个取得最高查询mIoU；与ProMi查询头结合，在紧框下mIoU与SAM3衍生掩码差距小于0.03，在box-r2和box-r4下分别高出11.17和19.49；作为插件在72个框族对比中提升70个）&lt;/p&gt;
+&lt;p&gt;代码可用性：未提及&lt;/p&gt;
+&lt;p&gt;领域启发：该论文对图像分割与目标识别研究及工程落地的价值在于：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;解决了弱标注支持掩码中纹理相似干扰物和背景上下文污染问题，提升了少样本分割在真实弱监督场景下的鲁棒性。&lt;/li&gt;
+&lt;li&gt;提出的稀疏自编码器原子证据机制为可靠性估计提供了新思路，可推广到其他需要从噪声标注中提取干净原型的任务（如目标检测、实例分割）。&lt;/li&gt;
+&lt;li&gt;预测器无关的设计使其易于集成到现有分割框架中，降低了工程落地门槛，尤其适用于标注成本高的场景（如医学图像、遥感）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;2-queenvis-rethinking-image-only-training-for-video-instance-segmentation-via-query-enrichment&#34;&gt;2. QueenVIS: Rethinking Image-Only Training for Video Instance Segmentation via Query Enrichment
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;ArXiv: &lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/2607.24598v1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://arxiv.org/abs/2607.24598v1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;发布时间: 2026-07-28 00:00:03 (北京时间)&lt;/li&gt;
+&lt;li&gt;作者: Arian Kheirandish, Fardin Ayar, Ehsan Javanmardi, Manabu Tsukada, Mahdi Javanmardi&lt;/li&gt;
+&lt;li&gt;标签: 检测&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;AI 深度解析&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;TL;DR：QueenVIS提出一种仅用单帧图像训练即可实现视频实例分割的查询增强框架，通过辅助预测头提升查询质量，无需视频级标注即可达到与视频监督方法竞争的性能。&lt;/p&gt;
+&lt;p&gt;核心贡献：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;提出查询增强框架，在单帧训练中引入特征预测损失和中心预测损失两个辅助头，增强查询的判别力和空间结构，推理时丢弃不增加参数。&lt;/li&gt;
+&lt;li&gt;设计无训练的查询传播与记忆库方案，在推理阶段维持时间一致性，无需视频级监督。&lt;/li&gt;
+&lt;li&gt;在YouTube-VIS和OVIS数据集上显著超越MinVIS，尤其长序列场景提升达+10.3 AP，与视频监督SOTA方法竞争。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;方法类型：Transformer（基于Mask2Former架构）&lt;/p&gt;
+&lt;p&gt;适用场景：视频（视频实例分割）&lt;/p&gt;
+&lt;p&gt;评估指标：AP（YouTube-VIS: 50.9 AP，OVIS: +4.8 AP，长序列YouTube-VIS: +10.3 AP）&lt;/p&gt;
+&lt;p&gt;代码可用性：是（https://github.com/ArianKheir/QueenVIS）&lt;/p&gt;
+&lt;p&gt;领域启发：该论文揭示了图像级训练在视频任务中的潜力，通过强化查询的时空稳定性，为减少视频标注成本提供了新思路。对目标识别领域，其查询增强策略可迁移至其他需要时序一致性的任务（如多目标跟踪、动作分割），同时辅助头设计对提升Transformer查询质量具有通用参考价值，尤其适合标注资源有限的工程落地场景。&lt;/p&gt;
+&lt;hr&gt;
+</description>
+        </item>
+        <item>
         <title>学术雷达日报 2026-07-24</title>
         <link>https://blogbook.eu.org/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-07-24/</link>
         <pubDate>Fri, 24 Jul 2026 23:10:18 +0800</pubDate>
