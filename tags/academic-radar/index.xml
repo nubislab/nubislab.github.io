@@ -7,7 +7,39 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>云雾中的山-NubisLab</copyright>
-        <lastBuildDate>Tue, 28 Jul 2026 15:38:48 +0000</lastBuildDate><atom:link href="https://blogbook.eu.org/tags/academic-radar/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 30 Jul 2026 15:26:41 +0000</lastBuildDate><atom:link href="https://blogbook.eu.org/tags/academic-radar/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>学术雷达日报 2026-07-30</title>
+        <link>https://blogbook.eu.org/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-07-30/</link>
+        <pubDate>Thu, 30 Jul 2026 23:26:23 +0800</pubDate>
+        
+        <guid>https://blogbook.eu.org/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-07-30/</guid>
+        <description>&lt;h2 id=&#34;今日论文速览&#34;&gt;今日论文速览
+&lt;/h2&gt;&lt;p&gt;抓取时间（北京时间）：2026-07-30 23:26:23&lt;/p&gt;
+&lt;h3 id=&#34;1-object-detection-for-autonomous-driving-in-chinese-rural-scenes-an-experimental-study-on-real-synthetic-data-mixing-and-model-evaluation&#34;&gt;1. Object Detection for Autonomous Driving in Chinese Rural Scenes: An Experimental Study on Real-Synthetic Data Mixing and Model Evaluation
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;ArXiv: &lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/2607.27058v1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://arxiv.org/abs/2607.27058v1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;发布时间: 2026-07-29 23:49:02 (北京时间)&lt;/li&gt;
+&lt;li&gt;作者: Danning Zhu, Ziyan Lin, Jing Wu&lt;/li&gt;
+&lt;li&gt;标签: 检测&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;AI 深度解析&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;TL;DR：针对中国农村复杂交通场景，通过真实与合成数据混合策略构建专用数据集，系统评估13种主流检测器性能，发现适度合成数据（1:0.5比例）可提升检测效果，但过高比例会引入域偏移。&lt;/p&gt;
+&lt;p&gt;核心贡献：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;构建首个面向中国农村道路的真实-合成混合目标检测数据集，包含14类农村特有目标（如电动三轮车、低速车辆、路边摊位）&lt;/li&gt;
+&lt;li&gt;系统评估13种主流检测器（YOLOv5/v8/v11/v26系列及RT-DETR-L）在不同真实-合成数据比例下的性能表现，提供模型选择与数据策略的实证依据&lt;/li&gt;
+&lt;li&gt;揭示合成数据注入的“双刃剑”效应：适度混合（1:0.5）提升mAP，但过高比例（1:1）因域偏移抵消数据规模优势&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;方法类型：混合架构（YOLO系列+RT-DETR-L）&lt;/p&gt;
+&lt;p&gt;适用场景：自动驾驶（农村场景）&lt;/p&gt;
+&lt;p&gt;评估指标：mAP@0.5（YOLO11m最高达0.758）&lt;/p&gt;
+&lt;p&gt;代码可用性：未提及&lt;/p&gt;
+&lt;p&gt;领域启发：该研究为图像分割与目标识别在长尾分布、非标准目标（如摊位、栏杆）的检测瓶颈提供了重要实证，提示在工程落地中需谨慎设计合成数据比例以避免域偏移，同时验证了YOLO系列在资源受限农村场景的实用性，对自动驾驶感知系统的数据增强策略和模型选型具有直接指导价值。&lt;/p&gt;
+&lt;hr&gt;
+</description>
+        </item>
+        <item>
         <title>学术雷达日报 2026-07-28</title>
         <link>https://blogbook.eu.org/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-07-28/</link>
         <pubDate>Tue, 28 Jul 2026 23:38:30 +0800</pubDate>
