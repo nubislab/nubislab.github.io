@@ -7,7 +7,105 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>云雾中的山-NubisLab</copyright>
-        <lastBuildDate>Thu, 30 Jul 2026 15:26:41 +0000</lastBuildDate><atom:link href="https://blogbook.eu.org/tags/academic-radar/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Fri, 31 Jul 2026 15:32:31 +0000</lastBuildDate><atom:link href="https://blogbook.eu.org/tags/academic-radar/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>学术雷达日报 2026-07-31</title>
+        <link>https://blogbook.eu.org/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-07-31/</link>
+        <pubDate>Fri, 31 Jul 2026 23:32:06 +0800</pubDate>
+        
+        <guid>https://blogbook.eu.org/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-07-31/</guid>
+        <description>&lt;h2 id=&#34;今日论文速览&#34;&gt;今日论文速览
+&lt;/h2&gt;&lt;p&gt;抓取时间（北京时间）：2026-07-31 23:32:06&lt;/p&gt;
+&lt;h3 id=&#34;1-pac-man-perception-aware-cbf-rl-for-whole-body-safety-in-humanoid-dodgeball&#34;&gt;1. PAC-MAN: Perception-Aware CBF-RL for Whole-Body Safety in Humanoid Dodgeball
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;ArXiv: &lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/2607.28623v1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://arxiv.org/abs/2607.28623v1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;发布时间: 2026-07-31 01:59:35 (北京时间)&lt;/li&gt;
+&lt;li&gt;作者: Lizhi Yang, Junheng Li, Aaron D. Ames&lt;/li&gt;
+&lt;li&gt;标签: 检测&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;AI 深度解析&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;TL;DR：提出感知感知CBF-RL框架，将控制屏障安全性与部署级机载感知结合，实现人形机器人躲避球全身安全，零样本部署于Unitree G1并达到95%躲避成功率。&lt;/p&gt;
+&lt;p&gt;核心贡献：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;提出感知感知CBF-RL框架，将训练时CBF安全引导与部署时仅依赖分割掩码深度观测解耦，实现从特权状态到真实感知的迁移。&lt;/li&gt;
+&lt;li&gt;设计Joint-CBF与Link-CBF两种屏障结构，系统分析感知可观测性对屏障可用性的影响，发现固定相机下Joint-CBF性能退化，而Link-CBF对感知误差更鲁棒。&lt;/li&gt;
+&lt;li&gt;引入对抗运动先验正则化躲避反射，结合语义分割实现不同球类的泛化躲避，并在真实世界零-shot部署验证。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;方法类型：其他（CBF-RL强化学习框架，结合语义分割感知）&lt;/p&gt;
+&lt;p&gt;适用场景：其他（人形机器人全身控制与动态避障）&lt;/p&gt;
+&lt;p&gt;评估指标：其他（躲避成功率95%，与特权状态oracle的差距在几个百分点内）&lt;/p&gt;
+&lt;p&gt;代码可用性：未提及&lt;/p&gt;
+&lt;p&gt;领域启发：该论文对图像分割与目标识别研究的核心启发在于：分割掩码不仅是感知输出，更是安全关键控制系统的观测接口。其“训练时特权引导、部署时分割观测”的范式提示我们，分割模型的设计应面向下游任务的观测性需求（如Link-CBF对每个身体链路的清晰度要求），而非仅追求通用精度。此外，论文中感知可观测性对控制性能的量化分析（Joint-CBF在固定相机下退化、Link-CBF鲁棒）为分割模型在机器人部署中的鲁棒性评估提供了新视角——分割噪声的时空一致性比像素级精度更影响安全决策。工程上，轻量级语义分割与深度掩码结合的策略，为实时、低算力平台上的目标识别与避障提供了可复用的感知-控制协同设计范式。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;2-can-vision-language-models-reason-about-ai-edits-in-images&#34;&gt;2. Can Vision-Language Models Reason about AI Edits in Images?
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;ArXiv: &lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/2607.28464v1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://arxiv.org/abs/2607.28464v1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;发布时间: 2026-07-31 00:23:40 (北京时间)&lt;/li&gt;
+&lt;li&gt;作者: Darsha Udayanga, Pin-Yu Chen, Payel Das, Qiang Ji&lt;/li&gt;
+&lt;li&gt;标签: 检测&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;AI 深度解析&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;TL;DR：本文提出基于GRPO强化学习的训练框架，让视觉语言模型通过生成推理轨迹来检测和定位AI编辑图像，无需显式推理监督即可达到与SOTA伪造检测器相当的性能。&lt;/p&gt;
+&lt;p&gt;核心贡献：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;首次将GRPO强化学习应用于图像伪造检测与定位任务，利用简单的准确率和格式奖励激励VLM生成结构化推理轨迹，无需人工标注的解释性推理监督。&lt;/li&gt;
+&lt;li&gt;提出统一评估指标eff-IoU（effective intersection over union），联合评估检测准确性和定位精度，弥补现有指标分离评估的不足。&lt;/li&gt;
+&lt;li&gt;设计轻量级分割模型与VLM推理输出协同的级联框架，实现从图像级篡改判断到像素级定位掩码的端到端推理流程。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;方法类型：混合架构（VLM + 轻量级分割模型）&lt;/p&gt;
+&lt;p&gt;适用场景：通用分割（图像伪造检测与定位）、其他（AI生成内容取证）&lt;/p&gt;
+&lt;p&gt;评估指标：eff-IoU（统一检测与定位指标）、检测准确率、分割IoU（具体数值未在摘要中给出）&lt;/p&gt;
+&lt;p&gt;代码可用性：未提及&lt;/p&gt;
+&lt;p&gt;领域启发：该研究为图像分割与目标识别领域提供了重要启示。首先，将强化学习引入VLM的推理训练，摆脱了对高质量解释性标注的依赖，为弱监督分割任务开辟了新路径——模型可通过试错学习自主构建推理逻辑，而非被动模仿人类注释。其次，VLM生成的推理轨迹可作为语义先验引导分割模型，这种“语言引导视觉定位”的范式可迁移至开放词汇分割、指代分割等任务，提升模型对细粒度语义差异的敏感度。最后，eff-IoU指标的提出提示我们在多任务联合评估中需关注指标设计的统一性，对工程落地中模型性能的全面衡量具有参考价值。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;3-mixfrag-fragility-guided-mixed-precision-post-training-quantization-for-vision-transformers&#34;&gt;3. MixFrag: Fragility-Guided Mixed-Precision Post-Training Quantization for Vision Transformers
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;ArXiv: &lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/2607.28589v1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://arxiv.org/abs/2607.28589v1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;发布时间: 2026-07-31 01:43:36 (北京时间)&lt;/li&gt;
+&lt;li&gt;作者: Md. Mehrab Hossain Opi, Robiul Islam Ryad, Md. Umar Faruk&lt;/li&gt;
+&lt;li&gt;标签: 检测&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;AI 深度解析&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;TL;DR：MixFrag提出了一种基于脆弱性引导的混合精度后训练量化框架，通过KL散度度量组件级量化敏感性并利用多选择背包问题优化位宽分配，在ViT上实现了高效的精度-资源平衡。&lt;/p&gt;
+&lt;p&gt;核心贡献：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;提出组件级脆弱性度量方法，利用KL散度量化全精度与隔离量化输出分布之间的差异，精准识别ViT中对量化敏感度高的模块。&lt;/li&gt;
+&lt;li&gt;将位宽分配问题形式化为多选择背包问题（MCKP），在目标位宽预算下实现自适应的逐层精度分配，替代传统统一位宽策略。&lt;/li&gt;
+&lt;li&gt;在ImageNet-1K分类及COCO检测与分割任务上验证有效性，在MP3/MP3设置下将先前最优方法提升高达9.6 AP，并证明脆弱性度量与学习到的位分配强相关。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;方法类型：Transformer
+适用场景：其他（图像分类、目标检测、实例分割）
+评估指标：其他（ImageNet-1K分类准确率、COCO AP，具体数值：MP3/MP3设置下提升9.6 AP）
+代码可用性：未提及
+领域启发：MixFrag为图像分割与目标识别提供了重要的量化部署思路——不同网络组件对量化的敏感度存在显著异质性，通过轻量级脆弱性评估即可实现精细化的位宽分配。这一思想可直接迁移至分割网络（如SegFormer、Mask2Former）的PTQ流程中，在保持分割精度的同时显著降低内存与计算开销，尤其适用于边缘设备上的实时分割与检测任务。此外，MCKP框架的引入为资源约束下的网络压缩提供了通用优化范式，可推广至其他混合精度策略（如通道剪枝、层跳过）的设计。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;4-auricularworld-hierarchical-action-guided-world-modeling-for-fine-grained-auricular-structure-segmentation-from-ct-scans&#34;&gt;4. AuricularWorld: Hierarchical Action-Guided World Modeling for Fine-Grained Auricular Structure Segmentation from CT Scans
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;ArXiv: &lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/2607.28487v1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://arxiv.org/abs/2607.28487v1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;发布时间: 2026-07-31 00:38:30 (北京时间)&lt;/li&gt;
+&lt;li&gt;作者: Jingwen Yang, Senmao Wang, Luoyao Kang, Runmeng Cui, Keying Zhang, Yunjia Bao, Haifan Gong, Lin Lin, Haiyue Jiang&lt;/li&gt;
+&lt;li&gt;标签: 检测&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;AI 深度解析&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;TL;DR：提出一种基于世界模型的层次化动作引导分割框架，通过潜在空间中的迭代推理显著提升CT图像中细小、不规则且重叠的耳部结构分割精度。&lt;/p&gt;
+&lt;p&gt;核心贡献：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;提出将确定性循环状态空间模型引入分割网络的中间潜在空间，构建“世界模型”以支持超越前馈预测的迭代解剖推理，实现潜在轨迹的逐步精化。&lt;/li&gt;
+&lt;li&gt;设计层次化解剖动作（Hierarchical Anatomical Actions）机制，通过多尺度编码特征与部分解码表示融合形成结构观测，在推理时执行三步潜在展开（latent rollout）以动态更新隐状态。&lt;/li&gt;
+&lt;li&gt;提出平衡层次化动作目标函数（Balanced Hierarchical Action Objective），有效解决前景稀疏、解剖组缺失以及增删操作不平衡问题，保障潜在状态转移的可靠学习。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;方法类型：混合架构（CNN编码器-解码器 + 循环状态空间模型）&lt;/p&gt;
+&lt;p&gt;适用场景：医学图像（CT图像中细小、不规则及嵌套重叠结构的精细分割）&lt;/p&gt;
+&lt;p&gt;评估指标：Dice（分割精度提升）、HD95（降低超过43%）&lt;/p&gt;
+&lt;p&gt;代码可用性：未提及&lt;/p&gt;
+&lt;p&gt;领域启发：该论文为医学图像中“小目标、弱边界、嵌套标签”的精细分割提供了一种新范式，即通过引入潜在世界模型进行迭代推理，而非依赖单次前馈预测。这一思路可迁移至其他挑战性分割任务（如血管、神经、视网膜层等），启发研究者利用循环潜在状态建模来模拟解剖结构间的层次关系与空间上下文，从而提升分割的几何一致性与边界精度。在工程落地上，该方法虽增加推理计算量，但为高精度医疗辅助诊断提供了可行路径，尤其适用于对边界质量要求极高的术前规划与术后评估场景。&lt;/p&gt;
+&lt;hr&gt;
+</description>
+        </item>
+        <item>
         <title>学术雷达日报 2026-07-30</title>
         <link>https://blogbook.eu.org/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-07-30/</link>
         <pubDate>Thu, 30 Jul 2026 23:26:23 +0800</pubDate>
