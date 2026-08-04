@@ -7,7 +7,75 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>云雾中的山-NubisLab</copyright>
-        <lastBuildDate>Fri, 31 Jul 2026 15:32:31 +0000</lastBuildDate><atom:link href="https://blogbook.eu.org/categories/academic-radar/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Tue, 04 Aug 2026 15:40:03 +0000</lastBuildDate><atom:link href="https://blogbook.eu.org/categories/academic-radar/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>学术雷达日报 2026-08-04</title>
+        <link>https://blogbook.eu.org/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-08-04/</link>
+        <pubDate>Tue, 04 Aug 2026 23:39:43 +0800</pubDate>
+        
+        <guid>https://blogbook.eu.org/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-08-04/</guid>
+        <description>&lt;h2 id=&#34;今日论文速览&#34;&gt;今日论文速览
+&lt;/h2&gt;&lt;p&gt;抓取时间（北京时间）：2026-08-04 23:39:43&lt;/p&gt;
+&lt;h3 id=&#34;1-dyfrdet-towards-accurate-small-object-detection-via-dynamic-frequency-suppression-with-label-disambiguation&#34;&gt;1. DyFrDet: Towards Accurate Small Object Detection via Dynamic Frequency Suppression with Label Disambiguation
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;ArXiv: &lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/2608.02495v1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://arxiv.org/abs/2608.02495v1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;发布时间: 2026-08-04 01:01:19 (北京时间)&lt;/li&gt;
+&lt;li&gt;作者: Zihan Yang, Yang Guo, Hongxing Zhang, Dan Lu, Siyuan Yao&lt;/li&gt;
+&lt;li&gt;标签: 检测&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;AI 深度解析&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;TL;DR：提出DyFrDet小目标检测器，通过动态频域抑制和标签消歧机制，在多个基准上达到SOTA性能。&lt;/p&gt;
+&lt;p&gt;核心贡献：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;提出Dynamic Frequency-aware Feature Pyramid Network (DyFrFPN)，将层级特征变换到频域，通过Dynamic Band Predictor (DBP)自适应抑制低频冗余和高频噪声，保留小目标判别性成分。&lt;/li&gt;
+&lt;li&gt;提出Label Disambiguation Module (LDM)，利用概率分布显式建模并缓解小目标标签的固有模糊性，提升低分辨率小目标的定位精度。&lt;/li&gt;
+&lt;li&gt;在多个小目标检测基准上验证了方法的有效性和鲁棒性，并开源代码。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;方法类型：CNN（基于FPN的混合架构）&lt;/p&gt;
+&lt;p&gt;适用场景：通用目标检测（小目标场景）、其他&lt;/p&gt;
+&lt;p&gt;评估指标：未在摘要中给出具体数值（通常为COCO AP、AP_s等，但此处未列）&lt;/p&gt;
+&lt;p&gt;代码可用性：是（https://github.com/ManOfStory/DyFrDet）&lt;/p&gt;
+&lt;p&gt;领域启发：该论文对图像分割与目标识别研究及工程落地具有以下价值：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;频域视角创新&lt;/strong&gt;：将频域分析引入小目标检测，通过动态频带抑制解决背景干扰问题，为处理低分辨率、小尺寸目标提供了新思路。这一思想可迁移至分割任务中，用于抑制背景噪声、增强小目标区域的边界特征。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;标签模糊性建模&lt;/strong&gt;：LDM模块显式建模标签不确定性，对标注噪声大、边界模糊的场景（如医学图像、遥感图像）具有直接借鉴意义，可提升模型在弱标注条件下的鲁棒性。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;工程落地价值&lt;/strong&gt;：DyFrFPN作为FPN的即插即用改进模块，可方便集成到现有检测/分割框架中，且代码开源，降低了复现和二次开发成本，适合工业界小目标检测场景（如无人机巡检、卫星图像分析）的快速部署。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;2-uav-based-environmental-monitoring-of-rip-current-indicators-using-wavelet-derived-texture-features&#34;&gt;2. UAV-Based Environmental Monitoring of Rip-Current Indicators Using Wavelet-Derived Texture Features
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;ArXiv: &lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/2608.02448v1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://arxiv.org/abs/2608.02448v1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;发布时间: 2026-08-04 00:24:05 (北京时间)&lt;/li&gt;
+&lt;li&gt;作者: Yonatan Ben Avraham, Baruch Binyaminov, Yehudit Aperstein&lt;/li&gt;
+&lt;li&gt;标签: 检测&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;AI 深度解析&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;TL;DR：提出一种将小波纹理特征与深度学习结合的双流融合框架，用于无人机RGB影像中离岸流指示物的自动检测与定位，在分类和检测任务上均优于纯RGB基线。&lt;/p&gt;
+&lt;p&gt;核心贡献：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;提出物理信息驱动的离岸流监测流程，将离散小波变换（DWT）提取的空间-频率纹理特征与CNN架构结合，用于捕捉离岸流在破波间隙、泡沫纹理和沉积物图案中的细微视觉特征。&lt;/li&gt;
+&lt;li&gt;系统评估多种小波特征融合策略，包括计算高效的通道替换和带注意力机制的双流融合，并对比其在图像级分类（CNN）与目标级定位（YOLOv8）任务中的表现差异。&lt;/li&gt;
+&lt;li&gt;通过可解释人工智能（XAI）分析验证模型关注区域与离岸流视觉特征（波隙区域）的一致性，为海滩安全决策支持系统提供可解释性依据。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;方法类型：混合架构（CNN + 小波特征融合 + 注意力机制）&lt;/p&gt;
+&lt;p&gt;适用场景：遥感（无人机海岸监测）、其他（海滩安全/自然灾害监测）&lt;/p&gt;
+&lt;p&gt;评估指标：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;分类任务：准确率 &amp;gt; 95%，高召回率&lt;/li&gt;
+&lt;li&gt;检测任务：mAP@50 = 94%&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;代码可用性：未提及&lt;/p&gt;
+&lt;p&gt;领域启发：该论文对图像分割与目标识别研究及工程落地具有以下价值：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;多尺度特征融合的普适性&lt;/strong&gt;：小波变换提供频率域纹理信息，与CNN空间特征互补，这种“物理先验+数据驱动”的融合思路可迁移至其他细粒度分割任务（如裂缝检测、海冰识别），尤其在目标与背景纹理差异微弱的场景中具有显著增益。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;轻量化部署启示&lt;/strong&gt;：通道替换策略在YOLOv8上取得最优检测性能，表明在实时性要求高的工程场景中，无需复杂双流结构即可通过特征工程提升精度，为边缘设备上的遥感监测系统提供了低成本方案。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;可解释性驱动的模型设计&lt;/strong&gt;：XAI分析不仅验证了模型决策合理性，还反向指导了特征选择（如波隙区域），这种“解释-优化”闭环对安全敏感型应用（如灾害预警）至关重要，有助于建立用户信任并推动实际部署。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+</description>
+        </item>
+        <item>
         <title>学术雷达日报 2026-07-31</title>
         <link>https://blogbook.eu.org/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-07-31/</link>
         <pubDate>Fri, 31 Jul 2026 23:32:06 +0800</pubDate>
