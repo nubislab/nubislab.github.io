@@ -7,6 +7,65 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>云雾中的山-NubisLab</copyright><atom:link href="https://blogbook.eu.org/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>学术雷达日报 2026-08-07</title>
+        <link>https://blogbook.eu.org/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-08-07/</link>
+        <pubDate>Fri, 07 Aug 2026 22:27:36 +0800</pubDate>
+        
+        <guid>https://blogbook.eu.org/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-08-07/</guid>
+        <description>&lt;h2 id=&#34;今日论文速览&#34;&gt;今日论文速览
+&lt;/h2&gt;&lt;p&gt;抓取时间（北京时间）：2026-08-07 22:27:36&lt;/p&gt;
+&lt;h3 id=&#34;1-otlesmix-wasserstein-barycenter-and-optimal-transport-map-for-synthetic-lesion-generation-with-diverse-shapes-and-locations&#34;&gt;1. OTLesMix: Wasserstein Barycenter and Optimal Transport Map for Synthetic Lesion Generation with Diverse Shapes and Locations
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;ArXiv: &lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/2608.06264v1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://arxiv.org/abs/2608.06264v1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;发布时间: 2026-08-07 00:54:15 (北京时间)&lt;/li&gt;
+&lt;li&gt;作者: Robin Trombetta, Carole Lartizien&lt;/li&gt;
+&lt;li&gt;标签: 检测&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;AI 深度解析&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;TL;DR：提出OTLesMix方法，利用Wasserstein重心和最优传输映射生成形状与位置多样化的合成病灶，在三个脑病灶分割任务上将Dice分数提升2.9至6.6点，超越现有基于混合的SOTA方法。&lt;/p&gt;
+&lt;p&gt;核心贡献：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;首次将Wasserstein重心与最优传输计划引入病灶合成，通过传输映射在真实样本间插值，生成形状连续变化且位置分布更广的合成病灶，突破传统混合方法（如CutMix、MixUp）仅产生线性插值或固定位置拼接的局限。&lt;/li&gt;
+&lt;li&gt;设计病灶-背景解耦的合成策略：利用最优传输映射将病灶区域迁移至多样化的解剖位置，同时保持背景上下文一致性，从而在保留真实纹理的同时增加位置多样性，避免生成不自然伪影。&lt;/li&gt;
+&lt;li&gt;在三个脑病灶分割任务（如脑肿瘤、白质高信号等）上系统验证，无需额外标注或预训练模型，仅作为数据增强模块即可稳定提升分割性能，且与现有训练管线无缝集成。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;方法类型：其他（基于最优传输的合成数据增强，非端到端生成模型）&lt;/p&gt;
+&lt;p&gt;适用场景：医学图像（脑部病灶分割）&lt;/p&gt;
+&lt;p&gt;评估指标：Dice（提升2.9至6.6个百分点，具体数值依任务而定）&lt;/p&gt;
+&lt;p&gt;代码可用性：未提及&lt;/p&gt;
+&lt;p&gt;领域启发：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;对分割研究的价值：OTLesMix提供了一种“可解释的”数据增强范式，通过数学上严格的最优传输理论控制合成样本的几何与位置变化，相比随机混合或生成对抗网络更可控、计算开销更低。这启发研究者利用测地线插值（Wasserstein空间）在语义标签指导下生成硬样本，尤其适用于小病灶、类别不平衡的医学场景。&lt;/li&gt;
+&lt;li&gt;对目标识别的迁移潜力：最优传输映射可推广至自然图像的目标实例级混合（如将物体迁移至不同背景），为提升检测器对位置、尺度鲁棒性提供新思路，且无需依赖大模型生成。&lt;/li&gt;
+&lt;li&gt;工程落地价值：方法轻量、即插即用，适合标注稀缺的医疗场景，可作为标准训练pipeline的默认增强组件，降低对大规模标注数据的依赖，具有较高的临床转化潜力。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;2-cfgpnet-cross-attention-based-fused-gradient-programmed-network-framework-for-multispectral-object-detection&#34;&gt;2. CFGPNet: Cross-Attention-Based Fused Gradient Programmed Network Framework for Multispectral Object Detection
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;ArXiv: &lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/2608.06205v1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://arxiv.org/abs/2608.06205v1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;发布时间: 2026-08-06 23:59:13 (北京时间)&lt;/li&gt;
+&lt;li&gt;作者: Nima Hatami, Karim Faez, Saeed Sharifian, Hamidreza Amindavar&lt;/li&gt;
+&lt;li&gt;标签: 检测&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;AI 深度解析&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;TL;DR：提出CFGPNet跨模态融合框架，通过改进GELAN骨干、CrossCEA跨模态交互模块和可编程梯度辅助分支，在五个多光谱基准上实现高效且稳定的目标检测性能。&lt;/p&gt;
+&lt;p&gt;核心贡献：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;提出CrossCEA（Cross Computation Efficient Attention）模块，增强可见光与热红外分支间的跨模态特征交互，同时减少冗余信息传递，缓解模态分布差异导致的融合不稳定问题。&lt;/li&gt;
+&lt;li&gt;设计ASAF（Attention Selection and Aggregation Fusion）网络，结合密集特征聚合与选择性注意力机制，生成紧凑且判别性的融合表示，提升多尺度目标的检测精度。&lt;/li&gt;
+&lt;li&gt;引入可编程梯度辅助分支（Programmable-Gradient Auxiliary Branch），改善各模型变体中的梯度传递与优化质量，在保持计算效率的同时提升训练收敛性和最终性能。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;方法类型：混合架构（CNN + Attention）&lt;/p&gt;
+&lt;p&gt;适用场景：自动驾驶 / 遥感 / 多光谱目标检测（低光照、恶劣天气、复杂多尺度环境）&lt;/p&gt;
+&lt;p&gt;评估指标：mAP50 / mAP50:95（FLIR: 80.7% / 45.0%；M3FD: 89.9% / 63.4%；LLVIP: 97.8% / 68.9%；VEDAI: 83.3% / 56.9%；MFAD: 83.4% / 61.8%）&lt;/p&gt;
+&lt;p&gt;代码可用性：是（https://github.com/NimaHatami99/CFGPNet）&lt;/p&gt;
+&lt;p&gt;领域启发：该论文对图像分割与目标识别研究及工程落地具有三重价值：其一，CrossCEA模块的设计思路可迁移至多模态分割任务（如RGB-Depth语义分割），用于解决跨模态特征对齐与冗余计算问题；其二，ASAF融合策略为多尺度特征融合提供了轻量化范式，可直接借鉴到分割解码器设计中，提升小目标分割精度；其三，可编程梯度辅助分支展示了通过优化梯度流来提升深层网络训练效果的通用方法，对训练深层次分割模型具有实践指导意义。整体框架在精度-效率权衡上的出色表现，使其成为边缘设备上多光谱感知系统的可行参考方案。&lt;/p&gt;
+&lt;hr&gt;
+</description>
+        </item>
+        <item>
         <title>学术雷达日报 2026-08-05</title>
         <link>https://blogbook.eu.org/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-08-05/</link>
         <pubDate>Wed, 05 Aug 2026 23:32:04 +0800</pubDate>
