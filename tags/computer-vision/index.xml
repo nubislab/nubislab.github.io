@@ -7,7 +7,83 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>云雾中的山-NubisLab</copyright>
-        <lastBuildDate>Fri, 07 Aug 2026 14:27:56 +0000</lastBuildDate><atom:link href="https://blogbook.eu.org/tags/computer-vision/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Tue, 11 Aug 2026 14:32:57 +0000</lastBuildDate><atom:link href="https://blogbook.eu.org/tags/computer-vision/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>学术雷达日报 2026-08-11</title>
+        <link>https://blogbook.eu.org/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-08-11/</link>
+        <pubDate>Tue, 11 Aug 2026 22:32:32 +0800</pubDate>
+        
+        <guid>https://blogbook.eu.org/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-08-11/</guid>
+        <description>&lt;h2 id=&#34;今日论文速览&#34;&gt;今日论文速览
+&lt;/h2&gt;&lt;p&gt;抓取时间（北京时间）：2026-08-11 22:32:32&lt;/p&gt;
+&lt;h3 id=&#34;1-substrate-dependent-thermally-driven-morphological-evolution-of-pt09ni01-thin-films-on-sapphire-and-langasite&#34;&gt;1. Substrate-dependent thermally driven morphological evolution of Pt$&lt;em&gt;{0.9}$Ni$&lt;/em&gt;{0.1}$ thin films on sapphire and langasite
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;ArXiv: &lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/2608.09909v1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://arxiv.org/abs/2608.09909v1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;发布时间: 2026-08-11 01:53:06 (北京时间)&lt;/li&gt;
+&lt;li&gt;作者: M. Awais Fiaz, M. Greenslit, R. J. Lad, Mauricio Pereira da Cunha, Luke Doucette, S. M. Hollen&lt;/li&gt;
+&lt;li&gt;标签: 检测&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;AI 深度解析&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;TL;DR：本文系统研究了Pt₀.₉Ni₀.₁合金薄膜在蓝宝石和硅酸镓镧衬底上的热驱动形貌演化，揭示了衬底依赖的粗化机制与晶面选择规律。&lt;/p&gt;
+&lt;p&gt;核心贡献：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;首次系统对比了PtNi/Zr薄膜在蓝宝石和langasite两种衬底上的热演化路径，发现衬底类型显著影响最终晶粒尺寸与粗糙度峰值。&lt;/li&gt;
+&lt;li&gt;结合原子力显微镜、图像分割、高度分布分析和有效粗化指标，定量刻画了400–600°C区间内从均匀颗粒到离散大特征集合的非均匀粗化转变。&lt;/li&gt;
+&lt;li&gt;基于Δ⟨r²⟩的Arrhenius分析确定了主导粗化窗口，并揭示了快速聚结与面生长限制的耦合机制。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;方法类型：其他（实验表征+图像分割分析）&lt;/p&gt;
+&lt;p&gt;适用场景：其他（薄膜材料科学、表面形貌演化分析）&lt;/p&gt;
+&lt;p&gt;评估指标：其他（平均投影特征面积、粗糙度、高度分布、有效粗化指数）&lt;/p&gt;
+&lt;p&gt;代码可用性：未提及&lt;/p&gt;
+&lt;p&gt;领域启发：本文虽非传统图像分割任务，但其对AFM图像的形态学分割与统计分析方法（如面积分布、粗化指标）可直接迁移至材料显微图像的分割与定量分析中。对于图像分割研究，尤其是细粒度颗粒/晶粒分割任务，本文展示了如何利用分割结果进行物理量提取与演化规律挖掘，为跨学科图像分析提供了方法论参考。在工程落地上，该方法可用于半导体薄膜工艺监控、材料失效分析等场景，辅助自动识别形貌转变临界温度与不均匀性。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;2-deep-multimodal-wearable-sensor-fusion-for-detection-of-body-focused-repetitive-behaviors&#34;&gt;2. Deep Multimodal Wearable Sensor Fusion for Detection of Body-Focused Repetitive Behaviors
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;ArXiv: &lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/2608.09830v1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://arxiv.org/abs/2608.09830v1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;发布时间: 2026-08-11 00:48:37 (北京时间)&lt;/li&gt;
+&lt;li&gt;作者: Samaneh Rezaeimanesh, Mohsen Behradfar, Mohammad Fili, Guiping Hu&lt;/li&gt;
+&lt;li&gt;标签: 检测&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;AI 深度解析&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;TL;DR：提出一种多模态深度学习框架，融合腕戴设备中的惯性、热敏和飞行时间传感器数据，实现身体聚焦重复行为的客观检测与分类，二分类F1达0.985，九分类宏平均F1为0.700。&lt;/p&gt;
+&lt;p&gt;核心贡献：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;设计CNN+GRU混合架构，结合模态特定自编码器与晚期融合分类器，有效捕捉行为的时间与空间动态特征。&lt;/li&gt;
+&lt;li&gt;系统评估多模态（IMU、热敏、ToF）融合相对于单模态基线的性能提升，证明多模态互补性对细微动作识别的关键作用。&lt;/li&gt;
+&lt;li&gt;基于Shapley加性解释进行事后可解释性分析，揭示ToF与惯性模态主导判别力，并通过层次聚类阐明误分类主要由手势解剖区域驱动。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;方法类型：混合架构（CNN + GRU + 自编码器 + 晚期融合）&lt;/p&gt;
+&lt;p&gt;适用场景：其他（可穿戴传感器行为识别 / 心理健康监测）&lt;/p&gt;
+&lt;p&gt;评估指标：F1-score（二分类F1=0.985，九分类宏平均F1=0.700）、AUC（二分类AUC=0.997，九分类AUC=0.963）&lt;/p&gt;
+&lt;p&gt;代码可用性：未提及&lt;/p&gt;
+&lt;p&gt;领域启发：该论文对图像分割与目标识别研究及工程落地具有以下价值：其一，多模态晚期融合策略可迁移至RGB-D或热红外+可见光图像分割任务，通过模态特定编码器+融合分类器提升对细微目标（如小物体、低对比度区域）的识别鲁棒性；其二，CNN+GRU的时序建模思路启发视频分割中利用帧间动态信息增强目标一致性；其三，Shapley可解释性分析框架为分割模型提供特征归因工具，有助于定位模型依赖的关键模态或空间区域，指导传感器或特征选择；其四，层次聚类用于分析误分类模式的方法可迁移至分割错误分析，帮助识别模型在特定解剖或语义区域上的系统性缺陷，为临床或工程迭代提供依据。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;3-removing-infrastructure-barriers-in-human-robot-collaboration-through-wireless-reconfigurable-cells&#34;&gt;3. Removing Infrastructure Barriers in Human-Robot Collaboration Through Wireless Reconfigurable Cells
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;ArXiv: &lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/2608.09658v1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://arxiv.org/abs/2608.09658v1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;发布时间: 2026-08-10 22:34:08 (北京时间)&lt;/li&gt;
+&lt;li&gt;作者: Emma Takács, Mátyás Hajós, Ádám Juniki, Ádám Fischer, Zoltán Komáromi, Kristóf Abai, Dániel Horváth, Sándor Máthé, Konstantinos Kousias, Bence Tipary&lt;/li&gt;
+&lt;li&gt;标签: 检测&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;AI 深度解析&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;TL;DR：提出一种基于5G无线可重构单元的模块化人机协作系统，通过电池供电多传感器平台与边缘计算视觉模块，实现灵活部署与安全交互，并验证了跨国家、跨5G基础设施的可行性。&lt;/p&gt;
+&lt;p&gt;核心贡献：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;设计并实现了一种电池供电的多传感器无线工作单元原型，彻底摆脱电源与数据线缆束缚，支持快速重构与模块化部署，适用于再制造等高混合低批量场景。&lt;/li&gt;
+&lt;li&gt;构建了面向边缘计算的计算机视觉模块，基于合成与真实数据训练，实现目标检测、朝向抓取姿态估计与鲁棒手部识别，在多变光照与背景下达到mAP@50-95为97.74±0.10%，平均推理时间12.5ms。&lt;/li&gt;
+&lt;li&gt;通过5G将视觉任务卸载至边缘，解决带宽-延迟权衡，并在匈牙利与挪威的公共/私有、SA/NSA 5G网络上完成实测，端到端往返延迟低至12ms，同时揭示了当前5G部署中互操作性的实际限制。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;方法类型：其他（基于CNN的目标检测与姿态估计，结合5G边缘计算）&lt;/p&gt;
+&lt;p&gt;适用场景：其他（人机协作、工业再制造、操作员培训、用户研究）&lt;/p&gt;
+&lt;p&gt;评估指标：mAP@50-95（97.74±0.10%）、平均推理时间（12.5ms）、往返响应时间（12ms）&lt;/p&gt;
+&lt;p&gt;代码可用性：未提及&lt;/p&gt;
+&lt;p&gt;领域启发：该论文为图像分割与目标识别提供了“感知-通信-计算”协同设计的范例。其核心价值在于：1）验证了轻量级视觉模型在边缘设备上的实时性与鲁棒性，表明在算力受限条件下仍可通过数据合成与增强达到高精度；2）强调了视觉任务与无线网络联合优化的必要性，为分布式感知系统的延迟敏感型应用（如远程操控、协作机器人）提供了实测基准；3）对多环境泛化（跨国家、跨网络制式）的评估思路，可启发分割/识别模型在域适应与部署鲁棒性方面的研究，尤其是应对光照、背景等环境漂移时的自适应策略。&lt;/p&gt;
+&lt;hr&gt;
+</description>
+        </item>
+        <item>
         <title>学术雷达日报 2026-08-07</title>
         <link>https://blogbook.eu.org/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-08-07/</link>
         <pubDate>Fri, 07 Aug 2026 22:27:36 +0800</pubDate>
