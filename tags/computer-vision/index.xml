@@ -7,7 +7,115 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>云雾中的山-NubisLab</copyright>
-        <lastBuildDate>Tue, 11 Aug 2026 14:32:57 +0000</lastBuildDate><atom:link href="https://blogbook.eu.org/tags/computer-vision/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Wed, 12 Aug 2026 14:33:15 +0000</lastBuildDate><atom:link href="https://blogbook.eu.org/tags/computer-vision/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>学术雷达日报 2026-08-12</title>
+        <link>https://blogbook.eu.org/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-08-12/</link>
+        <pubDate>Wed, 12 Aug 2026 22:32:51 +0800</pubDate>
+        
+        <guid>https://blogbook.eu.org/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-08-12/</guid>
+        <description>&lt;h2 id=&#34;今日论文速览&#34;&gt;今日论文速览
+&lt;/h2&gt;&lt;p&gt;抓取时间（北京时间）：2026-08-12 22:32:51&lt;/p&gt;
+&lt;h3 id=&#34;1-entropy-centric-explainable-ai-for-remote-sensing-image-segmentation&#34;&gt;1. Entropy-Centric Explainable AI for Remote Sensing Image Segmentation
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;ArXiv: &lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/2608.11064v1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://arxiv.org/abs/2608.11064v1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;发布时间: 2026-08-11 23:31:07 (北京时间)&lt;/li&gt;
+&lt;li&gt;作者: Ali Saleh, Abdul Karim Gizzini, Mohamad Ghassany, Ali J. Ghandour&lt;/li&gt;
+&lt;li&gt;标签: 检测&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;AI 深度解析&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;TL;DR：提出一种以熵为中心的XAI方法用于遥感图像语义分割，并设计新的评估协议以量化解释区域相关性，实验证明优于现有分割XAI方法。&lt;/p&gt;
+&lt;p&gt;核心贡献：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;提出熵中心的可解释性方法（Entropy-Centric XAI），利用预测熵分布定位模型决策的关键区域，为语义分割提供像素级解释。&lt;/li&gt;
+&lt;li&gt;设计新的XAI评估方法论，高效衡量解释高亮区域与真实目标区域的相关性，弥补现有分割XAI评估指标的不足。&lt;/li&gt;
+&lt;li&gt;在遥感图像分割任务上系统对比多种近期适配的XAI方法，验证所提方法在解释质量上的优越性。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;方法类型：其他（基于熵的XAI框架，可适配CNN/Transformer等分割骨干）&lt;/p&gt;
+&lt;p&gt;适用场景：遥感（高分辨率图像语义分割）&lt;/p&gt;
+&lt;p&gt;评估指标：未提及具体数值（如mIoU/Dice等），重点在解释相关性度量。&lt;/p&gt;
+&lt;p&gt;代码可用性：未提及&lt;/p&gt;
+&lt;p&gt;领域启发：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;对图像分割：该工作将XAI从分类任务拓展至密集预测，熵作为不确定性度量天然适合定位分割边界和易混淆区域，为构建可信分割模型提供新思路。&lt;/li&gt;
+&lt;li&gt;对目标识别：熵中心解释可辅助识别模型“哪里不确定”，进而指导主动学习或难例挖掘，提升识别鲁棒性。&lt;/li&gt;
+&lt;li&gt;工程落地：在遥感等安全关键场景，可解释性直接决定AI系统能否被采纳，该方法的评估协议也为后续XAI研究提供了标准化工具，推动可解释分割从定性展示走向定量验证。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;2-putting-registers-to-work-task-registers-for-token-pruning-in-vision-transformers&#34;&gt;2. Putting Registers to Work: Task Registers for Token Pruning in Vision Transformers
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;ArXiv: &lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/2608.10989v1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://arxiv.org/abs/2608.10989v1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;发布时间: 2026-08-11 22:43:52 (北京时间)&lt;/li&gt;
+&lt;li&gt;作者: Hongsen Cao, Mona Jaber, Shanxin Yuan, Ahmed Sayed&lt;/li&gt;
+&lt;li&gt;标签: 检测&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;AI 深度解析&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;TL;DR：本文提出任务自适应剪枝（TAP）方法，通过为每个下游任务引入独立的任务寄存器（task register）来动态分配token剪枝预算，在图像分类、语义分割和目标检测中实现高效推理，同时保持甚至提升密集预测任务的精度。&lt;/p&gt;
+&lt;p&gt;核心贡献：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;系统性探针实验揭示剪枝策略在不同任务间的迁移差异：分割/检测与分类对剪枝准则的排序不同，分类对早期层注意力剪枝敏感，密集任务偏好不同的恢复端点。&lt;/li&gt;
+&lt;li&gt;提出任务自适应剪枝（TAP）框架，利用任务寄存器（task register）作为可学习的任务感知状态，动态执行token排序、深度维度的精确剪枝预算分配以及密集特征恢复尺度调节。&lt;/li&gt;
+&lt;li&gt;联合训练版本TAP-J在保持ImageNet-1K分类竞争力的同时，在ADE20K分割和COCO检测上显著提升编码器吞吐量（1.30×/1.32×），验证了任务特定剪枝策略的通用性和有效性。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;方法类型：Transformer&lt;/p&gt;
+&lt;p&gt;适用场景：通用分割、目标检测、图像分类（多任务视觉理解）&lt;/p&gt;
+&lt;p&gt;评估指标：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;ADE20K语义分割：47.0 mIoU（保持率ρ=0.5，编码器吞吐量1.30×）&lt;/li&gt;
+&lt;li&gt;COCO目标检测：53.7 box AP（保持率ρ=0.5，编码器吞吐量1.32×）&lt;/li&gt;
+&lt;li&gt;ImageNet-1K分类：与基线竞争力相当（具体数值未在摘要中给出）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;代码可用性：未提及&lt;/p&gt;
+&lt;p&gt;领域启发：该论文对图像分割与目标识别研究及工程落地具有重要价值。首先，它打破了“一刀切”的token剪枝范式，揭示了不同视觉任务对token冗余的容忍度和偏好存在本质差异，为任务自适应高效推理提供了新思路。其次，任务寄存器的设计巧妙利用了ViT中已有的寄存器机制，以极小的参数开销实现了任务感知的剪枝决策，避免了为每个任务单独训练剪枝策略的高昂成本。对于实际部署，TAP能够在几乎不损失精度的情况下显著提升编码器吞吐量，尤其对实时分割和检测系统极具吸引力。此外，其探针实验方法论也为后续研究提供了分析工具，帮助社区更深入地理解ViT在不同任务中的信息流和冗余分布。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;3-is-there-really-a-camouflaged-object-towards-realistic-camouflaged-object-detection&#34;&gt;3. Is There Really a Camouflaged Object? Towards Realistic Camouflaged Object Detection
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;ArXiv: &lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/2608.11135v1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://arxiv.org/abs/2608.11135v1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;发布时间: 2026-08-12 00:57:40 (北京时间)&lt;/li&gt;
+&lt;li&gt;作者: Huafeng Chen, Yueming Lyu, Chenyang Si, Wende Tan, Liucheng Guo, Caifeng Shan&lt;/li&gt;
+&lt;li&gt;标签: 检测&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;AI 深度解析&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;TL;DR：提出首个面向开放世界真实场景的伪装目标检测基准OPC16K与存在性感知网络OPCNet，将COD从纯分割任务重构为“目标定位+伪装存在性推理”的联合问题，显著降低负样本误检。&lt;/p&gt;
+&lt;p&gt;核心贡献：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;构建大规模真实场景COD基准OPC16K（16,245张图像，14个来源），首次将数据划分为伪装目标、纯背景、非伪装目标三类，支持分割质量与负样本拒绝能力的综合评估。&lt;/li&gt;
+&lt;li&gt;提出存在性感知网络OPCNet，将COD重构为联合目标定位与伪装存在性推理任务，通过层次化存在性推理区分CO/BG/NOCOD三种场景。&lt;/li&gt;
+&lt;li&gt;设计相似性感知伪装关系建模与存在性感知特征细化模块，前者捕获前景-背景伪装线索，后者利用存在性预测调控分割特征，实现负样本抑制与正样本精分割的平衡。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;方法类型：混合架构（CNN骨干 + 层次化推理模块 + 相似性建模）&lt;/p&gt;
+&lt;p&gt;适用场景：通用分割（开放世界伪装目标检测）&lt;/p&gt;
+&lt;p&gt;评估指标：未在摘要中给出具体数值（涉及分割精度与负样本误检率）&lt;/p&gt;
+&lt;p&gt;代码可用性：是（https://github.com/2231122/OPCOD）&lt;/p&gt;
+&lt;p&gt;领域启发：该工作打破了COD领域“每图必有伪装目标”的封闭世界假设，为开放场景下的鲁棒分割提供了新范式。其“存在性推理+特征调制”思路可迁移至其他易产生假阳性的检测任务（如缺陷检测、异常分割），同时OPC16K基准为评估模型在真实场景中的泛化能力提供了重要参考，对推动分割模型从实验室走向实际部署具有工程指导价值。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;4-a-comparative-evaluation-of-deep-learning-object-detection-models-on-a-real-world-multi-plant-dataset-from-africa&#34;&gt;4. A Comparative Evaluation of Deep Learning Object Detection Models on a Real-World Multi-Plant Dataset from Africa
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;ArXiv: &lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/2608.11053v1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://arxiv.org/abs/2608.11053v1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;发布时间: 2026-08-11 23:22:58 (北京时间)&lt;/li&gt;
+&lt;li&gt;作者: Ismail Ismail Tijjani, Sunusi Muhammad Ibrahim, Amina Ibrahim Khaleel, Lanre Olusegun Akinola, Fatima Isa Jibrin, Muhammad Bashir Aliyu, Abdullahi Abdussalam Dalhat, Abdullahi Suiudeen&lt;/li&gt;
+&lt;li&gt;标签: 检测&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;AI 深度解析&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;TL;DR：本文在非洲尼日利亚农场真实采集的多植物数据集 AgriAISeg 上，系统比较了 YOLOv5、YOLOv8、YOLO11、YOLO26、Faster R-CNN 和 RT-DETR 六种目标检测模型，发现 RT-DETR 综合性能最优，YOLO 系列在效率与精度间取得良好平衡，而 Faster R-CNN 在复杂田间环境下表现不佳。&lt;/p&gt;
+&lt;p&gt;核心贡献：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;构建并公开了 AgriAISeg 真实世界多植物数据集，包含 3,382 张芝麻、卷心菜和番茄图像，覆盖光照变化、遮挡和视角差异等复杂田间条件，弥补了非洲地区农业视觉数据匮乏的空白。&lt;/li&gt;
+&lt;li&gt;首次在非洲真实农田场景下对六种主流检测模型（含最新 YOLO26 和 RT-DETR）进行系统公平对比，揭示了不同架构（单阶段、两阶段、Transformer）在复杂环境下的性能差异。&lt;/li&gt;
+&lt;li&gt;实验表明 RT-DETR 以 0.768 精度和 0.624 &lt;a class=&#34;link&#34; href=&#34;mailto:mAP@0.5&#34; &gt;mAP@0.5&lt;/a&gt;:0.95 取得最优检测效果，同时验证了 YOLO 系列在训练效率和精度稳定性上的优势，为实际农业部署提供了选型依据。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;方法类型：其他（目标检测模型对比，涵盖 CNN 单阶段、两阶段及 Transformer 混合架构）&lt;/p&gt;
+&lt;p&gt;适用场景：其他（农业田间植物检测，适用于精准农业、作物监测等真实野外环境）&lt;/p&gt;
+&lt;p&gt;评估指标：其他（Precision=0.768，Recall 未明确，mAP@0.5 未明确，mAP@0.5:0.95=0.624；Faster R-CNN 的 &lt;a class=&#34;link&#34; href=&#34;mailto:mAP@0.5&#34; &gt;mAP@0.5&lt;/a&gt;=0.466）&lt;/p&gt;
+&lt;p&gt;代码可用性：未提及（数据集 AgriAISeg 已公开）&lt;/p&gt;
+&lt;p&gt;领域启发：该研究对图像分割与目标识别具有重要参考价值。首先，它强调了真实场景数据（而非受控实验室数据）对模型泛化能力的决定性影响，提示分割/检测模型在野外部署时必须考虑光照、遮挡和视角多样性。其次，RT-DETR 作为 Transformer 检测器在复杂农业场景中超越 YOLO 系列，表明注意力机制在应对背景杂乱和小目标重叠时具有优势，这一结论可迁移至遥感或无人机图像中的作物分割任务。最后，YOLO 系列在训练效率和精度上的均衡表现，为工程落地中计算资源受限的实时农业监测系统提供了实用选型思路，也启发研究者关注模型效率与精度的联合优化。&lt;/p&gt;
+&lt;hr&gt;
+</description>
+        </item>
+        <item>
         <title>学术雷达日报 2026-08-11</title>
         <link>https://blogbook.eu.org/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-08-11/</link>
         <pubDate>Tue, 11 Aug 2026 22:32:32 +0800</pubDate>
