@@ -6,7 +6,7 @@
 
 <link rel='canonical' href='https://blogbook.eu.org/p/imagenet-classification-with-deep-convolutional-neural-networks-alexnet/'>
 
-<link rel="stylesheet" href="/scss/style.min.03ded39faa1bb33582d6d05db2f6240439e163f1b1db6983e5e232aef938d111.css"><meta property='og:title' content="ImageNet Classification with Deep Convolutional Neural Networks (AlexNet)">
+<link rel="stylesheet" href="/scss/style.min.85ac1dafaf8e3be16ba9e3f0c8c0505b2bbb5b39cadf22d755285fbec83738d1.css"><meta property='og:title' content="ImageNet Classification with Deep Convolutional Neural Networks (AlexNet)">
 <meta property='og:description' content="这个是关于alexnet的论文翻译,为了可以更好的理解深度学习的发展历程和背景，从这篇开始我会逐步的把一些经典的深度学习论文翻译出来，方便自己和大家理解。 摘要 我们训练了一个大而深的卷积神经网络去分类在ImageNet LSVRC-2010的一个有1000个类别有120百万张高清晰度的图片的数据集，在测试集上，我们取得top-1和top-5错误率是37.5和17.0这个已经比当前最先进的结果都要好，这个神经网络拥有60百万个参数和65万个神经元组成，它有五层卷积层，三个全连接层，最后一个是1000路的softmax的一个输出层。为了训练更快一点，我们使用非饱和的神经元和一个非常有效率的GPU来实现卷积操作。为什么减少过拟合在全连接层我们使用现在很热的一个正则化“dropout”，我们还输入这个模型的一个变体到一个更大的数据集上在ILSVRC-2012上top-5也取得15.3%的错误率，比第二名只有26.2%的错误率好很多。\n">
 <meta property='og:url' content='https://blogbook.eu.org/p/imagenet-classification-with-deep-convolutional-neural-networks-alexnet/'>
 <meta property='og:site_name' content='云雾中的山-Nubislab'>

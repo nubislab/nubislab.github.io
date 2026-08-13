@@ -7,6 +7,82 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>云雾中的山-NubisLab</copyright><atom:link href="https://blogbook.eu.org/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>学术雷达日报 2026-08-13</title>
+        <link>https://blogbook.eu.org/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-08-13/</link>
+        <pubDate>Thu, 13 Aug 2026 22:33:58 +0800</pubDate>
+        
+        <guid>https://blogbook.eu.org/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-08-13/</guid>
+        <description>&lt;h2 id=&#34;今日论文速览&#34;&gt;今日论文速览
+&lt;/h2&gt;&lt;p&gt;抓取时间（北京时间）：2026-08-13 22:33:58&lt;/p&gt;
+&lt;h3 id=&#34;1-m-net-integrating-spectral-features-and-physical-field-operators-into-deep-learning-for-medical-image-segmentation&#34;&gt;1. M-Net: Integrating Spectral Features and Physical Field Operators into Deep Learning for Medical Image Segmentation
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;ArXiv: &lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/2608.12196v1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://arxiv.org/abs/2608.12196v1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;发布时间: 2026-08-12 23:51:07 (北京时间)&lt;/li&gt;
+&lt;li&gt;作者: Jing Zhu, Ye Wang, Fumin Wang&lt;/li&gt;
+&lt;li&gt;标签: 分割&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;AI 深度解析&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;TL;DR：提出M-Net，将矩阵谱分析与向量微积分算子作为数学归纳偏置融入U-Net，在医学图像分割上显著超越纯数据驱动基线。&lt;/p&gt;
+&lt;p&gt;核心贡献：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;提出连续谱特征（基于中心局部像素矩阵的条件数），提供可微分的纹理病态度量，优于离散可逆性特征（+2.14% Dice）。&lt;/li&gt;
+&lt;li&gt;引入物理场算子（散度与离散旋度类边界不规则算子），从梯度场中捕捉焦点强度极值与边缘非平滑性。&lt;/li&gt;
+&lt;li&gt;设计Math-Attention Gate（MAG），在跳跃连接处自适应融合数学特征与CNN深度特征，较简单拼接提升1.45% Dice。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;方法类型：混合架构（CNN + 数学算子）&lt;/p&gt;
+&lt;p&gt;适用场景：医学图像（肝脏、肾脏、脑肿瘤分割）&lt;/p&gt;
+&lt;p&gt;评估指标：Dice（LiTS: 78.42%，KiTS: 76.15%，BraTS: 83.67%），较U-Net分别提升12.37%、3.52%、5.55%&lt;/p&gt;
+&lt;p&gt;代码可用性：未提及&lt;/p&gt;
+&lt;p&gt;领域启发：该工作证明了显式数学归纳偏置（线性代数与向量微积分）可有效补充数据驱动特征，为分割网络提供可解释的纹理与边界先验。其连续条件数特征的设计思路可迁移至其他任务中离散二值特征的替代，而MAG的注意力融合机制为多模态特征交互提供了轻量级方案。工程上，该方法无需额外标注或预训练，计算开销可控，适合部署于医学影像辅助诊断场景，并启发在遥感或工业检测中引入物理场算子以增强边缘与异常区域感知。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;2-class-activation-mapping-in-explainable-computer-vision-a-method-centered-review-of-cnn-transformer-and-foundation-model-era-visual-explanations&#34;&gt;2. Class Activation Mapping in Explainable Computer Vision: A Method-Centered Review of CNN, Transformer, and Foundation-Model-Era Visual Explanations
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;ArXiv: &lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/2608.12299v1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://arxiv.org/abs/2608.12299v1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;发布时间: 2026-08-13 01:45:03 (北京时间)&lt;/li&gt;
+&lt;li&gt;作者: AmirHossein Eshghi, Hamid Saadatfar, Seyyed Ali Hoseini, AmirMohsen Eshghi, Siavash Arjomand Bigdel&lt;/li&gt;
+&lt;li&gt;标签: 检测&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;AI 深度解析&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;TL;DR：本文系统梳理了2016年以来57篇CAM类可解释性方法论文，提出按归因机制、架构依赖和评估目标分类的体系，揭示了该领域从单层CNN类别分数解释向多层、概率化、token感知和基础模型感知解释演进的趋势。&lt;/p&gt;
+&lt;p&gt;核心贡献：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;构建了覆盖CNN、Transformer和基础模型时代的CAM方法分类体系，按归因机制（梯度/无梯度/基于模型）和架构依赖（CNN/Transformer/混合）双重维度组织57篇核心论文&lt;/li&gt;
+&lt;li&gt;系统分析了CAM从全局平均池化CNN分类器向弱监督定位分割、Transformer token归因、因果去偏及CLIP/DINO/SAM等基础模型时代方法的演进脉络&lt;/li&gt;
+&lt;li&gt;指出评估协议碎片化问题（忠实性、定位精度、鲁棒性、计算成本、人类信任等指标缺乏统一标准），并梳理了各方法遗留的开放问题及后续方法的改进路径&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;方法类型：其他（综述论文，覆盖CNN、Transformer、基础模型等多种CAM方法）&lt;/p&gt;
+&lt;p&gt;适用场景：其他（可解释AI、弱监督定位与分割、模型诊断）&lt;/p&gt;
+&lt;p&gt;评估指标：其他（综述中提及忠实性、定位精度、鲁棒性、计算成本、人类信任等多维度评估协议，未给出具体数值）&lt;/p&gt;
+&lt;p&gt;代码可用性：未提及&lt;/p&gt;
+&lt;p&gt;领域启发：该综述对图像分割与目标识别研究的核心价值在于：其一，CAM类方法为弱监督语义分割提供了无需像素级标注的可行路径，特别是高分辨率上采样和token归因方法可直接迁移至分割任务的特征图细化；其二，基础模型时代的CAM方法（如利用CLIP/DINO特征分布比较）为跨模态分割和目标识别提供了新的解释范式，有助于理解视觉-语言模型在开放世界目标识别中的决策依据；其三，综述指出的评估碎片化问题提示我们在分割与识别任务中应建立统一的解释性评估基准，以推动可解释方法从学术研究向工程落地转化。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;3-map-det3d-metric-feed-forward-3d-reconstruction-prior-for-multi-view-3d-object-detection-from-streaming-inputs&#34;&gt;3. Map-Det3D: Metric Feed-Forward 3D Reconstruction Prior for Multi-view 3D Object Detection from Streaming Inputs
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;ArXiv: &lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/2608.12179v1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://arxiv.org/abs/2608.12179v1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;发布时间: 2026-08-12 23:33:42 (北京时间)&lt;/li&gt;
+&lt;li&gt;作者: Yung-Hsu Yang, Luigi Piccinelli, Samuel Rota Bulò, Sunghwan Hong, Denis Rozumny, Johannes Schönberger, Zuria Bauer, Hermann Blum, Peter Kontschieder, Marc Pollefeys&lt;/li&gt;
+&lt;li&gt;标签: 检测&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;AI 深度解析&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;TL;DR：Map-Det3D 提出将前馈式度量3D重建模型作为几何骨干，直接在重建的3D空间中预测目标框，避免2D到3D提升的脆弱性，实现鲁棒的流式多视角单目3D目标检测。&lt;/p&gt;
+&lt;p&gt;核心贡献：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;提出将检测任务直接引入由RGB重建的度量3D空间，利用前馈式3D重建模型作为几何骨干，并针对目标检测进行对象感知能力调优，替代传统2D检测+3D属性预测范式。&lt;/li&gt;
+&lt;li&gt;设计基于短时间窗口的多视角输入映射机制，使模型能够利用时序信息增强几何一致性，支持在线流式检测，无需依赖深度传感器或额外标定约束。&lt;/li&gt;
+&lt;li&gt;实验证明该设计在多个基准上具备强在线性能和跨域零样本迁移能力，表明重建先验用于检测是稳定单目度量3D检测的实用路径。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;方法类型：混合架构（前馈式3D重建模型 + 检测头，基于Transformer/CNN的混合设计）&lt;/p&gt;
+&lt;p&gt;适用场景：自动驾驶 / 其他（多视角3D目标检测，单目视频流）&lt;/p&gt;
+&lt;p&gt;评估指标：其他（3D目标检测指标，如mAP、ATE等，具体数值未在摘要中列出）&lt;/p&gt;
+&lt;p&gt;代码可用性：是（https://royyang0714.github.io/Map-Det3D）&lt;/p&gt;
+&lt;p&gt;领域启发：该论文对图像分割与目标识别研究的核心启发在于“以重建为中介”的范式转换——将几何重建作为显式先验，可有效缓解单目感知中尺度模糊和域偏移问题。对于分割任务，类似思路可推广至3D语义分割或实例分割，即先重建度量3D场景，再在重建空间中进行体素级或点级分割，从而提升几何一致性。工程上，该工作展示了利用预训练重建模型作为骨干的可行性，提示研究者可复用现有重建大模型（如DUSt3R类）作为通用几何编码器，降低检测/分割任务的训练成本并增强跨域泛化能力。&lt;/p&gt;
+&lt;hr&gt;
+</description>
+        </item>
+        <item>
         <title>学术雷达日报 2026-08-12</title>
         <link>https://blogbook.eu.org/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-08-12/</link>
         <pubDate>Wed, 12 Aug 2026 22:32:51 +0800</pubDate>
