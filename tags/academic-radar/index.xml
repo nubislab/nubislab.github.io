@@ -7,7 +7,177 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>云雾中的山-NubisLab</copyright>
-        <lastBuildDate>Fri, 14 Aug 2026 14:27:42 +0000</lastBuildDate><atom:link href="https://blogbook.eu.org/tags/academic-radar/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Tue, 18 Aug 2026 14:00:31 +0000</lastBuildDate><atom:link href="https://blogbook.eu.org/tags/academic-radar/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>学术雷达日报 2026-08-18</title>
+        <link>https://blogbook.eu.org/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-08-18/</link>
+        <pubDate>Tue, 18 Aug 2026 22:00:02 +0800</pubDate>
+        
+        <guid>https://blogbook.eu.org/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-08-18/</guid>
+        <description>&lt;h2 id=&#34;今日论文速览&#34;&gt;今日论文速览
+&lt;/h2&gt;&lt;p&gt;抓取时间（北京时间）：2026-08-18 22:00:02&lt;/p&gt;
+&lt;h3 id=&#34;1-unsupervised-learning-of-cell-instances-with-generative-routing-pyramids&#34;&gt;1. Unsupervised Learning of Cell Instances with Generative Routing Pyramids
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;ArXiv: &lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/2608.16810v1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://arxiv.org/abs/2608.16810v1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;发布时间: 2026-08-18 01:03:32 (北京时间)&lt;/li&gt;
+&lt;li&gt;作者: Ziwen Liu, Martin Weigert&lt;/li&gt;
+&lt;li&gt;标签: 分割&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;AI 深度解析&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;TL;DR：本文提出一种基于生成式路由金字塔的无监督细胞实例分割与表型分类方法，通过粗到细的像素-潜在源关联实现实例掩码与形态编码，无需任何标注。&lt;/p&gt;
+&lt;p&gt;核心贡献：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;提出生成式路由金字塔（Routing Pyramids）架构，以粗到细方式将像素与空间稀疏潜在源关联，同时完成实例分割与形态表征。&lt;/li&gt;
+&lt;li&gt;实现完全无监督的细胞实例分割，无需人工标注，适用于多种细胞形态与成像模态，并支持扰动下的细胞表型生成建模。&lt;/li&gt;
+&lt;li&gt;将实例分割与细胞表示学习统一于单一重建框架，避免传统流程中分割与特征提取分离导致的误差累积。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;方法类型：其他（基于生成式重建的稀疏潜在路由架构，非主流监督范式）&lt;/p&gt;
+&lt;p&gt;适用场景：医学图像（显微镜细胞/核实例分割与表型分析）&lt;/p&gt;
+&lt;p&gt;评估指标：未在摘要中给出具体数值（如mIoU/Dice等），需查阅原文获取定量结果。&lt;/p&gt;
+&lt;p&gt;代码可用性：是（https://github.com/weigertlab/routing-pyramids）&lt;/p&gt;
+&lt;p&gt;领域启发：该工作展示了无监督生成模型在实例级任务中的潜力，通过重建过程隐式学习实例边界与形态特征，为缺乏标注的医学图像分析提供了新思路。其路由机制可启发设计更高效的可解释分割头，并推动将分割与表征学习融合的端到端框架在工程落地中减少标注成本。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;2-bridging-the-gap-between-labeled-and-unlabeled-data-via-unified-flow-with-feature-memory-bank&#34;&gt;2. Bridging the Gap between Labeled and Unlabeled Data via Unified Flow with Feature Memory Bank
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;ArXiv: &lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/2608.16681v1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://arxiv.org/abs/2608.16681v1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;发布时间: 2026-08-17 23:04:25 (北京时间)&lt;/li&gt;
+&lt;li&gt;作者: Shanwen Wang, Xin Sun, Danfeng Hong, Junyu Dong, Patrick Le Callet&lt;/li&gt;
+&lt;li&gt;标签: 检测&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;AI 深度解析&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;TL;DR：提出一种基于统一训练流和特征记忆库的遥感半监督语义分割方法，通过外部视觉基础模型与遥感域教师结合生成低偏置伪标签，并利用类特征对齐缩小标注与未标注数据间的特征差异。&lt;/p&gt;
+&lt;p&gt;核心贡献：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;提出统一流（Unified Flow, UF）训练框架，将外部视觉基础模型（VFM）与遥感域教师模型结合，生成更少偏置的伪标签，并在统一训练目标下联合优化标注与伪标注数据，缓解标注数据主导训练的问题。&lt;/li&gt;
+&lt;li&gt;设计特征记忆库（Feature Memory Bank, FMB）模块，动态更新类特定特征，通过类特征对齐减少标注与未标注数据间的特征分布差异，提升伪标签质量。&lt;/li&gt;
+&lt;li&gt;在遥感数据集上验证了方法有效性，显著优于现有SOTA半监督语义分割方法，并开源代码。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;方法类型：混合架构（基于视觉基础模型+CNN/Transformer教师网络）&lt;/p&gt;
+&lt;p&gt;适用场景：遥感图像分割（半监督语义分割）&lt;/p&gt;
+&lt;p&gt;评估指标：mIoU（具体数值未在摘要中给出）&lt;/p&gt;
+&lt;p&gt;代码可用性：是（https://github.com/wangshanwen001/RS-UFFM）&lt;/p&gt;
+&lt;p&gt;领域启发：该论文为半监督分割提供了新思路——通过引入外部视觉基础模型（如SAM类）作为先验知识源，结合域内教师模型生成更可靠的伪标签，有效缓解了标注数据主导和域偏移问题。特征记忆库的设计也为跨域特征对齐提供了轻量级解决方案，可推广至其他域自适应分割任务。工程上，该方法对标注成本高昂的遥感、医学等垂直领域具有较高落地价值，且代码开源便于复现与二次开发。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;3-how-sampling-strategy-affects-imbalance-mitigation-in-lidar-segmentation-a-study-of-structured-vs-random-point-based-architectures&#34;&gt;3. How Sampling Strategy Affects Imbalance Mitigation in LiDAR Segmentation: A Study of Structured vs. Random Point-Based Architectures
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;ArXiv: &lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/2608.16673v1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://arxiv.org/abs/2608.16673v1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;发布时间: 2026-08-17 23:00:55 (北京时间)&lt;/li&gt;
+&lt;li&gt;作者: Antonis Savva, Christos Kyrkou, Theocharis Theocharides&lt;/li&gt;
+&lt;li&gt;标签: 检测&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;AI 深度解析&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;TL;DR：系统研究了采样策略（结构化 vs 随机）与类别不平衡缓解方法在LiDAR点云分割中的交互作用，发现逆频率加权会严重损害性能，而均匀加权在结构化采样架构下表现接近复杂损失函数。&lt;/p&gt;
+&lt;p&gt;核心贡献：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;首次系统对比六种重加权方案与五种不平衡感知损失在两种代表性点云架构（KPConv、RandLA-Net）上的表现，覆盖三个数据集（DALES、S3DIS、STPLS3D）&lt;/li&gt;
+&lt;li&gt;揭示逆频率加权在LiDAR分割中的灾难性失败：相比均匀加权性能下降高达12%，尤其在少数类上出现完全失效&lt;/li&gt;
+&lt;li&gt;通过损失景观分析发现采样策略与不平衡比率的复杂耦合关系：结构化采样下不平衡比率主导损失景观几何，随机采样下数据集几何特性起决定性作用&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;方法类型：其他（点云分割架构对比研究，非生成式或Transformer类）&lt;/p&gt;
+&lt;p&gt;适用场景：自动驾驶 / 遥感（LiDAR点云语义分割）&lt;/p&gt;
+&lt;p&gt;评估指标：mIoU（具体数值：均匀加权与复杂损失在KPConv上差距≤2%，在RandLA-Net上差距可达4.6%）&lt;/p&gt;
+&lt;p&gt;代码可用性：未提及&lt;/p&gt;
+&lt;p&gt;领域启发：该研究对图像分割与目标识别具有重要警示意义——在2D领域广泛使用的逆频率加权等不平衡缓解策略不能直接迁移到3D点云任务，尤其在随机采样架构下效果适得其反。这提示我们在设计不平衡缓解方案时，必须考虑底层特征提取器的采样机制（结构化 vs 随机）与数据采集特性（真实 vs 合成）的交互影响。对于工程落地，该工作提供了实用的架构-损失函数匹配指南：若使用KPConv等结构化采样架构，简单的均匀加权即可达到接近复杂损失的性能，大幅降低调参成本；而使用RandLA-Net等随机采样架构时，需谨慎选择不平衡处理策略并针对具体数据集进行验证。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;4-the-canonical-facets-of-multi-separator-polytopes&#34;&gt;4. The canonical facets of multi-separator polytopes
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;ArXiv: &lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/2608.16861v1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://arxiv.org/abs/2608.16861v1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;发布时间: 2026-08-18 01:44:39 (北京时间)&lt;/li&gt;
+&lt;li&gt;作者: Bjoern Andres, Silvia Di Gregorio, Jannik Irmai, Lucas Fabian Naumann, Shengxian Zhao&lt;/li&gt;
+&lt;li&gt;标签: 检测&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;AI 深度解析&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;TL;DR：本文首次对图多分割器问题的多面体结构进行系统研究，刻画了其整数线性规划不等式诱导所有刻面的图论条件，并揭示了其与布尔二次多面体及提升多割多面体之间的投影关系。&lt;/p&gt;
+&lt;p&gt;核心贡献：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;提出并系统分析了图多分割器问题（multi-separator problem）的多面体结构，给出了ILP中所有不等式诱导刻面的充要图论条件（可高效判定）。&lt;/li&gt;
+&lt;li&gt;通过强化原始不等式，构造了路径图（所有顶点对分离）上多分割器多面体的完全双整数（TDI）描述，实现了该特殊情形的精确线性刻画。&lt;/li&gt;
+&lt;li&gt;建立了多分割器多面体与布尔二次多面体（boolean quadric polytope）及提升多割多面体（lifted multicut polytope）之间的理论关联：证明奇环不等式不能一般性迁移，且两者互为某面的投影。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;方法类型：其他（组合优化/多面体理论，非深度学习方法）&lt;/p&gt;
+&lt;p&gt;适用场景：其他（图像分割的底层图优化模型，尤其适用于基于图割的语义/实例分割）&lt;/p&gt;
+&lt;p&gt;评估指标：其他（理论分析为主，未提供实验数值）&lt;/p&gt;
+&lt;p&gt;代码可用性：否&lt;/p&gt;
+&lt;p&gt;领域启发：该工作为图像分割中的图优化问题提供了坚实的数学基础。其多面体刻画可直接指导设计更紧的割平面算法，提升基于图割的分割精度与求解效率。特别是TDI描述为路径结构的分割任务（如视频时序分割、轮廓提取）提供了多项式可解的理论保证。此外，与布尔二次多面体的关联提示可将分割问题中的高阶约束（如区域一致性）转化为更易处理的线性不等式，为开发可解释、可验证的图优化分割器提供了新思路，对工程中追求稳定性和可复现性的分割系统具有重要参考价值。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;5-what-matters-is-the-prompt-prompt-sensitivity-and-prompt-generation-in-foundation-models-for-lung-nodule-segmentation&#34;&gt;5. What Matters is the Prompt: Prompt Sensitivity and Prompt Generation in Foundation Models for Lung Nodule Segmentation
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;ArXiv: &lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/2608.16832v1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://arxiv.org/abs/2608.16832v1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;发布时间: 2026-08-18 01:16:43 (北京时间)&lt;/li&gt;
+&lt;li&gt;作者: Jorge F. Lazo, Xixi Liu, Andreas Hallqvist, Mikael Johansson, Åse Johnsson, Jonas S. Andersson, Jennifer Alvén, Ida Häggström&lt;/li&gt;
+&lt;li&gt;标签: 检测&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;AI 深度解析&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;TL;DR：本文系统研究了提示质量对基础模型肺结节分割性能的影响，并提出一种合成提示生成模型，以缓解对人工提示的依赖并提升分割精度，最终Dice达到0.85。&lt;/p&gt;
+&lt;p&gt;核心贡献：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;首次系统性地对点提示和框提示进行扰动实验，量化了提示位置、大小和类型对基础模型分割性能的影响，揭示了框提示通常优于点提示的规律。&lt;/li&gt;
+&lt;li&gt;提出一种合成提示生成模型，能够自动生成高质量提示（如边界框），从而替代人工标注提示，在降低交互成本的同时提升分割性能。&lt;/li&gt;
+&lt;li&gt;对比了通用基础模型与专用医学影像基础模型在肺结节分割任务上的表现，发现专用模型在鲁棒性和精度上更具优势，为模型选型提供了实证依据。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;方法类型：SAM 系列&lt;/p&gt;
+&lt;p&gt;适用场景：医学图像&lt;/p&gt;
+&lt;p&gt;评估指标：Dice（0.85）&lt;/p&gt;
+&lt;p&gt;代码可用性：未提及&lt;/p&gt;
+&lt;p&gt;领域启发：该研究为图像分割与目标识别领域提供了重要启示：一方面，它强调了提示工程在基础模型应用中的关键作用，提示设计不当可能成为性能瓶颈，这促使研究者在实际部署中需重视输入提示的鲁棒性；另一方面，合成提示生成策略为减少人工交互、实现自动化分割提供了新思路，尤其适用于医学影像等标注成本高昂的场景。该方法的成功表明，将提示生成视为一个可学习的子任务，有望成为提升基础模型在特定领域泛化能力的通用范式，对推动基础模型在临床辅助诊断中的落地具有重要价值。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;6-binarized-high-efficiency-raw-video-restoration-and-beyond&#34;&gt;6. Binarized High-Efficiency RAW Video Restoration and Beyond
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;ArXiv: &lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/2608.16756v1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://arxiv.org/abs/2608.16756v1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;发布时间: 2026-08-18 00:03:50 (北京时间)&lt;/li&gt;
+&lt;li&gt;作者: Tianyu Zhu, Ying Fu, Hesong Li, Gengchen Zhang, Xin Yuan, Yulun Zhang&lt;/li&gt;
+&lt;li&gt;标签: 检测&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;AI 深度解析&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;TL;DR：提出BinRVR，一种二值化RAW视频修复框架，通过二值信息交互模块和分布感知二值卷积，在降低约96%计算量和参数的同时仅损失约4%性能，并支持多比特量化以适配不同硬件。&lt;/p&gt;
+&lt;p&gt;核心贡献：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;提出Binarized Information Interaction Module (BIIM)，以统一高效的方式联合建模空间与时间信息，解决二值网络在视频时序建模上的不足。&lt;/li&gt;
+&lt;li&gt;开发Distribution-Aware Binarized Convolution (DAB-Conv)，利用全精度激活值的统计分布来缓解二值化带来的量化误差，提升激活值分布建模能力。&lt;/li&gt;
+&lt;li&gt;框架支持多比特量化，可在不同硬件约束下灵活调整精度与效率的平衡，并验证了在低光增强、去噪、去模糊和超分辨率等RAW视频修复任务上的有效性。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;方法类型：CNN（二值化卷积网络）&lt;/p&gt;
+&lt;p&gt;适用场景：视频（RAW视频修复，含低光增强、去噪、去模糊、超分辨率）&lt;/p&gt;
+&lt;p&gt;评估指标：其他（性能下降约4%，计算量和参数减少约96%；具体PSNR/SSIM等数值未在摘要中给出）&lt;/p&gt;
+&lt;p&gt;代码可用性：未提及&lt;/p&gt;
+&lt;p&gt;领域启发：该论文对图像分割与目标识别研究及工程落地的价值在于：其一，BIIM的时空联合建模思路可迁移至视频分割或视频目标检测中的时序特征融合，提升二值化模型在动态场景下的鲁棒性；其二，DAB-Conv的分布感知量化策略为分割/检测网络中的二值化卷积设计提供了新思路，有助于在边缘设备上部署轻量级高精度模型；其三，多比特量化支持为不同算力平台（如嵌入式设备、移动端）提供了灵活的精度-效率权衡方案，对实时视频分析任务（如自动驾驶、监控）具有实际工程意义。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;7-drafe-domain-robust-asymmetric-fusion-of-heterogeneous-detection-transformers-for-cross-city-fine-grained-traffic-object-detection&#34;&gt;7. DRAFE: Domain-Robust Asymmetric Fusion of Heterogeneous Detection Transformers for Cross-City Fine-Grained Traffic Object Detection
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;ArXiv: &lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/2608.16632v1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://arxiv.org/abs/2608.16632v1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;发布时间: 2026-08-17 22:32:03 (北京时间)&lt;/li&gt;
+&lt;li&gt;作者: Divine Yao Agbobli, Geoffery Eyram Agorku, Israel Afriyie, Kwadwo Amankwah-Nkyi, Marvin Osei-Kuffour, Richmond Owusu Duah, Bright Seglah, Kelvin Asamoah Terkper, Kwabena Amoako Adjei&lt;/li&gt;
+&lt;li&gt;标签: 检测&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;AI 深度解析&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;TL;DR：DRAFE通过非对称融合两个异构检测Transformer（LW-DETR与RF-DETR），结合两阶段训练策略与可靠性加权推理，实现跨城市细粒度交通目标检测，在AI City Challenge 2026 Track 6上取得0.4022 mAP并排名第六。&lt;/p&gt;
+&lt;p&gt;核心贡献：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;提出两阶段训练策略：先在多样公开交通数据集上通过伪标签扩展与人在回路标注精炼构建高质量语料库（6,049张图像、203,619个标注），再进行挑战赛数据微调，有效缓解跨域分布差异。&lt;/li&gt;
+&lt;li&gt;设计非对称融合推理框架：包括锚点条件类别一致匹配、可靠性加权坐标融合、一致性感知置信度重校准及互补假设恢复，充分利用异构检测器的互补优势。&lt;/li&gt;
+&lt;li&gt;构建DRAFE集成架构：独立训练LW-DETR与RF-DETR，避免联合训练中的梯度干扰，同时通过融合策略实现性能提升（较初步集成提高0.0553 mAP）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;方法类型：混合架构（Transformer检测器集成）&lt;/p&gt;
+&lt;p&gt;适用场景：自动驾驶 / 智能交通（跨城市细粒度车辆识别）&lt;/p&gt;
+&lt;p&gt;评估指标：mAP（0.4022，排名6/25）&lt;/p&gt;
+&lt;p&gt;代码可用性：未提及&lt;/p&gt;
+&lt;p&gt;领域启发：该论文对图像分割与目标识别研究及工程落地具有以下价值：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;异构模型融合思路可迁移至分割任务&lt;/strong&gt;：类似DRAFE的非对称融合策略（如结合CNN与Transformer分割器）可用于提升跨域分割鲁棒性，尤其在医学图像或遥感场景中，不同架构对边界与纹理的敏感性互补。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;两阶段训练范式值得借鉴&lt;/strong&gt;：伪标签扩展+人在回路精炼的语料构建方法，可低成本生成高质量标注，对数据稀缺的分割任务（如病理切片、卫星影像）具有直接参考意义。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;推理时融合机制设计精巧&lt;/strong&gt;：锚点条件匹配与置信度重校准可推广至多模型分割集成，用于解决类别不一致和置信度漂移问题，提升集成系统的稳定性与精度。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;工程落地启示&lt;/strong&gt;：独立训练+推理时融合的架构降低了联合训练的资源需求，适合实际部署中多模型协同的场景，且对硬件兼容性友好。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+</description>
+        </item>
+        <item>
         <title>学术雷达日报 2026-08-14</title>
         <link>https://blogbook.eu.org/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-08-14/</link>
         <pubDate>Fri, 14 Aug 2026 22:27:24 +0800</pubDate>
