@@ -7,7 +7,39 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>云雾中的山-NubisLab</copyright>
-        <lastBuildDate>Tue, 18 Aug 2026 14:00:31 +0000</lastBuildDate><atom:link href="https://blogbook.eu.org/tags/arxiv/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Wed, 19 Aug 2026 14:01:45 +0000</lastBuildDate><atom:link href="https://blogbook.eu.org/tags/arxiv/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>学术雷达日报 2026-08-19</title>
+        <link>https://blogbook.eu.org/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-08-19/</link>
+        <pubDate>Wed, 19 Aug 2026 22:01:22 +0800</pubDate>
+        
+        <guid>https://blogbook.eu.org/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-08-19/</guid>
+        <description>&lt;h2 id=&#34;今日论文速览&#34;&gt;今日论文速览
+&lt;/h2&gt;&lt;p&gt;抓取时间（北京时间）：2026-08-19 22:01:22&lt;/p&gt;
+&lt;h3 id=&#34;1-comparative-study-of-out-of-the-box-technology-for-automatic-target-detection-and-recognition&#34;&gt;1. Comparative Study of Out-of-the-Box Technology for Automatic Target Detection and Recognition
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;ArXiv: &lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/2608.17917v1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://arxiv.org/abs/2608.17917v1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;发布时间: 2026-08-18 23:43:34 (北京时间)&lt;/li&gt;
+&lt;li&gt;作者: Alma M. Liezenga, Lotte Nijskens, Henrik R. Baumann, Stefan Becker, Simon Bensberg, Niccolò Camarlinghi, Håvard R. Eiring, Alexander W. Johnsgaard, Tanel Liiv, Giuseppe Martino, Matteo Marturini, Matthias Rapp, Jan Erik van Woerden, Alexander Wolpert, Hugo J. Kuijf&lt;/li&gt;
+&lt;li&gt;标签: 检测&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;AI 深度解析&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;TL;DR：本文系统对比了YOLO系列与DETR系列模型在军事目标检测任务上的开箱即用与微调性能，发现域外微调可提升空中对地视角性能，但小目标检测仍是瓶颈，域内训练对构建实用ATD/R系统至关重要。&lt;/p&gt;
+&lt;p&gt;核心贡献：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;构建了一个包含军事车辆、遮挡和小目标挑战的新军事相关数据集，并公开了基准测试协议，填补了军事数据集稀缺的空白。&lt;/li&gt;
+&lt;li&gt;系统对比了6个YOLO版本和2个DETR变体在开箱即用与VisDrone微调两种模式下的性能，覆盖A2G与G2G视角、目标尺寸和模型规模等多维度分析。&lt;/li&gt;
+&lt;li&gt;揭示了关键发现：大模型优于小模型；DETR在军事场景下表现优于YOLO系列；域外A2G微调能提升A2G性能并小幅改善小目标检测，但所有模型在A2G小目标上仍存在显著不足。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;方法类型：混合架构（CNN-based YOLO系列 + Transformer-based DETR系列）&lt;/p&gt;
+&lt;p&gt;适用场景：遥感（军事目标检测与识别，涵盖空中对地与地对地视角）&lt;/p&gt;
+&lt;p&gt;评估指标：mAP@0.5、mAP@0.5:0.95（按视角、目标尺寸和模型大小分别报告）&lt;/p&gt;
+&lt;p&gt;代码可用性：未提及&lt;/p&gt;
+&lt;p&gt;领域启发：该研究对图像分割与目标识别领域具有重要参考价值。首先，它验证了域外数据集（如VisDrone）微调对跨域目标检测的迁移潜力，提示在数据稀缺的军事或工业场景中，可优先利用公开的域外数据进行预训练或微调。其次，DETR在军事小目标上的相对优势表明，基于Transformer的端到端检测器在复杂背景和遮挡场景下可能比CNN-based方法更具鲁棒性，值得在分割任务中借鉴其全局建模能力。最后，论文明确指出小目标在A2G视角下的检测仍是开放难题，这为后续研究指明了方向——需结合超分辨率、多尺度特征融合或注意力增强等技术来突破该瓶颈，对遥感图像分割与目标识别工程落地具有直接指导意义。&lt;/p&gt;
+&lt;hr&gt;
+</description>
+        </item>
+        <item>
         <title>学术雷达日报 2026-08-18</title>
         <link>https://blogbook.eu.org/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-08-18/</link>
         <pubDate>Tue, 18 Aug 2026 22:00:02 +0800</pubDate>
