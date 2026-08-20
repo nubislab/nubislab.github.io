@@ -7,6 +7,93 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>云雾中的山-NubisLab</copyright><atom:link href="https://blogbook.eu.org/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>学术雷达日报 2026-08-20</title>
+        <link>https://blogbook.eu.org/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-08-20/</link>
+        <pubDate>Thu, 20 Aug 2026 22:03:54 +0800</pubDate>
+        
+        <guid>https://blogbook.eu.org/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-08-20/</guid>
+        <description>&lt;h2 id=&#34;今日论文速览&#34;&gt;今日论文速览
+&lt;/h2&gt;&lt;p&gt;抓取时间（北京时间）：2026-08-20 22:03:54&lt;/p&gt;
+&lt;h3 id=&#34;1-when-simplicity-wins-bottleneck-aware-context-modeling-for-lightweight-semantic-segmentation&#34;&gt;1. When Simplicity Wins: Bottleneck-Aware Context Modeling for Lightweight Semantic Segmentation
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;ArXiv: &lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/2608.18979v1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://arxiv.org/abs/2608.18979v1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;发布时间: 2026-08-19 22:47:07 (北京时间)&lt;/li&gt;
+&lt;li&gt;作者: Mian Muhammad Naeem Abid, Nancy Mehta, Zongwei Wu, Radu Timofte&lt;/li&gt;
+&lt;li&gt;标签: 检测&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;AI 深度解析&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;TL;DR：提出SiConMo轻量级语义分割框架，核心观点是在极低计算预算下，瓶颈阶段是融合局部与全局上下文最有效的环节，通过三个互补模块实现精度-效率最优平衡。&lt;/p&gt;
+&lt;p&gt;核心贡献：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;提出瓶颈感知上下文建模设计原则：首次系统论证在极低计算预算下，瓶颈阶段是融合局部与全局上下文的最优位置，而非传统上更受关注的编码器阶段。&lt;/li&gt;
+&lt;li&gt;设计Token Pyramid Extraction Module（令牌金字塔提取模块）：通过分层多尺度表示提取，在不显著增加计算量的前提下捕获丰富的语义层次信息。&lt;/li&gt;
+&lt;li&gt;提出Transformer-Branched Depthwise Convolution block（Transformer分支深度卷积块）：在瓶颈处并行集成Transformer全局建模与深度卷积局部建模，实现高效的上下文聚合。&lt;/li&gt;
+&lt;li&gt;引入Feature Merging Module（特征融合模块）：在保持空间结构细节的同时增强语义一致性，有效缓解上采样过程中的信息损失。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;方法类型：混合架构（CNN + Transformer）&lt;/p&gt;
+&lt;p&gt;适用场景：通用分割（涵盖ADE20K、PASCAL Context、Cityscapes、COCO-Stuff四个主流数据集，适用于高分辨率图像语义分割任务）&lt;/p&gt;
+&lt;p&gt;评估指标：mIoU（具体数值未在摘要中列出，但声称在四个数据集上达到轻量级模型中的SOTA精度-效率平衡）&lt;/p&gt;
+&lt;p&gt;代码可用性：未提及&lt;/p&gt;
+&lt;p&gt;领域启发：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;研究视角创新：该工作挑战了“编码器优先”的主流研究范式，将注意力转向瓶颈阶段，为轻量级分割模型设计提供了新思路——在资源受限场景下，架构设计的重心应放在信息聚合的关键路径上，而非一味加深或加宽编码器。&lt;/li&gt;
+&lt;li&gt;工程落地价值：SiConMo的轻量高效特性使其非常适合边缘设备、移动端和实时应用场景（如自动驾驶、无人机巡检），其“简单性即力量”的设计哲学为工业界部署提供了实用参考。&lt;/li&gt;
+&lt;li&gt;对目标识别的启示：瓶颈感知的上下文建模思想可迁移至目标检测中的FPN（特征金字塔网络）或颈部网络设计，在保持实时性的同时提升多尺度目标的检测精度，尤其在计算资源受限的嵌入式平台上具有广阔应用前景。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;2-spk-eliciting-structured-prior-knowledge-for-interpretable-out-of-distribution-detection-in-real-time-object-detection&#34;&gt;2. SPK: Eliciting Structured Prior Knowledge for Interpretable Out-of-Distribution Detection in Real-Time Object Detection
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;ArXiv: &lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/2608.19080v1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://arxiv.org/abs/2608.19080v1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;发布时间: 2026-08-20 00:30:06 (北京时间)&lt;/li&gt;
+&lt;li&gt;作者: Changshun Wu, Weicheng He, Xiaowei Huang, Saddek Bensalem&lt;/li&gt;
+&lt;li&gt;标签: 检测&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;AI 深度解析&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;TL;DR：提出SPK框架，通过显式解码预训练目标检测器中隐式编码的结构化先验知识（语义、几何、上下文），构建紧凑五维表示用于可解释的分布外检测，在多种检测器架构和OoD基准上达到SOTA。&lt;/p&gt;
+&lt;p&gt;核心贡献：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;首次提出从预训练目标检测器中显式“引出”（elicit）而非仅利用隐式表示的OoD相关先验知识，通过分布内数据和幻觉诱导样本作为诊断监督，解码检测器决策背后的部分级语义概念。&lt;/li&gt;
+&lt;li&gt;将语义先验与几何先验（如边界框空间关系）和上下文先验（如场景共现）整合为紧凑的五维SPK表示，实现轻量级、可解释的OoD检测，无需修改检测器或依赖额外训练数据。&lt;/li&gt;
+&lt;li&gt;揭示预训练检测器编码的潜在知识远超OoD检测通常利用的范围，且可被显式组织为结构化知识空间，为预测可靠性分析提供主动式改进路径。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;方法类型：其他（基于预训练目标检测器的先验知识引出框架，不依赖特定骨干网络）&lt;/p&gt;
+&lt;p&gt;适用场景：其他（通用目标检测中的分布外检测，适用于自动驾驶、安防等安全关键场景）&lt;/p&gt;
+&lt;p&gt;评估指标：其他（OoD检测常用指标，如AUROC、FPR95等，具体数值未在摘要中给出）&lt;/p&gt;
+&lt;p&gt;代码可用性：是（https://gricad-gitlab.univ-grenoble-alpes.fr/dnn-safety/spk）&lt;/p&gt;
+&lt;p&gt;领域启发：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;对图像分割的启示：SPK证明检测器内部隐式编码了丰富的语义先验，类似地，分割模型（如SAM）的中间特征或注意力图也可能包含可解码的OoD相关先验。研究者可借鉴“诊断监督”思路，利用分布内掩码和异常掩码作为监督信号，显式引出分割模型决策背后的部分级概念，用于异常分割或开放世界分割的可靠性分析。&lt;/li&gt;
+&lt;li&gt;对目标识别的价值：SPK的“结构化先验整合”思想（语义+几何+上下文）可迁移至目标识别任务，例如在检测头中嵌入轻量级先验引出模块，在不改变主网络结构的前提下提升对未知类别的拒识能力，工程上易于部署。&lt;/li&gt;
+&lt;li&gt;工程落地角度：SPK的五维紧凑表示计算开销低，适合实时系统；其可解释性（部分级语义概念）有助于安全关键场景中的决策审计，为模型可靠性验证提供新工具。未来可探索将SPK与分割模型结合，实现像素级OoD定位与解释。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;3-detecting-backdoors-in-object-detection-via-pre-nms-prediction-distribution-shift&#34;&gt;3. Detecting Backdoors in Object Detection via Pre-NMS Prediction Distribution Shift
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;ArXiv: &lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/2608.19088v1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://arxiv.org/abs/2608.19088v1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;发布时间: 2026-08-20 00:38:39 (北京时间)&lt;/li&gt;
+&lt;li&gt;作者: Longtian Wang, Zhengyu Zhao, Chenhao Lin, Le Yang, Shiwei Wang, Yuhan Zhi, Xiaofei Xie, Chao Shen&lt;/li&gt;
+&lt;li&gt;标签: 检测&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;AI 深度解析&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;TL;DR：DistScan 提出利用后门注入导致模型 pre-NMS 预测类别分布偏移的特性，无需权重访问或触发器知识即可高效检测目标检测器中的后门攻击。&lt;/p&gt;
+&lt;p&gt;核心贡献：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;首次揭示后门注入会系统性改变模型在干净输入上的 pre-NMS 预测类别分布，使其偏离训练类别频率，这一观察简单且此前未被利用。&lt;/li&gt;
+&lt;li&gt;提出 DistScan 检测框架，仅需在干净验证集上聚合中间类别预测并与训练类别频率比较，无需模型权重访问、触发器知识或额外训练，计算开销极低。&lt;/li&gt;
+&lt;li&gt;在 MS-COCO 和 PASCAL VOC 上针对两种架构和三种场景级攻击（单触发器影响全场景对象）进行验证，平均检测准确率比最优适用基线提升 27.32 个百分点，显著优于现有依赖触发器反演或架构特定假设的方法。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;方法类型：其他（基于预测分布统计检验的后门检测框架，不依赖特定网络结构）&lt;/p&gt;
+&lt;p&gt;适用场景：其他（目标检测模型的安全审计与后门防御，适用于自动驾驶、监控等安全关键部署场景）&lt;/p&gt;
+&lt;p&gt;评估指标：检测准确率（平均提升 27.32 个百分点，具体数值未在摘要中给出）&lt;/p&gt;
+&lt;p&gt;代码可用性：未提及&lt;/p&gt;
+&lt;p&gt;领域启发：DistScan 为图像分割与目标识别研究提供了重要的安全视角——模型中间层预测分布可作为健康状态的“指纹”。对分割任务而言，类似思路可迁移至解码器输出或注意力图的类别分布异常检测，用于识别后门或数据污染。工程上，该方法无需修改模型或训练流程，仅需在部署前对干净验证集做一次前向统计，成本极低，适合集成到现有 MLOps 流水线中作为自动化安全门禁。此外，其“分布偏移”思想也启发研究者关注模型在干净输入上的统计行为，而非仅依赖触发器反演，为后门防御开辟了更轻量、更通用的路径。&lt;/p&gt;
+&lt;hr&gt;
+</description>
+        </item>
+        <item>
         <title>学术雷达日报 2026-08-19</title>
         <link>https://blogbook.eu.org/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-08-19/</link>
         <pubDate>Wed, 19 Aug 2026 22:01:22 +0800</pubDate>
