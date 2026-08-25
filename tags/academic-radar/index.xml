@@ -7,7 +7,39 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>云雾中的山-NubisLab</copyright>
-        <lastBuildDate>Fri, 21 Aug 2026 14:01:51 +0000</lastBuildDate><atom:link href="https://blogbook.eu.org/tags/academic-radar/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Tue, 25 Aug 2026 14:10:31 +0000</lastBuildDate><atom:link href="https://blogbook.eu.org/tags/academic-radar/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>学术雷达日报 2026-08-25</title>
+        <link>https://blogbook.eu.org/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-08-25/</link>
+        <pubDate>Tue, 25 Aug 2026 22:08:35 +0800</pubDate>
+        
+        <guid>https://blogbook.eu.org/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-08-25/</guid>
+        <description>&lt;h2 id=&#34;今日论文速览&#34;&gt;今日论文速览
+&lt;/h2&gt;&lt;p&gt;抓取时间（北京时间）：2026-08-25 22:08:35&lt;/p&gt;
+&lt;h3 id=&#34;1-spotter-efficient-urban-visual-localization-via-geo-referenced-facade-landmarks-in-gps-degraded-environments&#34;&gt;1. Spotter: Efficient Urban Visual Localization via Geo-Referenced Facade Landmarks in GPS-Degraded Environments
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;ArXiv: &lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/2608.23290v1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://arxiv.org/abs/2608.23290v1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;发布时间: 2026-08-24 22:15:25 (北京时间)&lt;/li&gt;
+&lt;li&gt;作者: Antoni Valls, Jordi Sanchez-Riera&lt;/li&gt;
+&lt;li&gt;标签: 检测&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;AI 深度解析&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;TL;DR：Spotter提出一种利用建筑立面作为地理参考的实时视觉定位框架，在GPS退化城市环境中实现高精度、高帧率的全局定位。&lt;/p&gt;
+&lt;p&gt;核心贡献：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;提出一种离线构建紧凑度量数据库的方法，通过语义分割Google Street View全景图，将多视角立体深度与制图数据配对，提取建筑立面作为全局地理参考。&lt;/li&gt;
+&lt;li&gt;设计级联检索与几何验证的在线匹配流程，实现查询图像到数据库的快速匹配，恢复细粒度全局相机位姿，并支持GPS信号可用时的融合。&lt;/li&gt;
+&lt;li&gt;构建了一个基于可穿戴智能眼镜的城市行人序列新数据集（巴塞罗那多个区域），并验证Spotter在精度上优于里程计基线，与最先进地图方法相当，同时帧率显著更高。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;方法类型：其他（基于语义分割+几何匹配的混合定位框架，非纯深度学习方法）&lt;/p&gt;
+&lt;p&gt;适用场景：其他（城市视觉定位、机器人/可穿戴平台导航）&lt;/p&gt;
+&lt;p&gt;评估指标：其他（定位精度（如平移/旋转误差）、帧率（FPS），具体数值未在摘要中给出）&lt;/p&gt;
+&lt;p&gt;代码可用性：未提及&lt;/p&gt;
+&lt;p&gt;领域启发：该论文对图像分割与目标识别研究的价值在于：1）展示了语义分割（建筑立面）作为中间表征在跨模态（图像-地图）匹配中的实用性，启发分割模型应关注几何可重复性而非仅语义精度；2）级联检索+几何验证的流水线为分割结果在实时定位中的高效利用提供了范式，提示分割特征需与几何约束（如深度、多视角一致性）结合以提升鲁棒性；3）其离线建库+在线轻量匹配的设计，对边缘设备上的分割与识别任务具有工程参考意义，即通过预计算紧凑表示降低运行时计算负担。&lt;/p&gt;
+&lt;hr&gt;
+</description>
+        </item>
+        <item>
         <title>学术雷达日报 2026-08-21</title>
         <link>https://blogbook.eu.org/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-08-21/</link>
         <pubDate>Fri, 21 Aug 2026 22:01:30 +0800</pubDate>
