@@ -7,12 +7,12 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>云雾中的山-NubisLab</copyright>
-        <lastBuildDate>Wed, 26 Aug 2026 23:41:07 +0800</lastBuildDate><atom:link href="https://blogbook.eu.org/categories/%E6%95%B0%E5%AD%A6/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Wed, 26 Aug 2026 23:52:19 +0800</lastBuildDate><atom:link href="https://blogbook.eu.org/categories/%E6%95%B0%E5%AD%A6/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>含参数一元二次不等式——8分钟课堂讲稿</title>
-        <link>https://blogbook.eu.org/p/%E5%90%AB%E5%8F%82%E6%95%B0%E4%B8%80%E5%85%83%E4%BA%8C%E6%AC%A1%E4%B8%8D%E7%AD%89%E5%BC%8F8%E5%88%86%E9%92%9F%E8%AF%BE%E5%A0%82%E8%AE%B2%E7%A8%BF/</link>
+        <link>https://blogbook.eu.org/p/quadratic-inequality-with-parameter/</link>
         <pubDate>Wed, 26 Aug 2026 23:00:00 +0800</pubDate>
         
-        <guid>https://blogbook.eu.org/p/%E5%90%AB%E5%8F%82%E6%95%B0%E4%B8%80%E5%85%83%E4%BA%8C%E6%AC%A1%E4%B8%8D%E7%AD%89%E5%BC%8F8%E5%88%86%E9%92%9F%E8%AF%BE%E5%A0%82%E8%AE%B2%E7%A8%BF/</guid>
+        <guid>https://blogbook.eu.org/p/quadratic-inequality-with-parameter/</guid>
         <description>&lt;p&gt;同学们好，今天我们来看一道&lt;strong&gt;含参数的一元二次不等式&lt;/strong&gt;。&lt;/p&gt;
 &lt;p&gt;题目是：已知 $a&amp;gt;0$，求关于 $x$ 的不等式&lt;/p&gt;
 $$
