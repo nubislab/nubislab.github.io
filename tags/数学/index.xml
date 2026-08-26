@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>数学 on 云雾中的山-Nubislab</title>
+        <link>https://blogbook.eu.org/tags/%E6%95%B0%E5%AD%A6/</link>
+        <description>Recent content in 数学 on 云雾中的山-Nubislab</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <copyright>云雾中的山-NubisLab</copyright>
+        <lastBuildDate>Wed, 26 Aug 2026 23:41:07 +0800</lastBuildDate><atom:link href="https://blogbook.eu.org/tags/%E6%95%B0%E5%AD%A6/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>含参数一元二次不等式——8分钟课堂讲稿</title>
+        <link>https://blogbook.eu.org/p/%E5%90%AB%E5%8F%82%E6%95%B0%E4%B8%80%E5%85%83%E4%BA%8C%E6%AC%A1%E4%B8%8D%E7%AD%89%E5%BC%8F8%E5%88%86%E9%92%9F%E8%AF%BE%E5%A0%82%E8%AE%B2%E7%A8%BF/</link>
+        <pubDate>Wed, 26 Aug 2026 23:00:00 +0800</pubDate>
+        
+        <guid>https://blogbook.eu.org/p/%E5%90%AB%E5%8F%82%E6%95%B0%E4%B8%80%E5%85%83%E4%BA%8C%E6%AC%A1%E4%B8%8D%E7%AD%89%E5%BC%8F8%E5%88%86%E9%92%9F%E8%AF%BE%E5%A0%82%E8%AE%B2%E7%A8%BF/</guid>
+        <description>&lt;p&gt;同学们好，今天我们来看一道&lt;strong&gt;含参数的一元二次不等式&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;题目是：已知 $a&amp;gt;0$，求关于 $x$ 的不等式&lt;/p&gt;
+$$
+x^2-\left(a+\frac{1}{a}\right)x+1\leq 0
+$$&lt;p&gt;的解集。&lt;/p&gt;
+&lt;p&gt;这道题表面上看是一个一元二次不等式，但它和普通的一元二次不等式相比，多了一个参数 $a$。&lt;/p&gt;
+&lt;p&gt;所以今天我们重点要解决的问题不是&amp;quot;会不会解不等式&amp;quot;，而是：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;当不等式中含有参数时，我们应该怎样处理参数对解集的影响？&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;首先观察这个二次式：&lt;/p&gt;
+$$
+x^2-\left(a+\frac{1}{a}\right)x+1
+$$&lt;p&gt;我们发现，中间项是 $a+\frac{1}{a}$，常数项又恰好是 $1$。&lt;/p&gt;
+&lt;p&gt;因为&lt;/p&gt;
+$$
+a\cdot\frac{1}{a}=1,
+$$&lt;p&gt;所以这个式子可以直接因式分解为&lt;/p&gt;
+$$
+(x-a)\left(x-\frac{1}{a}\right).
+$$&lt;p&gt;因此，原不等式等价于&lt;/p&gt;
+$$
+(x-a)\left(x-\frac{1}{a}\right)\leq 0.
+$$&lt;p&gt;到这里，其实我们已经把一个二次不等式转化成了两个一次因式乘积的不等式。&lt;/p&gt;
+&lt;p&gt;大家回忆一下，对于&lt;/p&gt;
+$$
+(x-x_1)(x-x_2)\leq 0,
+$$&lt;p&gt;如果二次项系数为正，那么它的解集应该是什么？&lt;/p&gt;
+&lt;p&gt;对，是&lt;strong&gt;两个根之间的部分，并且要包含两个根&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;也就是说，我们现在只需要找到两个根中谁大、谁小。&lt;/p&gt;
+&lt;p&gt;这里两个根分别是&lt;/p&gt;
+$$
+a
+$$&lt;p&gt;和&lt;/p&gt;
+$$
+\frac{1}{a}.
+$$&lt;p&gt;于是，这道题真正的关键就变成了一个问题：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;$a$ 和 $\frac{1}{a}$，到底谁大？&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;先来看第一种情况。&lt;/p&gt;
+&lt;p&gt;如果&lt;/p&gt;
+$$
+\frac{1}{a}&gt;a,
+$$&lt;p&gt;由于 $a&amp;gt;0$，两边同时乘以 $a$，不等号方向不变，得到&lt;/p&gt;
+$$
+1&gt;a^2.
+$$&lt;p&gt;又因为 $a&amp;gt;0$，所以&lt;/p&gt;
+$$
+0&lt;a&lt;1.
+$$&lt;p&gt;此时两个根的大小关系为&lt;/p&gt;
+$$
+a&lt;\frac{1}{a}.
+$$&lt;p&gt;二次项系数是正数，因此&amp;quot;小于等于零&amp;quot;取两个根之间，所以解集为&lt;/p&gt;
+$$
+a\leq x\leq\frac{1}{a}.
+$$&lt;p&gt;也可以写成区间形式：&lt;/p&gt;
+$$
+\boxed{\left[a,\frac{1}{a}\right]}.
+$$&lt;hr&gt;
+&lt;p&gt;接下来考虑第二种情况。&lt;/p&gt;
+&lt;p&gt;如果&lt;/p&gt;
+$$
+\frac{1}{a}&lt;a,
+$$&lt;p&gt;同样因为 $a&amp;gt;0$，两边同时乘以 $a$，得到&lt;/p&gt;
+$$
+1&lt;a^2.
+$$&lt;p&gt;所以&lt;/p&gt;
+$$
+a&gt;1.
+$$&lt;p&gt;这时两个根的大小关系发生了变化：&lt;/p&gt;
+$$
+\frac{1}{a}&lt;a.
+$$&lt;p&gt;因此解集仍然是两个根之间，只不过左端点变成了 $\frac{1}{a}$，右端点变成了 $a$。&lt;/p&gt;
+&lt;p&gt;所以解集为&lt;/p&gt;
+$$
+\frac{1}{a}\leq x\leq a,
+$$&lt;p&gt;即&lt;/p&gt;
+$$
+\boxed{\left[\frac{1}{a},a\right]}.
+$$&lt;hr&gt;
+&lt;p&gt;还有一种情况不能遗漏。&lt;/p&gt;
+&lt;p&gt;如果&lt;/p&gt;
+$$
+\frac{1}{a}=a,
+$$&lt;p&gt;那么&lt;/p&gt;
+$$
+a^2=1.
+$$&lt;p&gt;由于题目给出 $a&amp;gt;0$，所以这里只能得到&lt;/p&gt;
+$$
+a=1.
+$$&lt;p&gt;把 $a=1$ 代入原不等式，得到&lt;/p&gt;
+$$
+x^2-2x+1\leq0,
+$$&lt;p&gt;也就是&lt;/p&gt;
+$$
+(x-1)^2\leq0.
+$$&lt;p&gt;大家想一想，一个数的平方一定大于等于零，那么它什么时候会小于等于零呢？&lt;/p&gt;
+&lt;p&gt;只能等于零。&lt;/p&gt;
+&lt;p&gt;所以&lt;/p&gt;
+$$
+x=1.
+$$&lt;p&gt;因此，当 $a=1$ 时，解集为&lt;/p&gt;
+$$
+\boxed{\{1\}}.
+$$&lt;hr&gt;
+&lt;p&gt;现在我们把三种情况整理一下。&lt;/p&gt;
+&lt;p&gt;当&lt;/p&gt;
+$$
+0&lt;a&lt;1
+$$&lt;p&gt;时，&lt;/p&gt;
+$$
+\boxed{a\leq x\leq\frac{1}{a}};
+$$&lt;p&gt;当&lt;/p&gt;
+$$
+a=1
+$$&lt;p&gt;时，&lt;/p&gt;
+$$
+\boxed{x=1};
+$$&lt;p&gt;当&lt;/p&gt;
+$$
+a&gt;1
+$$&lt;p&gt;时，&lt;/p&gt;
+$$
+\boxed{\frac{1}{a}\leq x\leq a}.
+$$&lt;hr&gt;
+&lt;p&gt;最后，我们总结一下这道题的解题思路。&lt;/p&gt;
+&lt;p&gt;这类&lt;strong&gt;含参数的一元二次不等式&lt;/strong&gt;，通常可以分成三步。&lt;/p&gt;
+&lt;p&gt;第一步，&lt;strong&gt;因式分解或者求根&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;本题中，我们得到两个根：&lt;/p&gt;
+$$
+a,\quad \frac{1}{a}.
+$$&lt;p&gt;第二步，&lt;strong&gt;比较两个根的大小&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;因为根中含有参数，所以根的先后顺序不是固定的，这也是为什么必须分类讨论。&lt;/p&gt;
+&lt;p&gt;本题根据&lt;/p&gt;
+$$
+a\quad\text{和}\quad\frac{1}{a}
+$$&lt;p&gt;的大小关系，分成&lt;/p&gt;
+$$
+0&lt;a&lt;1,\qquad a=1,\qquad a&gt;1
+$$&lt;p&gt;三种情况。&lt;/p&gt;
+&lt;p&gt;第三步，根据二次项系数和不等号方向写出解集。&lt;/p&gt;
+&lt;p&gt;本题二次项系数为正，而且是不等式&lt;/p&gt;
+$$
+\leq0,
+$$&lt;p&gt;所以我们始终取的是&lt;strong&gt;两个根之间&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;这里也提醒大家一个很容易出现的错误。&lt;/p&gt;
+&lt;p&gt;看到&lt;/p&gt;
+$$
+(x-a)\left(x-\frac{1}{a}\right)\leq0
+$$&lt;p&gt;以后，有些同学会直接写&lt;/p&gt;
+$$
+a\leq x\leq\frac{1}{a}.
+$$&lt;p&gt;这样是不完整的。&lt;/p&gt;
+&lt;p&gt;因为只有在&lt;/p&gt;
+$$
+a\leq\frac{1}{a}
+$$&lt;p&gt;时才能这样写。&lt;/p&gt;
+&lt;p&gt;如果 $a&amp;gt;1$，那么两个端点的位置正好相反。&lt;/p&gt;
+&lt;p&gt;所以，&lt;strong&gt;含参数不等式的核心不是单纯&amp;quot;求根&amp;quot;，而是要判断参数是否会改变根的大小关系。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;我们今天这道题可以浓缩成一句话：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;先求根，再比根；参数变化，分类讨论。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;这就是本题最重要的思想。&lt;/p&gt;
+&lt;p&gt;好，这道题我们就讲到这里。&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>
