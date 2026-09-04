@@ -7,7 +7,39 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>云雾中的山-NubisLab</copyright>
-        <lastBuildDate>Thu, 03 Sep 2026 17:04:36 +0000</lastBuildDate><atom:link href="https://blogbook.eu.org/tags/computer-vision/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Fri, 04 Sep 2026 16:53:40 +0000</lastBuildDate><atom:link href="https://blogbook.eu.org/tags/computer-vision/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>学术雷达日报 2026-09-05</title>
+        <link>https://blogbook.eu.org/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-09-05/</link>
+        <pubDate>Sat, 05 Sep 2026 00:53:20 +0800</pubDate>
+        
+        <guid>https://blogbook.eu.org/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-09-05/</guid>
+        <description>&lt;h2 id=&#34;今日论文速览&#34;&gt;今日论文速览
+&lt;/h2&gt;&lt;p&gt;抓取时间（北京时间）：2026-09-05 00:53:20&lt;/p&gt;
+&lt;h3 id=&#34;1-efficient-semantic-understanding-from-digital-foveation&#34;&gt;1. Efficient Semantic Understanding from Digital Foveation
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;ArXiv: &lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/2609.04088v1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://arxiv.org/abs/2609.04088v1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;发布时间: 2026-09-04 00:56:12 (北京时间)&lt;/li&gt;
+&lt;li&gt;作者: Caterina Caccavella, Vittorio Fra, Andreas Ziegler, Giulia D&amp;rsquo;Angelo, Yulia Sandamirskaya&lt;/li&gt;
+&lt;li&gt;标签: 分割&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;AI 深度解析&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;TL;DR：本文提出一种基于数字中央凹感知的轻量级主动视觉语义理解管线，通过显著性驱动的注视点选择与稀疏观测，在仅需4.7%计算成本下达到接近全图密集处理的语义理解性能，挑战了均匀密集处理的必要性。&lt;/p&gt;
+&lt;p&gt;核心贡献：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;提出数字中央凹感知管线，结合显著性驱动的注视点选择、高分辨率中央凹观测与低分辨率上下文信息，实现计算资源的非均匀按需分配。&lt;/li&gt;
+&lt;li&gt;引入语义累积与自适应计算机制，支持多步注视点整合，在场景级任务中以58.6%的计算量恢复90.6%的基线目标召回率。&lt;/li&gt;
+&lt;li&gt;提出超越像素级分割指标的对象级评估协议，更贴合稀疏观测下语义理解的实际需求，为主动视觉研究提供新评测范式。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;方法类型：混合架构（主动视觉 + 显著性驱动 + 多尺度观测，非传统单一模型架构）&lt;/p&gt;
+&lt;p&gt;适用场景：通用分割（尤其适用于资源受限或实时场景下的场景理解与目标识别）&lt;/p&gt;
+&lt;p&gt;评估指标：Top-1/Top-3 准确率、对象召回率（非传统mIoU/Dice；单次注视达基线Top-1的95.9%、Top-3的96.9%，计算成本仅4.7%）&lt;/p&gt;
+&lt;p&gt;代码可用性：未提及&lt;/p&gt;
+&lt;p&gt;领域启发：该论文为图像分割与目标识别提供了重要启示——密集像素级标注并非语义理解的唯一路径。其主动视觉范式可启发轻量级边缘设备上的高效感知方案，通过“看哪里”而非“看全图”来降低计算开销。对象级评估协议也提示研究者重新审视传统mIoU指标的局限性，尤其在稀疏感知或主动感知场景下，应更关注目标级语义的获取质量。该思路对自动驾驶、机器人导航等实时性敏感的应用具有直接工程价值。&lt;/p&gt;
+&lt;hr&gt;
+</description>
+        </item>
+        <item>
         <title>学术雷达日报 2026-09-04</title>
         <link>https://blogbook.eu.org/p/%E5%AD%A6%E6%9C%AF%E9%9B%B7%E8%BE%BE%E6%97%A5%E6%8A%A5-2026-09-04/</link>
         <pubDate>Fri, 04 Sep 2026 01:04:12 +0800</pubDate>
